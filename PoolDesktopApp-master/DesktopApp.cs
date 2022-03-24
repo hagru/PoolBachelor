@@ -151,7 +151,7 @@ namespace PoolDesktopApp
             if (balls.Contains("yellow-whole"))
             {
                 ball1.IsOnTable = true;
-                ball1.ImageString = ("Resources/yellowWhole.png");
+                ball1.ImageString = ("../../images/yellowWhole.png");
             }
             if (balls.Contains("yellow-whole") == false)
             {
@@ -160,7 +160,7 @@ namespace PoolDesktopApp
             if (balls.Contains("blue-whole"))
             {
                 ball2.IsOnTable = true;
-                ball2.ImageString = ("images/blueWhole.png");
+                ball2.ImageString = ("../../images/blueWhole.png");
             }
             if (balls.Contains("blue-whole") == false)
             {
@@ -169,7 +169,7 @@ namespace PoolDesktopApp
             if (balls.Contains("red-whole"))
             {
                 ball3.IsOnTable = true;
-                ball3.ImageString = ("images/redWhole.png");
+                ball3.ImageString = ("../../images/redWhole.png");
             }
             if (balls.Contains("red-whole") == false)
             {
@@ -178,7 +178,7 @@ namespace PoolDesktopApp
             if (balls.Contains("purple-whole"))
             {
                 ball4.IsOnTable = true;
-                ball4.ImageString = ("images/purpleWhole.png");
+                ball4.ImageString = ("../../images/purpleWhole.png");
             }
             if (balls.Contains("purple-whole") == false)
             {
@@ -187,7 +187,7 @@ namespace PoolDesktopApp
             if (balls.Contains("orange-whole"))
             {
                 ball5.IsOnTable = true;
-                ball5.ImageString = ("images/orangeWhole.png");
+                ball5.ImageString = ("../../images/orangeWhole.png");
             }
             if (balls.Contains("orange-whole") == false)
             {
@@ -196,7 +196,7 @@ namespace PoolDesktopApp
             if (balls.Contains("green-whole"))
             {
                 ball6.IsOnTable = true;
-                ball6.ImageString = ("images/greenWhole.png");
+                ball6.ImageString = ("../../images/greenWhole.png");
             }
             if (balls.Contains("green-whole") == false)
             {
@@ -205,7 +205,7 @@ namespace PoolDesktopApp
             if (balls.Contains("brown-whole"))
             {
                 ball7.IsOnTable = true;
-                ball7.ImageString = ("images/brownWhole.png");
+                ball7.ImageString = ("../../images/brownWhole.png");
             }
             if (balls.Contains("brown-whole") == false)
             {
@@ -222,7 +222,7 @@ namespace PoolDesktopApp
             if (balls.Contains("yellow-half"))
             {
                 ball9.IsOnTable = true;
-                ball9.ImageString = ("images/yellowHalf.png");
+                ball9.ImageString = ("../../images/yellowHalf.png");
             }
             if (balls.Contains("yellow-half") == false)
             {
@@ -231,7 +231,7 @@ namespace PoolDesktopApp
             if (balls.Contains("blue-half"))
             {
                 ball10.IsOnTable = true;
-                ball10.ImageString = ("images/blueHalf.png");
+                ball10.ImageString = ("../../images/blueHalf.png");
             }
             if (balls.Contains("blue-half") == false)
             {
@@ -240,7 +240,7 @@ namespace PoolDesktopApp
             if (balls.Contains("red-half"))
             {
                 ball11.IsOnTable = true;
-                ball11.ImageString = ("images/redHalf.png");
+                ball11.ImageString = ("../../images/redHalf.png");
             }
             if (balls.Contains("red-half") == false)
             {
@@ -249,7 +249,7 @@ namespace PoolDesktopApp
             if (balls.Contains("purple-half"))
             {
                 ball12.IsOnTable = true;
-                ball12.ImageString = ("images/purpleHalf.png");
+                ball12.ImageString = ("../../images/purpleHalf.png");
             }
             if (balls.Contains("purple-half") == false)
             {
@@ -258,7 +258,7 @@ namespace PoolDesktopApp
             if (balls.Contains("orange-half"))
             {
                 ball13.IsOnTable = true;
-                ball13.ImageString = ("images/orangeHalf.png");
+                ball13.ImageString = ("../../images/orangeHalf.png");
             }
             if (balls.Contains("orange-half") == false)
             {
@@ -267,7 +267,7 @@ namespace PoolDesktopApp
             if (balls.Contains("green-half"))
             {
                 ball14.IsOnTable = true;
-                ball14.ImageString = ("images/greenHalf.png");
+                ball14.ImageString = ("../../images/greenHalf.png");
             }
             if (balls.Contains("green-half") == false)
             {
@@ -276,7 +276,7 @@ namespace PoolDesktopApp
             if (balls.Contains("brown-half"))
             {
                 ball15.IsOnTable = true;
-                ball15.ImageString = ("images/brownHalf.png");
+                ball15.ImageString = ("../../images/brownHalf.png");
             }
             if (balls.Contains("brown-half") == false)
             {
@@ -367,13 +367,13 @@ namespace PoolDesktopApp
 
             if (player1.PlayerTurn == true)
             {
-                pBoxCueP1.Load("images/control.png");
-                pBoxCueP2.Load("images/control.png");
+                pBoxCueP1.Load("../../images/CueF.png");
+                pBoxCueP2.Load("../../images/control.png");
             }
             else if (player2.PlayerTurn == true)
             {
-                pBoxCueP1.Load("Resources/control.png");
-                pBoxCueP2.Load("Resources/CueF.png");
+                pBoxCueP1.Load("../../images/control.png");
+                pBoxCueP2.Load("../../images/Cue.png");
             }
         }
 
@@ -384,21 +384,21 @@ namespace PoolDesktopApp
             // Legger verdier til objektene av ballene
             #region Add balls as objects
             ball0 = new Ball("white", false, "", "White", 0, 0);
-            ball1 = new Ball("yellowSolid", false, "images/yellowWhole.png", "Solid", 0, 0);
-            ball2 = new Ball("blueSolid", false, "images/blueWhole.png", "Solid", 0, 0);
-            ball3 = new Ball("redSolid", false, "images/redWhole.png", "Solid", 0, 0);
-            ball4 = new Ball("purpleSolid", false, "images/purpleWhole.png", "Solid", 0, 0);
-            ball5 = new Ball("orangeSolid", false, "images/orangeWhole.png", "Solid", 0, 0);
-            ball6 = new Ball("greenSolid", false, "images/greenWhole.png", "Solid", 0, 0);
-            ball7 = new Ball("brownSolid", false, "images/brownWhole.png", "Solid", 0, 0);
-            ball8 = new Ball("black", false, "images/black.png", "Black", 0, 0);
-            ball9 = new Ball("yellowHalf", false, "images/yellowHalf.png", "Half", 0, 0);
-            ball10 = new Ball("blueHalf", false, "images/blueHalf.png", "Half", 0, 0);
-            ball11 = new Ball("redHalf", false, "images/redHalf.png", "Half", 0, 0);
-            ball12 = new Ball("purpleHalf", false, "images/purpleHalf.png", "Half", 0, 0);
-            ball13 = new Ball("orangeHalf", false, "images/orangeHalf.png", "Half", 0, 0);
-            ball14 = new Ball("greenHalf", false, "images/greenHalf.png", "Half", 0, 0);
-            ball15 = new Ball("brownHalf", false, "images/brownHalf.png", "Half", 0, 0);
+            ball1 = new Ball("yellowSolid", false, "../../images/yellowWhole.png", "Solid", 0, 0);
+            ball2 = new Ball("blueSolid", false, "../../images/blueWhole.png", "Solid", 0, 0);
+            ball3 = new Ball("redSolid", false, "../../images/redWhole.png", "Solid", 0, 0);
+            ball4 = new Ball("purpleSolid", false, "../../images/purpleWhole.png", "Solid", 0, 0);
+            ball5 = new Ball("orangeSolid", false, "../../images/orangeWhole.png", "Solid", 0, 0);
+            ball6 = new Ball("greenSolid", false, "../../images/greenWhole.png", "Solid", 0, 0);
+            ball7 = new Ball("brownSolid", false, "../../images/brownWhole.png", "Solid", 0, 0);
+            ball8 = new Ball("black", false, "../../images/black.png", "Black", 0, 0);
+            ball9 = new Ball("yellowHalf", false, "../../images/yellowHalf.png", "Half", 0, 0);
+            ball10 = new Ball("blueHalf", false, "../../images/blueHalf.png", "Half", 0, 0);
+            ball11 = new Ball("redHalf", false, "../../images/redHalf.png", "Half", 0, 0);
+            ball12 = new Ball("purpleHalf", false, "../../images/purpleHalf.png", "Half", 0, 0);
+            ball13 = new Ball("orangeHalf", false, "../../images/orangeHalf.png", "Half", 0, 0);
+            ball14 = new Ball("greenHalf", false, "../../images/greenHalf.png", "Half", 0, 0);
+            ball15 = new Ball("brownHalf", false, "../../images/brownHalf.png", "Half", 0, 0);
             #endregion
 
             // Switch case for å vite hvilken spiller som har halve eller hele kuler, og legge kulene i rett
@@ -475,7 +475,7 @@ namespace PoolDesktopApp
 
                         break;
                     case false:
-                        Ball.ImageString = ("images/transparent.png");
+                        Ball.ImageString = ("../../images/transparent.png");
 
                         BallType();
 
@@ -488,12 +488,12 @@ namespace PoolDesktopApp
                             {
                                 if (p1Solid == true && p2Half == true)
                                 {
-                                    p1Ball8.Load("images/black.png");
+                                    p1Ball8.Load("../../images/black.png");
                                 }
 
                                 else if (p2Solid == true && p1Half == true)
                                 {
-                                    p2Ball8.Load("images/black.png");
+                                    p2Ball8.Load("../../images/black.png");
                                 }
                             }
                         }
@@ -506,12 +506,12 @@ namespace PoolDesktopApp
                             {
                                 if (p1Solid == true && p2Half == true)
                                 {
-                                    p2Ball8.Load("images/black.png");
+                                    p2Ball8.Load("../../images/black.png");
                                 }
 
                                 else if (p2Solid == true && p1Half == true)
                                 {
-                                    p1Ball8.Load("images/black.png");
+                                    p1Ball8.Load("../../images/black.png");
                                 }
                             }
                         }
@@ -588,7 +588,7 @@ namespace PoolDesktopApp
                 btnProcess.Text = "";
                 pboLoading.Enabled = true;
                 pboLoading.Show();
-                pboLoading.Load("images/loading.gif");
+                pboLoading.Load("../../images/loading.gif");
             }
 
             else
@@ -610,7 +610,7 @@ namespace PoolDesktopApp
             //btnProcess.Text = "PROCESSING";
             //pboLoading.Enabled = true;
             //pboLoading.Show();
-            //pboLoading.Load("images/loading.gif");
+            //pboLoading.Load("../../images/loading.gif");
 
             //Snapshot();
             //CheckBalls();
@@ -675,14 +675,14 @@ namespace PoolDesktopApp
 
             if (players[0].PlayerTurn == true)
             {
-                pBoxCueP1.Load("images/CueF.png");
-                pBoxCueP2.Load("images/transparent.png");
+                pBoxCueP1.Load("../../images/CueF.png");
+                pBoxCueP2.Load("../../images/transparent.png");
             }
 
             else if (players[1].PlayerTurn == true)
             {
-                pBoxCueP1.Load("images/transparent.png");
-                pBoxCueP2.Load("images/Cue.png");
+                pBoxCueP1.Load("../../images/transparent.png");
+                pBoxCueP2.Load("../../images/Cue.png");
             }
 
         }
