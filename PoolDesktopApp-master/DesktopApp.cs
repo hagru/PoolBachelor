@@ -687,11 +687,6 @@ namespace PoolDesktopApp
 
         }
 
-        public void SendWhite()
-        {
-            players = game.PlayerTurn1(ballDetection);
-        }
-
         private void TurnLogic()
         {
             players = game.PlayerTurn1(ballDetection);
