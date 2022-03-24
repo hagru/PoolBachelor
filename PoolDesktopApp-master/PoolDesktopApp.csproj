@@ -259,6 +259,29 @@
   <ItemGroup>
     <None Include="Resources\Capture.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\black.ico" />
+    <Content Include="Resources\black.png" />
+    <Content Include="Resources\blueHalf.png" />
+    <Content Include="Resources\blueWhole.png" />
+    <Content Include="Resources\brownHalf.png" />
+    <Content Include="Resources\brownWhole.png" />
+    <Content Include="Resources\control.png" />
+    <Content Include="Resources\Cue.png" />
+    <Content Include="Resources\CueF.png" />
+    <Content Include="Resources\greenHalf.png" />
+    <Content Include="Resources\greenWhole.png" />
+    <Content Include="Resources\loading.gif" />
+    <Content Include="Resources\orangeHalf.png" />
+    <Content Include="Resources\orangeWhole.png" />
+    <Content Include="Resources\purpleHalf.png" />
+    <Content Include="Resources\purpleWhole.png" />
+    <Content Include="Resources\redHalf.png" />
+    <Content Include="Resources\redWhole.png" />
+    <Content Include="Resources\transparent.png" />
+    <Content Include="Resources\yellowHalf.png" />
+    <Content Include="Resources\yellowWhole.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

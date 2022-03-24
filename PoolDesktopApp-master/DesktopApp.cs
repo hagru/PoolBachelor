@@ -151,7 +151,7 @@ namespace PoolDesktopApp
             if (balls.Contains("yellow-whole"))
             {
                 ball1.IsOnTable = true;
-                ball1.ImageString = ("images/yellowWhole.png");
+                ball1.ImageString = ("Resources/yellowWhole.png");
             }
             if (balls.Contains("yellow-whole") == false)
             {
@@ -367,13 +367,13 @@ namespace PoolDesktopApp
 
             if (player1.PlayerTurn == true)
             {
-                pBoxCueP1.Load("images/CueF.png");
+                pBoxCueP1.Load("images/control.png");
                 pBoxCueP2.Load("images/control.png");
             }
             else if (player2.PlayerTurn == true)
             {
-                pBoxCueP1.Load("images/control.png");
-                pBoxCueP2.Load("images/CueF.png");
+                pBoxCueP1.Load("Resources/control.png");
+                pBoxCueP2.Load("Resources/CueF.png");
             }
         }
 
