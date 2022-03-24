@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoolDesktopApp", "PoolDesktopApp.csproj", "{32347522-78B8-46FA-9366-ABB019C37139}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "..\API\API.csproj", "{E63D74C5-BC58-4091-BB3D-618B286ADC4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Class", "..\API_Class\API_Class.csproj", "{4D3A0920-267B-4608-9259-742059CFBAA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32347522-78B8-46FA-9366-ABB019C37139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32347522-78B8-46FA-9366-ABB019C37139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32347522-78B8-46FA-9366-ABB019C37139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32347522-78B8-46FA-9366-ABB019C37139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63D74C5-BC58-4091-BB3D-618B286ADC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63D74C5-BC58-4091-BB3D-618B286ADC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63D74C5-BC58-4091-BB3D-618B286ADC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63D74C5-BC58-4091-BB3D-618B286ADC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3A0920-267B-4608-9259-742059CFBAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3A0920-267B-4608-9259-742059CFBAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3A0920-267B-4608-9259-742059CFBAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3A0920-267B-4608-9259-742059CFBAA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9834FE3-1FD6-47AD-AA91-DEAF45886DFB}
+	EndGlobalSection
+EndGlobal
