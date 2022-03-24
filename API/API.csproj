@@ -14,9 +14,6 @@
     <Reference Include="API_Class">
       <HintPath>..\API_Class\bin\Debug\API_Class.dll</HintPath>
     </Reference>
-    <Reference Include="API_Library">
-      <HintPath>..\API_Library\bin\Debug\net6.0\API_Library.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

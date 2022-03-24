@@ -88,7 +88,7 @@ namespace PoolDesktopApp
             {
                 Image s = newPic;
                 Image w = oldpic;
-                Bitmap img1 = new Bitmap((Bitmap)newPic,1800, 900);
+                Bitmap img1 = new Bitmap((Bitmap)newPic, 1800, 900);
                 Bitmap img2 = new Bitmap((Bitmap)w);
 
                 if (img1.Size != img2.Size)
@@ -129,7 +129,7 @@ namespace PoolDesktopApp
             ballDetection = new BallDetection();
             Init();
         }
-        
+
         public void ShowBalls()
         {
 
@@ -340,7 +340,7 @@ namespace PoolDesktopApp
             {
                 return;
             }
-            
+
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
         }
@@ -472,13 +472,13 @@ namespace PoolDesktopApp
                 {
                     case true:
                         BallType();
-                        
+
                         break;
                     case false:
                         Ball.ImageString = ("images/transparent.png");
 
                         BallType();
-                        
+
 
                         if (Ball.IsOnTable == false && Ball.BallType == "Solid")
                         {
@@ -576,7 +576,7 @@ namespace PoolDesktopApp
 
                 return;
             }
-            
+
         }
 
         public void bgWorker()
@@ -611,7 +611,7 @@ namespace PoolDesktopApp
             //pboLoading.Enabled = true;
             //pboLoading.Show();
             //pboLoading.Load("images/loading.gif");
-            
+
             //Snapshot();
             //CheckBalls();
 
@@ -633,7 +633,7 @@ namespace PoolDesktopApp
             //    TurnLogic();
             //}
             //LoadBalls();
-            
+
 
             //pboLoading.Hide();
             //btnProcess.Enabled = true;
@@ -793,8 +793,12 @@ namespace PoolDesktopApp
 
         public void Snapshot()
         {
-            
             newPic = (Bitmap)img.Clone();
+            Bitmap croppedPic = new Bitmap(newPic);
+
+            croppedPic = croppedPic.Clone(new Rectangle(100, 100, 1820, 980), System.Drawing.Imaging.PixelFormat.DontCare);
+
+            
             img1 = new Bitmap((Bitmap)newPic, 1800, 900);
         }
 
