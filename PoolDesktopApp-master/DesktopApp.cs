@@ -799,7 +799,7 @@ namespace PoolDesktopApp
             croppedPic = croppedPic.Clone(new Rectangle(100, 100, 1820, 980), System.Drawing.Imaging.PixelFormat.DontCare);
 
             
-            img1 = new Bitmap((Bitmap)newPic, 1800, 900);
+            img1 = new Bitmap(croppedPic);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
