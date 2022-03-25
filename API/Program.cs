@@ -25,11 +25,11 @@ app.MapGet("/checktable", () =>
     if (GameConfig.GameStart == true)
     {
         Console.WriteLine("Returning status" + GameConfig.GameStart);
-        return GameConfig.GameStart;
+        return Results.Ok(GameConfig.GameStart); //Returns 200 code + table status
     }
     else
        Console.WriteLine("Returning status" + GameConfig.GameStart);
-    return GameConfig.GameStart;
+    return Results.Ok(GameConfig.GameStart); //Returns 200 code + table status
 
 });
 
