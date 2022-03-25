@@ -24,15 +24,18 @@ app.MapGet("/checktable", () =>
 {
     if (GameConfig.GameStart == true)
     {
-        
+        Console.WriteLine("Returning status" + GameConfig.GameStart);
         return GameConfig.GameStart;
     }
     else
-        return GameConfig.GameStart;
+       Console.WriteLine("Returning status" + GameConfig.GameStart);
+    return GameConfig.GameStart;
+
 });
 
 app.MapPost("/gamestart", (GameCon g) =>
 {
+    Console.WriteLine("Trying to start a game");
     GameConfig.GameID = g.gameid;
     GameConfig.Username1 = g.username1;
     GameConfig.Username2 = g.username2;
@@ -40,6 +43,9 @@ app.MapPost("/gamestart", (GameCon g) =>
     GameConfig.PlayerID2 = g.Playerid2;
     GameConfig.Timestamp = g.timestamp;
     GameConfig.GameStart = false;
+    return Results.Ok();
+
+
 });
 
 app.Run();
