@@ -1,0 +1,25 @@
+        static HttpClient client = new HttpClient();
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            client.BaseAddress = new Uri("http://localhost:54202/");
+            RunAsync();
+        }
+        static async Task RunAsync()
+        {
+            
+            GameConfig product = new GameConfig
+            {
+                GameStart = true
+            };
+            GameConfig f = await GetProductAsync(product);
+        }
+        static async Task<GameConfig> GetGameConfigAsync(GameConfig path)
+        {
+            GameConfig f = new GameConfig();
+            HttpResponseMessage response = await client.PutAsJsonAsync(
+                $"update", path);
+            response.EnsureSuccessStatusCode();
+            return f;
+
+        }
