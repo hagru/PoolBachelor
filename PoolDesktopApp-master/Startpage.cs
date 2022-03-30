@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using API_Class;
 
 namespace PoolDesktopApp
 {
@@ -175,6 +176,19 @@ namespace PoolDesktopApp
                 simulationApp.Show();
                 this.Hide();
             }
+        }
+
+
+        private void btnConnect_Click_1(object sender, EventArgs e)
+        {
+            GameConfig.GameStart = true;
+
+            while (GameConfig.DataReceived() == true)
+            {
+                txtInfo.Text += GameConfig.Username1 + " " + GameConfig.Username2;
+            }
+           
+            
         }
     }
 }

@@ -38,6 +38,8 @@ namespace PoolDesktopApp
             this.cboSelectBall = new System.Windows.Forms.ComboBox();
             this.cboCamera = new System.Windows.Forms.ComboBox();
             this.btnStartSim = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnStartGame
@@ -117,11 +119,31 @@ namespace PoolDesktopApp
             this.btnStartSim.UseVisualStyleBackColor = true;
             this.btnStartSim.Click += new System.EventHandler(this.btnStartSim_Click);
             // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(109, 46);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(92, 31);
+            this.btnConnect.TabIndex = 49;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(387, 27);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.Size = new System.Drawing.Size(143, 84);
+            this.txtInfo.TabIndex = 50;
+            // 
             // Startpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtInfo);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnStartSim);
             this.Controls.Add(this.cboCamera);
             this.Controls.Add(this.cboSelectBall);
@@ -150,5 +172,7 @@ namespace PoolDesktopApp
         private System.Windows.Forms.ComboBox cboSelectBall;
         public System.Windows.Forms.ComboBox cboCamera;
         private System.Windows.Forms.Button btnStartSim;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.TextBox txtInfo;
     }
 }
