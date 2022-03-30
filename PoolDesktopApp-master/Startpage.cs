@@ -182,11 +182,12 @@ namespace PoolDesktopApp
         private void btnConnect_Click_1(object sender, EventArgs e)
         {
             GameConfig.GameStart = true;
+            int b = 4;
 
-            while (GameConfig.DataReceived() == true)
-            {
-                txtInfo.Text += GameConfig.Username1 + " " + GameConfig.Username2;
-            }
+            //while (GameConfig.DataReceived() == true)
+            //{
+            //    txtInfo.Text += GameConfig.Username1 + " " + GameConfig.Username2;
+            //}
            
             
         }

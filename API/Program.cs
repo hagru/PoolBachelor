@@ -22,6 +22,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/checktable", () =>
 {
+    
     if (GameConfig.GameStart == true)
     {
         Console.WriteLine("Returning status" + GameConfig.GameStart);
@@ -41,7 +42,7 @@ app.MapPost("/gamestart", (GameCon g) =>
     GameConfig.Username2 = g.username2;
     GameConfig.PlayerID1 = g.playerid1;
     GameConfig.PlayerID2 = g.Playerid2;
-    GameConfig.Timestamp = g.timestamp;
+    //GameConfig.Timestamp = g.timestamp;
     GameConfig.GameStart = false;
     return Results.Ok();
 
@@ -80,5 +81,5 @@ public class GameCon
     public string username2 { get; set; }
     public int playerid1 { get; set; }
     public int Playerid2 { get; set; }
-    public DateTime timestamp { get; set; }
+    //public DateTime timestamp { get; set; }
 }
