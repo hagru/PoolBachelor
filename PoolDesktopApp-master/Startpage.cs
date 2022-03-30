@@ -181,7 +181,7 @@ namespace PoolDesktopApp
 
         private void btnConnect_Click_1(object sender, EventArgs e)
         {
-            GameConfig.GameStart = true;
+            GameConfig.DataReceived();
             int b = 4;
 
             //while (GameConfig.DataReceived() == true)

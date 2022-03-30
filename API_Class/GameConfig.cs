@@ -8,7 +8,7 @@ namespace API_Class
 {
     public class GameConfig
     {
-        static public bool GameStart;
+        static public bool GameStart { get; set; } = true;
         static public bool GameStop { get; set; }
         static public int GameID { get; set; }
         static public string Username1 { get; set; }
@@ -19,18 +19,10 @@ namespace API_Class
         //static public bool DataReceived;
         //djjdjdjdj
 
-
-        public static bool DataReceived()
+        
+        public static void DataReceived()
         {
-            
-            if (GameID == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            GameStart = false;
            
         }
     }
