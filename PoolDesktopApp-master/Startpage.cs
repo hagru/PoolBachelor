@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using API_Class;
+using System.Net.Http;
 
 namespace PoolDesktopApp
 {
@@ -45,8 +46,8 @@ namespace PoolDesktopApp
             if (p1Name == "" && p2Name == "")
             {
                 nameOkay = true;
-                p1Name = "Sander";
-                p2Name = "Amanuel";
+                p1Name = GameInfo.Username1;
+                p2Name = GameInfo.Username2;
                 //nameOkay = false;
                 //MessageBox.Show("Mangler navn");
             }
@@ -135,6 +136,7 @@ namespace PoolDesktopApp
         // Click-event som starter spillet, og sender brukeren videre til hovedsiden
         private void btnStart_Click(object sender, EventArgs e)
         {
+            GetInfo();
             SetName();
             SetBallType();
             SetCamera();
@@ -162,6 +164,8 @@ namespace PoolDesktopApp
             }
             cboCamera.SelectedIndex = 0;
             videoCaptureDevice = new VideoCaptureDevice();
+            client.BaseAddress = new Uri("http://10.8.0.2:80/");
+            timer1.Start();
         }
 
         private void btnStartSim_Click(object sender, EventArgs e)
@@ -181,15 +185,79 @@ namespace PoolDesktopApp
 
         private void btnConnect_Click_1(object sender, EventArgs e)
         {
-            GameConfig.DataReceived();
-            int b = 4;
-
-            //while (GameConfig.DataReceived() == true)
-            //{
-            //    txtInfo.Text += GameConfig.Username1 + " " + GameConfig.Username2;
-            //}
-           
             
+            RunAsync();
+
+        }
+        static HttpClient client = new HttpClient();
+
+        static async Task RunAsync()
+        {
+
+            GameConfig product = new GameConfig
+            {
+                GameStart = true
+            };
+            GameConfig f = await SetGameStartAsync(product);
+        }
+        static async Task<GameConfig> SetGameStartAsync(GameConfig path)
+        {
+            
+            HttpResponseMessage response = await client.PutAsJsonAsync(
+                $"/update", path);
+            int b = 0;
+            response.EnsureSuccessStatusCode();
+            return path;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtInfo.Text = text.Text;
+            GetInfo();
+        }
+        void GetInfo()
+        {
+            RunAsync2();
+        }
+        GameConfig gamecon = new GameConfig();
+        
+        static async Task<GameConfig> RunAsync2()
+        {
+            GameConfig gamecon = null;
+            GameConfig f = await GetInfoAsync(gamecon);
+            GameConfig gameinfo = null;
+            return gameinfo;
+        }
+        static async Task<GameConfig> GetInfoAsync(GameConfig path)
+        {
+            GameConfig info = null;
+            HttpResponseMessage response = await client.GetAsync(
+                $"/getinfo");
+            int b = 0;
+            info = await response.Content.ReadAsAsync<GameConfig>();
+            GameInfo.GameID = info.GameID;
+            GameInfo.PlayerID1 = info.PlayerID1;
+            GameInfo.PlayerID2 = info.PlayerID2;
+            GameInfo.Username1 = info.Username1;
+            GameInfo.Username2 = info.Username2;
+            if (GameInfo.PlayerID1 != 0)
+            {
+                text.Text = "ready";
+            }
+            return info;
+        }
+        static TextBox text = new TextBox();
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            txtInfo.Text = text.Text + GameInfo.PlayerID1 + GameInfo.Username1 + GameInfo.Username2 
+                + GameInfo.GameID;
+            
+            GetInfo();
+
+
         }
     }
 }

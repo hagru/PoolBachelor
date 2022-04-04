@@ -29,6 +29,7 @@ namespace PoolDesktopApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Startpage));
             this.btnStartGame = new System.Windows.Forms.Button();
             this.txtP1Name = new System.Windows.Forms.TextBox();
@@ -40,13 +41,16 @@ namespace PoolDesktopApp
             this.btnStartSim = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnStartGame
             // 
-            this.btnStartGame.Location = new System.Drawing.Point(91, 307);
+            this.btnStartGame.Location = new System.Drawing.Point(61, 200);
+            this.btnStartGame.Margin = new System.Windows.Forms.Padding(2);
             this.btnStartGame.Name = "btnStartGame";
-            this.btnStartGame.Size = new System.Drawing.Size(227, 115);
+            this.btnStartGame.Size = new System.Drawing.Size(151, 75);
             this.btnStartGame.TabIndex = 0;
             this.btnStartGame.Text = "Start Game";
             this.btnStartGame.UseVisualStyleBackColor = true;
@@ -54,33 +58,37 @@ namespace PoolDesktopApp
             // 
             // txtP1Name
             // 
-            this.txtP1Name.Location = new System.Drawing.Point(91, 166);
+            this.txtP1Name.Location = new System.Drawing.Point(61, 108);
+            this.txtP1Name.Margin = new System.Windows.Forms.Padding(2);
             this.txtP1Name.Name = "txtP1Name";
-            this.txtP1Name.Size = new System.Drawing.Size(236, 26);
+            this.txtP1Name.Size = new System.Drawing.Size(159, 20);
             this.txtP1Name.TabIndex = 2;
             // 
             // txtP2Name
             // 
-            this.txtP2Name.Location = new System.Drawing.Point(472, 166);
+            this.txtP2Name.Location = new System.Drawing.Point(315, 108);
+            this.txtP2Name.Margin = new System.Windows.Forms.Padding(2);
             this.txtP2Name.Name = "txtP2Name";
-            this.txtP2Name.Size = new System.Drawing.Size(236, 26);
+            this.txtP2Name.Size = new System.Drawing.Size(159, 20);
             this.txtP2Name.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 131);
+            this.label1.Location = new System.Drawing.Point(58, 85);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 20);
+            this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Player 1 name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(468, 131);
+            this.label2.Location = new System.Drawing.Point(312, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 20);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Player 2 name";
             // 
@@ -91,9 +99,10 @@ namespace PoolDesktopApp
             this.cboSelectBall.Items.AddRange(new object[] {
             "Solid",
             "Half"});
-            this.cboSelectBall.Location = new System.Drawing.Point(91, 232);
+            this.cboSelectBall.Location = new System.Drawing.Point(61, 151);
+            this.cboSelectBall.Margin = new System.Windows.Forms.Padding(2);
             this.cboSelectBall.Name = "cboSelectBall";
-            this.cboSelectBall.Size = new System.Drawing.Size(110, 28);
+            this.cboSelectBall.Size = new System.Drawing.Size(75, 21);
             this.cboSelectBall.TabIndex = 7;
             // 
             // cboCamera
@@ -104,16 +113,18 @@ namespace PoolDesktopApp
             "1",
             "2",
             "3"});
-            this.cboCamera.Location = new System.Drawing.Point(587, 232);
+            this.cboCamera.Location = new System.Drawing.Point(391, 151);
+            this.cboCamera.Margin = new System.Windows.Forms.Padding(2);
             this.cboCamera.Name = "cboCamera";
-            this.cboCamera.Size = new System.Drawing.Size(121, 28);
+            this.cboCamera.Size = new System.Drawing.Size(82, 21);
             this.cboCamera.TabIndex = 47;
             // 
             // btnStartSim
             // 
-            this.btnStartSim.Location = new System.Drawing.Point(481, 307);
+            this.btnStartSim.Location = new System.Drawing.Point(321, 200);
+            this.btnStartSim.Margin = new System.Windows.Forms.Padding(2);
             this.btnStartSim.Name = "btnStartSim";
-            this.btnStartSim.Size = new System.Drawing.Size(227, 115);
+            this.btnStartSim.Size = new System.Drawing.Size(151, 75);
             this.btnStartSim.TabIndex = 48;
             this.btnStartSim.Text = "Start Simulation";
             this.btnStartSim.UseVisualStyleBackColor = true;
@@ -121,9 +132,10 @@ namespace PoolDesktopApp
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(109, 46);
+            this.btnConnect.Location = new System.Drawing.Point(73, 30);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(92, 31);
+            this.btnConnect.Size = new System.Drawing.Size(61, 20);
             this.btnConnect.TabIndex = 49;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -131,17 +143,34 @@ namespace PoolDesktopApp
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(387, 27);
+            this.txtInfo.Location = new System.Drawing.Point(258, 18);
+            this.txtInfo.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(143, 84);
+            this.txtInfo.Size = new System.Drawing.Size(272, 56);
             this.txtInfo.TabIndex = 50;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(159, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(61, 20);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "Connect";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Startpage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnStartSim);
@@ -153,6 +182,7 @@ namespace PoolDesktopApp
             this.Controls.Add(this.txtP1Name);
             this.Controls.Add(this.btnStartGame);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Startpage";
             this.Text = "Startpage";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Startpage_FormClosed);
@@ -174,5 +204,7 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Button btnStartSim;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.TextBox txtInfo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

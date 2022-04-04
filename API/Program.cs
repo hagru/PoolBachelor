@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-app.Urls.Add("http://0.0.0.0:80");
+////app.Urls.Add("");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -18,45 +18,71 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.Urls.Add("http://10.8.0.2:80");
+
 // Comment
-int b = 3;
+GameConfig gamecon = new GameConfig();
+app.MapPut("/update", (GameConfig g) =>
+{
+
+    gamecon.GameStart = g.GameStart;
+    
+
+    return gamecon.GameStart;
+     
+});
+app.MapPut("/GameDone", (GameConfig g) =>
+{
+
+    gamecon.GameStart = g.GameStart;
+
+
+    return gamecon.GameStart;
+
+});
 app.MapGet("/checktable", () =>
 {
     
-    if (GameConfig.GameStart == true)
+    if (gamecon.GameStart == true)
     {
-        Console.WriteLine("Returning status" + GameConfig.GameStart);
-        return Results.Ok(GameConfig.GameStart); //Returns 200 code + table status
+        Console.WriteLine("Returning status" + gamecon.GameStart);
+        return Results.Ok(gamecon.GameStart); //Returns 200 code + table status
     }
     else
-       Console.WriteLine("Returning status" + GameConfig.GameStart);
-    return Results.Ok(GameConfig.GameStart); //Returns 200 code + table status
+       Console.WriteLine("Returning status" + gamecon.GameStart);
+    return Results.Ok(gamecon.GameStart); //Returns 200 code + table status
+
+});
+app.MapGet("/getinfo", () =>
+{
+    
+    return Results.Ok(gamecon); //Returns 200 code + table status
 
 });
 
-app.MapPost("/gamestart", (GameCon g) =>
+app.MapPost("/gamestart", (GameConfig g) =>
 {
     Console.WriteLine("Trying to start a game \n");
-    GameConfig.GameID = g.gameid;
-    GameConfig.Username1 = g.username1;
-    GameConfig.Username2 = g.username2;
-    GameConfig.PlayerID1 = g.playerid1;
-    GameConfig.PlayerID2 = g.Playerid2;
-    //GameConfig.Timestamp = g.timestamp;
-    GameConfig.GameStart = false;
+    gamecon.GameID = g.GameID;
+    gamecon.Username1 = g.Username1;
+    gamecon.Username2 = g.Username2;
+    gamecon.PlayerID1 = g.PlayerID1;
+    gamecon.PlayerID2 = g.PlayerID2;
+    gamecon.Timestamp = DateTime.Now;
+    gamecon.GameStart = false;
     return Results.Ok();
 
 
 });
 
-app.MapPost("/gamestop", (GameCon g) =>
+app.MapPost("/gamestop", (GameConfig g) =>
 {
     Console.WriteLine("Trying to stop a game \n");
-    GameConfig.GameID = g.gameid;
-    if (GameConfig.GameID == g.gameid) //Sånn vi sjekker parameteret som kommer inn ?
+    gamecon.GameID = g.GameID;
+    if (gamecon.GameID == g.GameID) //Sånn vi sjekker parameteret som kommer inn ?
     {
-        Console.WriteLine("Stopping game with gameid " + g.gameid);
-        GameConfig.GameStart = false;
+        Console.WriteLine("Stopping game with gameid " + g.GameID);
+        gamecon.GameStart = false;
         //Her må vi sikkert gjøre noe mer for å stoppe vision systemet.
         return Results.Ok();
     }
@@ -67,19 +93,9 @@ app.MapPost("/gamestop", (GameCon g) =>
         //Kanskje legge inn en sjekk om at gameid ikke null ?
     }
     
-    
-
-
+   
 });
 
 app.Run();
 
-public class GameCon
-{
-    public int gameid { get; set; }
-    public string username1 { get; set; }
-    public string username2 { get; set; }
-    public int playerid1 { get; set; }
-    public int Playerid2 { get; set; }
-    //public DateTime timestamp { get; set; }
-}
+

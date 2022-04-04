@@ -294,8 +294,8 @@ namespace PoolDesktopApp
             //lblP1.Text = player1.Name;
             //lblP2.Text = player2.Name;
 
-            lblP1.Text = API_Class.GameConfig.Username1;
-            lblP2.Text = API_Class.GameConfig.Username2;
+            //lblP1.Text = API_Class.GameConfig.Username1;
+            //lblP2.Text = API_Class.GameConfig.Username2;
 
             if (player1.PlayerTurn == true)
             {

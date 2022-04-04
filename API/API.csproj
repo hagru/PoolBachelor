@@ -10,10 +10,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="API_Class">
-      <HintPath>..\..\PoolDesktopApp\API_Class\bin\Debug\API_Class.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
