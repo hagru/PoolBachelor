@@ -800,7 +800,7 @@ namespace PoolDesktopApp
             newPic = (Bitmap)img.Clone();
             Bitmap croppedPic = new Bitmap(newPic);
 
-            croppedPic = croppedPic.Clone(new Rectangle(100, 100, 1820, 980), System.Drawing.Imaging.PixelFormat.DontCare);
+            //croppedPic = croppedPic.Clone(new Rectangle(100, 100, 1820, 980), System.Drawing.Imaging.PixelFormat.DontCare);
 
             
             img1 = new Bitmap(croppedPic);

@@ -60,46 +60,7 @@ namespace PoolDesktopApp
                         b = c.TagName;
                         loop++;
                     }
-                    else if(c.TagName == b && c.Probability >= 0.35 && c.TagName == "red-whole")
-                    {
-                        ball.balls[loop] = "orange-whole";
-                        ball.balls_x[loop] = c.BoundingBox.Left;
-                        ball.ball_y[loop] = c.BoundingBox.Top;
-                        precent[loop] = c.Probability;
-                        loop++;
-                    }
-                    else if (c.TagName == b && c.Probability >= 0.35 && c.TagName == "brown-half")
-                    {
-                        ball.balls[loop] = "red-half";
-                        ball.balls_x[loop] = c.BoundingBox.Left;
-                        ball.ball_y[loop] = c.BoundingBox.Top;
-                        precent[loop] = c.Probability;
-                        loop++;
-                    }
-                    else if (c.TagName == b && c.Probability >= 0.35 && c.TagName == "orange-whole")
-                    {
-                        ball.balls[loop] = "orange-half";
-                        ball.balls_x[loop] = c.BoundingBox.Left;
-                        ball.ball_y[loop] = c.BoundingBox.Top;
-                        precent[loop] = c.Probability;
-                        loop++;
-                    }
-                    else if (c.TagName == b && c.Probability >= 0.35 && c.TagName == "yellow-whole")
-                    {
-                        ball.balls[loop] = "yellow-half";
-                        ball.balls_x[loop] = c.BoundingBox.Left;
-                        ball.ball_y[loop] = c.BoundingBox.Top;
-                        precent[loop] = c.Probability;
-                        loop++;
-                    }
-                    else if (c.TagName == b && c.Probability >= 0.35 && c.TagName == "brown-whole")
-                    {
-                        ball.balls[loop] = "red-whole";
-                        ball.balls_x[loop] = c.BoundingBox.Left;
-                        ball.ball_y[loop] = c.BoundingBox.Top;
-                        precent[loop] = c.Probability;
-                        loop++;
-                    }
+                    
                 }
 
             }
