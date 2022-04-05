@@ -26,16 +26,17 @@ app.MapPut("/update", (GameConfig g) =>
 {
 
     gamecon.GameStart = g.GameStart;
-    
-
-    return gamecon.GameStart;
+   
      
 });
 app.MapPut("/GameDone", (GameConfig g) =>
 {
-
-    gamecon.GameStart = g.GameStart;
-
+    gamecon.GameStop = true;
+    gamecon.PlayerID1 = 0;
+    gamecon.PlayerID2 = 0;
+    gamecon.GameID = 0;
+    gamecon.Username1 = "";
+    gamecon.Username2 = "";
 
     return gamecon.GameStart;
 

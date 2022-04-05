@@ -49,7 +49,7 @@ namespace PoolDesktopApp
         {
             b = rand.Next(0, 2);
             ball_det1 = new BallDetection();
-            InitPLayers();
+          
 
         }
 
@@ -333,7 +333,7 @@ namespace PoolDesktopApp
                                 connection.Open();
                                 NpgsqlCommand cmd = new NpgsqlCommand();
                                 cmd.Connection = connection;
-                                cmd.CommandText = "INSERT INTO billiardball values(@gameID, @x_pos, @y_pos, @playerID, @timeStamp, @playCount, @ballOnTable, @ballCoulor)";
+                                cmd.CommandText = "INSERT INTO billiardball values(@gameID, @x_pos, @y_pos, @playerID, @timeStamp, @playCount, @ballCoulor)";
                                 cmd.CommandType = CommandType.Text;
                                 cmd.Parameters.Add(new NpgsqlParameter("@gameID",GameInfo.GameID));
                                 cmd.Parameters.Add(new NpgsqlParameter("@x_pos", ball_det1.balls_x[i]));
@@ -372,7 +372,7 @@ namespace PoolDesktopApp
                                 connection.Open();
                                 NpgsqlCommand cmd = new NpgsqlCommand();
                                 cmd.Connection = connection;
-                                cmd.CommandText = "INSERT INTO billiardball values(@gameID, @x_pos, @y_pos, @playerID, @timeStamp, @playCount, @ballOnTable, @ballCoulor)";
+                                cmd.CommandText = "INSERT INTO billiardball values(@gameID, @x_pos, @y_pos, @playerID, @timeStamp, @playCount, @ballCoulor)";
                                 cmd.CommandType = CommandType.Text;
                                 cmd.Parameters.Add(new NpgsqlParameter("@gameID", GameInfo.GameID));
                                 cmd.Parameters.Add(new NpgsqlParameter("@x_pos", ball_det1.balls_x[i]));
@@ -380,7 +380,6 @@ namespace PoolDesktopApp
                                 cmd.Parameters.Add(new NpgsqlParameter("@playerID", GameInfo.PlayerID2));
                                 cmd.Parameters.Add(new NpgsqlParameter("@timeStamp", DateTime.Now));
                                 cmd.Parameters.Add(new NpgsqlParameter("@playCount", count));
-                                cmd.Parameters.Add(new NpgsqlParameter("@ballOnTable", true));
                                 cmd.Parameters.Add(new NpgsqlParameter("@ballCoulor", SetBallColor(ball_det1.balls[i])));
 
                                 cmd.ExecuteNonQuery();

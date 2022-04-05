@@ -651,7 +651,7 @@ namespace PoolDesktopApp
             CheckWhite();
             CheckBlack();
             CheckResult();
-            //game.BilliardBall();
+            game.BilliardBall();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

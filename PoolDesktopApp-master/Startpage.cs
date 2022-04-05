@@ -152,6 +152,7 @@ namespace PoolDesktopApp
         private void Startpage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.ExitThread();
+            timer1.Stop();
         }
 
         private void Startpage_Load(object sender, EventArgs e)
