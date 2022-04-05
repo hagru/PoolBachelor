@@ -349,8 +349,17 @@ namespace PoolDesktopApp
 
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            img = (Bitmap)eventArgs.Frame.Clone();
-            pBoxMainGame.Image = img;
+            try
+            {
+                img = (Bitmap)eventArgs.Frame.Clone();
+                pBoxMainGame.Image = img;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
 
