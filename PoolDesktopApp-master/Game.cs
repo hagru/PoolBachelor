@@ -176,7 +176,7 @@ namespace PoolDesktopApp
             {
                 if (ball[i] == "orange-whole")
                 {
-                    solidColorBall++;
+                    solidColorBall++; 
                 }
                 if (ball[i] == "green-whole")
                 {
@@ -418,6 +418,8 @@ namespace PoolDesktopApp
             return whiteDown;
 
         }
+
+        
     }
 }
 

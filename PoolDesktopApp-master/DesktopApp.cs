@@ -329,16 +329,16 @@ namespace PoolDesktopApp
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[selectedCamera].MonikerString);
             try
             {
-                videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[9];
+                //videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[9];
                 for (int i = 0; i < videoCaptureDevice.VideoCapabilities.Length; i++)
                 {
                     string resolution = "Resolution Number " + Convert.ToString(i);
                     string resolution_size = videoCaptureDevice.VideoCapabilities[i].FrameSize.ToString();
                 }
             }
-            catch (Exception)
+            catch (Exception b)
             {
-                return;
+                MessageBox.Show(b.Message);
             }
 
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
