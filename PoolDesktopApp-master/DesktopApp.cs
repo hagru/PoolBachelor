@@ -329,7 +329,7 @@ namespace PoolDesktopApp
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[selectedCamera].MonikerString);
             try
             {
-                //videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[9];
+                videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[9];
                 for (int i = 0; i < videoCaptureDevice.VideoCapabilities.Length; i++)
                 {
                     string resolution = "Resolution Number " + Convert.ToString(i);
@@ -357,7 +357,7 @@ namespace PoolDesktopApp
             catch (Exception)
             {
 
-                throw;
+                return;
             }
             
         }
@@ -648,7 +648,7 @@ namespace PoolDesktopApp
             //btnProcess.Enabled = true;
             //btnProcess.Text = "PROCESS";
             //btnProcess.BackColor = Color.SteelBlue;
-
+            
 
             shotCounter++;
         }
@@ -660,7 +660,7 @@ namespace PoolDesktopApp
             CheckWhite();
             CheckBlack();
             CheckResult();
-            game.BilliardBall();
+            
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -672,7 +672,9 @@ namespace PoolDesktopApp
             LoadBalls();
             shotCounter++;
             bgWorkerActive = false;
+            game.BilliardBall();
             bgWorker();
+            
         }
 
 
