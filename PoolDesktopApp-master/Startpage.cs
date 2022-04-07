@@ -27,6 +27,7 @@ namespace PoolDesktopApp
         public static FilterInfoCollection filterInfoCollection;
         public static VideoCaptureDevice videoCaptureDevice;
         public bool connectClicked = false;
+        public bool infoCollected = false;
         public int timeOut = 0;
 
         // Boolsk variabel for å sjekke om navn er oppgitt
@@ -262,16 +263,8 @@ namespace PoolDesktopApp
         }
         static TextBox text = new TextBox();
 
-        public void Connect()
+        public void TimeOut()
         {
-      
-            if (GameInfo.GameID != 0)
-            {
-                txtInfo.Text = "Du er koblet til! Start spillet i websiden";
-                btnConnect.Enabled = false;
-                btnConnect.BackColor = Color.Green;
-            }
-
             if (timeOut == 0)
             {
                 txtInfo.Text = ".";
@@ -291,6 +284,32 @@ namespace PoolDesktopApp
                 txtInfo.Text = "Fant ikke spill. Prøv igjen";
                 connectClicked = false;
                 timeOut = 0;
+            }
+        }
+
+        public void Connect()
+        {
+      
+            if (GameInfo.GameID != 0)
+            {
+                txtInfo.Text = "Du er koblet til! Start spillet i websiden";
+                btnConnect.Enabled = false;
+                btnConnect.BackColor = Color.Green;
+            }
+
+            else
+            {
+                TimeOut();
+            }
+
+            
+        }
+
+        public void Connected()
+        {
+            if (GameInfo.PlayerID1 != 0)
+            {
+                txtInfo.Text = "Informasjon er hentet, start spillet.";
             }
         }
         
