@@ -41,8 +41,8 @@ namespace PoolDesktopApp
         // Metode som setter navn
         public void SetName()
         {
-            p1Name = "Sander";
-            p2Name = "Amanuel";
+            //p1Name = "Sander";
+            //p2Name = "Amanuel";
 
             // Sjekker om navnefelt er fyllt ut
             if (p1Name == "" && p2Name == "")
@@ -295,6 +295,7 @@ namespace PoolDesktopApp
                 txtInfo.Text = "Du er koblet til! Start spillet i websiden";
                 btnConnect.Enabled = false;
                 btnConnect.BackColor = Color.Green;
+                Connected();
             }
 
             else
@@ -310,6 +311,7 @@ namespace PoolDesktopApp
             if (GameInfo.PlayerID1 != 0)
             {
                 txtInfo.Text = "Informasjon er hentet, start spillet.";
+                btnStartGame.Enabled = true;
             }
         }
         

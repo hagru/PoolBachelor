@@ -359,7 +359,7 @@ namespace PoolDesktopApp
 
                 return;
             }
-            
+
         }
 
 
@@ -386,7 +386,7 @@ namespace PoolDesktopApp
             }
         }
 
-        
+
 
 
         // Metode for å initialisere baller, og legge dem til riktig spiller
@@ -650,7 +650,7 @@ namespace PoolDesktopApp
             //btnProcess.Enabled = true;
             //btnProcess.Text = "PROCESS";
             //btnProcess.BackColor = Color.SteelBlue;
-            
+
 
             shotCounter++;
         }
@@ -662,7 +662,7 @@ namespace PoolDesktopApp
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
 
-                shotCounter++;
+                
                 //MessageBox.Show("HEI");
             }
         }
@@ -674,7 +674,7 @@ namespace PoolDesktopApp
             CheckWhite();
             CheckBlack();
             CheckResult();
-            
+
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -682,13 +682,13 @@ namespace PoolDesktopApp
             if (shotCounter > 0)
             {
                 TurnLogic();
+                game.BilliardBall();
             }
             LoadBalls();
-            shotCounter++;
             bgWorkerActive = false;
-            game.BilliardBall();
             bgWorker();
-            
+            shotCounter++;
+
         }
 
 
@@ -813,13 +813,23 @@ namespace PoolDesktopApp
 
         public void Snapshot()
         {
-            newPic = (Bitmap)img.Clone();
-            Bitmap croppedPic = new Bitmap(newPic);
+            try
+            {
+                newPic = (Bitmap)img.Clone();
+                Bitmap croppedPic = new Bitmap(newPic);
+                img1 = new Bitmap(croppedPic);
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+
 
             //croppedPic = croppedPic.Clone(new Rectangle(100, 100, 1820, 980), System.Drawing.Imaging.PixelFormat.DontCare);
 
-            
-            img1 = new Bitmap(croppedPic);
+
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
