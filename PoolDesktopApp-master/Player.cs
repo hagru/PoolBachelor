@@ -19,6 +19,9 @@ namespace PoolDesktopApp
         public bool Player_result { get; set; }
         public int NumberOfSolidball { get; set; }
         public int NumberOfHalfball { get; set; }
+        public bool win { get; set; }
+        public bool lose{ get; set; }
+
 
 
         public Player(int playerId, string ballType, string name, bool playerTurn, bool solidBall, bool halfBall)

@@ -801,12 +801,21 @@ namespace PoolDesktopApp
             {
                 stopwatch.Stop();
                 MessageBox.Show(player2.Name + " vinner!");
+                players[0].lose = true;
+                players[1].win = true;
+                game.Update(players);
+                game.UpdateTimeStamp();
             }
 
             else if (p2Lost == true)
             {
                 stopwatch.Stop();
                 MessageBox.Show(player1.Name + " vinner!");
+                players[1].lose = true;
+                players[0].win = true;
+                game.Update(players);
+                game.UpdateTimeStamp();
+
             }
         }
 

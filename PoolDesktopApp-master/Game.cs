@@ -420,7 +420,167 @@ namespace PoolDesktopApp
 
         }
 
-        
+        public void Update(Player[] player)
+        {
+            if (player[0].win == true)
+            {
+                try
+                {
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE player SET wins = (Select(wins + 1) from player where playerid =" + player[0].PlayerId + ") WHERE playerid =" + player[0].PlayerId;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE game SET winner ="+player[0]+" WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                }
+                catch (Exception w)
+                {
+
+                    MessageBox.Show(w.Message);
+                }
+            }
+            else if (player[0].win == false)
+            {
+                try
+                {
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE player SET losses = (Select(losses + 1) from player where playerid =" + player[0].PlayerId + ") WHERE playerid =" + player[0].PlayerId;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE game SET loser =" + player[0] + " WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                }
+                catch (Exception w)
+                {
+
+                    MessageBox.Show(w.Message);
+                }
+            }
+            if (player[1].win == true)
+            {
+                try
+                {
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE player SET wins = (Select(wins + 1) from player where playerid =" + player[1].PlayerId + ") WHERE playerid =" + player[1].PlayerId;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE game SET winner =" + player[1] + " WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                }
+
+                catch (Exception w)
+                {
+
+                    MessageBox.Show(w.Message);
+                }
+            }
+            else if (player[1].win == false)
+            {
+                try
+                {
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE player SET losses = (Select(losses + 1) from player where playerid =" + player[1].PlayerId + ") WHERE playerid =" + player[1].PlayerId;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                    using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE game SET loser =" + player[1] + " WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        connection.Close();
+                    }
+                }
+                catch (Exception w)
+                {
+
+                    MessageBox.Show(w.Message);
+                }
+            }
+
+        }
+        public void UpdateTimeStamp()
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+                {
+                    connection.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = "UPDATE game SET endtime ="+"'"+(DateTime.Now) +"'"+"where gameid = " + GameInfo.GameID;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                    connection.Close();
+                }
+            }
+            catch (Exception w)
+            {
+
+                MessageBox.Show(w.Message);
+            }
+
+        }
     }
+   
 }
 
