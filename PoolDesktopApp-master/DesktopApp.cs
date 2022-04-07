@@ -386,6 +386,8 @@ namespace PoolDesktopApp
             }
         }
 
+        
+
 
         // Metode for å initialisere baller, og legge dem til riktig spiller
         public void AddBalls()
@@ -592,9 +594,9 @@ namespace PoolDesktopApp
         {
             if (bgWorkerActive == true)
             {
-                btnProcess.Enabled = false;
-                btnProcess.BackColor = SystemColors.Control;
-                btnProcess.Text = "";
+                //btnProcess.Enabled = false;
+                //btnProcess.BackColor = SystemColors.Control;
+                //btnProcess.Text = "";
                 pboLoading.Enabled = true;
                 pboLoading.Show();
                 pboLoading.Load("../../images/loading.gif");
@@ -603,9 +605,9 @@ namespace PoolDesktopApp
             else
             {
                 pboLoading.Hide();
-                btnProcess.Enabled = true;
-                btnProcess.Text = "PROCESS";
-                btnProcess.BackColor = Color.SteelBlue;
+                //btnProcess.Enabled = true;
+                //btnProcess.Text = "PROCESS";
+                //btnProcess.BackColor = Color.SteelBlue;
             }
         }
 
@@ -651,6 +653,18 @@ namespace PoolDesktopApp
             
 
             shotCounter++;
+        }
+        private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                bgWorkerActive = true;
+                bgWorker();
+                backgroundWorker1.RunWorkerAsync();
+
+                shotCounter++;
+                //MessageBox.Show("HEI");
+            }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)

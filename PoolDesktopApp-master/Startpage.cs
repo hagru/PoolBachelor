@@ -26,6 +26,8 @@ namespace PoolDesktopApp
         public static int selectedCamera = 0;
         public static FilterInfoCollection filterInfoCollection;
         public static VideoCaptureDevice videoCaptureDevice;
+        public bool connectClicked = false;
+        public int timeOut = 0;
 
         // Boolsk variabel for å sjekke om navn er oppgitt
         public bool nameOkay = false;
@@ -33,14 +35,13 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
-            cboSelectBall.SelectedIndex = 0;
         }
 
         // Metode som setter navn
         public void SetName()
         {
-            p1Name = txtP1Name.Text;
-            p2Name = txtP2Name.Text;
+            p1Name = "Sander";
+            p2Name = "Amanuel";
 
             // Sjekker om navnefelt er fyllt ut
             if (p1Name == "" && p2Name == "")
@@ -69,8 +70,8 @@ namespace PoolDesktopApp
 
         public void SetNameSim()
         {
-            p1Name = txtP1Name.Text;
-            p2Name = txtP2Name.Text;
+            //p1Name = txtP1Name.Text;
+            //p2Name = txtP2Name.Text;
 
             // Sjekker om navnefelt er fyllt ut
             if (p1Name == "" && p2Name == "")
@@ -100,7 +101,17 @@ namespace PoolDesktopApp
         // Metode som setter balltype etter valg i drop down lista
         public void SetBallType()
         {
-            ballTypeP1 = cboSelectBall.Text;
+            //ballTypeP1 = cboSelectBall.Text;
+            if (rdoHalf.Checked == true)
+            {
+                ballTypeP1 = "Half";
+            }
+            else if (rdoSolid.Checked == true)
+            {
+                ballTypeP1 = "Solid";
+            }
+            
+
             if (ballTypeP1 == "Solid")
             {
                 solidBall = true;
@@ -115,7 +126,6 @@ namespace PoolDesktopApp
 
         public void SetBallTypeSim()
         {
-            ballTypeP1 = cboSelectBall.Text;
             if (ballTypeP1 == "Solid")
             {
                 solidBall = true;
@@ -157,6 +167,7 @@ namespace PoolDesktopApp
 
         private void Startpage_Load(object sender, EventArgs e)
         {
+            txtInfo.Text = "Trykk 'Connect' for å koble til et opprettet spill";
             cboCamera.Items.Clear();
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filter in filterInfoCollection)
@@ -186,7 +197,8 @@ namespace PoolDesktopApp
 
         private void btnConnect_Click_1(object sender, EventArgs e)
         {
-            
+            txtInfo.Text = ".";
+            connectClicked = true;
             RunAsync();
 
         }
@@ -249,16 +261,57 @@ namespace PoolDesktopApp
             return info;
         }
         static TextBox text = new TextBox();
+
+        public void Connect()
+        {
+      
+            if (GameInfo.GameID != 0)
+            {
+                txtInfo.Text = "Du er koblet til! Start spillet i websiden";
+                btnConnect.Enabled = false;
+                btnConnect.BackColor = Color.Green;
+            }
+
+            if (timeOut == 0)
+            {
+                txtInfo.Text = ".";
+            }
+
+            else if (timeOut == 10)
+            {
+                txtInfo.Text = "..";
+            }
+            else if (timeOut == 20)
+            {
+                txtInfo.Text = "...";
+            }
+
+            if (timeOut == 30)
+            {
+                txtInfo.Text = "Fant ikke spill. Prøv igjen";
+                connectClicked = false;
+                timeOut = 0;
+            }
+        }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
 
-            txtInfo.Text = text.Text + GameInfo.PlayerID1 + GameInfo.Username1 + GameInfo.Username2 
-                + GameInfo.GameID;
+            if (connectClicked == true)
+            {
+                Connect();
+
+                timeOut++;
+            }
+
+            //txtInfo.Text = text.Text + GameInfo.PlayerID1 + GameInfo.Username1 + GameInfo.Username2 
+            //    + GameInfo.GameID;
             
             GetInfo();
 
 
         }
+
     }
 }

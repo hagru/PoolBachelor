@@ -48,7 +48,6 @@ namespace PoolDesktopApp
             this.p2Ball3 = new System.Windows.Forms.PictureBox();
             this.p2Ball2 = new System.Windows.Forms.PictureBox();
             this.p2Ball1 = new System.Windows.Forms.PictureBox();
-            this.btnProcess = new System.Windows.Forms.Button();
             this.p1Ball8 = new System.Windows.Forms.PictureBox();
             this.p2Ball8 = new System.Windows.Forms.PictureBox();
             this.tmrGameTime = new System.Windows.Forms.Timer(this.components);
@@ -252,24 +251,6 @@ namespace PoolDesktopApp
             this.p2Ball1.TabIndex = 14;
             this.p2Ball1.TabStop = false;
             // 
-            // btnProcess
-            // 
-            this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProcess.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnProcess.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnProcess.FlatAppearance.BorderSize = 5;
-            this.btnProcess.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcess.ForeColor = System.Drawing.Color.White;
-            this.btnProcess.Location = new System.Drawing.Point(1194, 1273);
-            this.btnProcess.Name = "btnProcess";
-            this.btnProcess.Size = new System.Drawing.Size(179, 104);
-            this.btnProcess.TabIndex = 22;
-            this.btnProcess.Text = "PROCESS";
-            this.btnProcess.UseVisualStyleBackColor = false;
-            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
-            // 
             // p1Ball8
             // 
             this.p1Ball8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -300,42 +281,43 @@ namespace PoolDesktopApp
             // 
             this.lblTimer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(0, 1300);
+            this.lblTimer.Location = new System.Drawing.Point(0, 1469);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(2564, 270);
+            this.lblTimer.Size = new System.Drawing.Size(2564, 101);
             this.lblTimer.TabIndex = 44;
             this.lblTimer.Text = "00:00";
-            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblP2
             // 
-            this.lblP2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblP2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP2.Location = new System.Drawing.Point(2234, 0);
+            this.lblP2.Location = new System.Drawing.Point(2226, 1222);
             this.lblP2.Name = "lblP2";
             this.lblP2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.lblP2.Size = new System.Drawing.Size(330, 1300);
+            this.lblP2.Size = new System.Drawing.Size(330, 75);
             this.lblP2.TabIndex = 45;
             this.lblP2.Text = "Player 2";
             this.lblP2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lblP1
             // 
-            this.lblP1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblP1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP1.Location = new System.Drawing.Point(0, 0);
+            this.lblP1.Location = new System.Drawing.Point(0, 1222);
             this.lblP1.Name = "lblP1";
             this.lblP1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.lblP1.Size = new System.Drawing.Size(327, 1300);
+            this.lblP1.Size = new System.Drawing.Size(330, 75);
             this.lblP1.TabIndex = 1;
             this.lblP1.Text = "Player 1";
             this.lblP1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // pboLoading
             // 
+            this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
-            this.pboLoading.Location = new System.Drawing.Point(1242, 1257);
+            this.pboLoading.Location = new System.Drawing.Point(1237, 1319);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
             this.pboLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -355,18 +337,7 @@ namespace PoolDesktopApp
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
             this.Controls.Add(this.pboLoading);
-            this.Controls.Add(this.btnProcess);
-            this.Controls.Add(this.pBoxMainGame);
-            this.Controls.Add(this.lblP2);
-            this.Controls.Add(this.p2Ball8);
             this.Controls.Add(this.p1Ball8);
-            this.Controls.Add(this.p2Ball7);
-            this.Controls.Add(this.p2Ball6);
-            this.Controls.Add(this.p2Ball5);
-            this.Controls.Add(this.p2Ball4);
-            this.Controls.Add(this.p2Ball3);
-            this.Controls.Add(this.p2Ball2);
-            this.Controls.Add(this.p2Ball1);
             this.Controls.Add(this.p1Ball7);
             this.Controls.Add(this.p1Ball6);
             this.Controls.Add(this.p1Ball5);
@@ -374,9 +345,19 @@ namespace PoolDesktopApp
             this.Controls.Add(this.p1Ball3);
             this.Controls.Add(this.p1Ball2);
             this.Controls.Add(this.p1Ball1);
-            this.Controls.Add(this.pBoxCueP2);
-            this.Controls.Add(this.pBoxCueP1);
             this.Controls.Add(this.lblP1);
+            this.Controls.Add(this.pBoxCueP1);
+            this.Controls.Add(this.p2Ball8);
+            this.Controls.Add(this.p2Ball7);
+            this.Controls.Add(this.p2Ball6);
+            this.Controls.Add(this.p2Ball5);
+            this.Controls.Add(this.p2Ball4);
+            this.Controls.Add(this.p2Ball3);
+            this.Controls.Add(this.p2Ball2);
+            this.Controls.Add(this.p2Ball1);
+            this.Controls.Add(this.pBoxCueP2);
+            this.Controls.Add(this.pBoxMainGame);
+            this.Controls.Add(this.lblP2);
             this.Controls.Add(this.lblTimer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DesktopApp";
@@ -384,6 +365,7 @@ namespace PoolDesktopApp
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.DesktopApp_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DesktopApp_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).EndInit();
@@ -427,7 +409,6 @@ namespace PoolDesktopApp
         private System.Windows.Forms.PictureBox p2Ball3;
         private System.Windows.Forms.PictureBox p2Ball2;
         private System.Windows.Forms.PictureBox p2Ball1;
-        private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.PictureBox p1Ball8;
         private System.Windows.Forms.PictureBox p2Ball8;
         private System.Windows.Forms.Timer tmrGameTime;
