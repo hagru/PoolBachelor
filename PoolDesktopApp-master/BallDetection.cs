@@ -23,7 +23,7 @@ namespace PoolDesktopApp
         string trainingKey = "987f7ea480f54f72929f0599704562d0";
 
 
-        private static string publishedModelName = "BallModel9"; //Denne finner vi under performace/iteration/publish (Vi velger navn når vi publisher)
+        private static string publishedModelName = "BallModel10"; //Denne finner vi under performace/iteration/publish (Vi velger navn når vi publisher)
         string projectID = "d2266057-b9f2-4d8e-a4a8-14fe78ac2edc";
         public string[] balls = new string[20];
         public double[] balls_x = new double[20];
