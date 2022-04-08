@@ -681,12 +681,14 @@ namespace PoolDesktopApp
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (shotCounter > 0)
-            {
-                TurnLogic();
-                game.BilliardBall();
-            }
+            //if (shotCounter > 0)
+            //{
+            //    TurnLogic();
+            //    game.BilliardBall();
+            //}
             LoadBalls();
+            TurnLogic();
+            game.BilliardBall();
             bgWorkerActive = false;
             bgWorker();
             shotCounter++;

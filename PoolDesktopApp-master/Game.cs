@@ -59,8 +59,8 @@ namespace PoolDesktopApp
             player2Name = Startpage.p2Name;
             p1BallType = Startpage.ballTypeP1;
             p2BallType = Startpage.ballTypeP2;
-            p1Turn = true;
-            p2Turn = false;
+            p1Turn = false;
+            p2Turn = true;
 
             if (p1BallType == "Solid")
             {
