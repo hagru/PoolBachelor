@@ -314,12 +314,12 @@ namespace PoolDesktopApp
                 "blue-half", "red-half", "purple-half", "orange-half", "green-half", "brown-half"};
 
         string CONNECTION_STRING = "Server=134.209.89.125;" + "User Id=vision;" + "Password=8FxLL6Ur6Yk!3H7acTKf^pJ$$o9DYipWfYVS;" + "Database=smartpool";
-        int count = 0;
+        static int count = 0;
         double xpos = 0;
         double ypos = 0;
         public void BilliardBall()
         {
-            Getplaycount();
+            
             if (players[0].PlayerTurn == true && players[1].PlayerTurn == false)
             {
                 for (int i = 0; i < ball_det1.balls.GetUpperBound(0); i++)

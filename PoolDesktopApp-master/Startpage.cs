@@ -38,6 +38,8 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
+            Game game = new Game();
+            game.Getplaycount();
         }
 
         // Metode som setter navn
