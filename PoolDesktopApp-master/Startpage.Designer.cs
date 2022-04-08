@@ -83,7 +83,7 @@ namespace PoolDesktopApp
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(92, 28);
+            this.btnConnect.Location = new System.Drawing.Point(92, 91);
             this.btnConnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(226, 85);
@@ -94,7 +94,7 @@ namespace PoolDesktopApp
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(324, 28);
+            this.txtInfo.Location = new System.Drawing.Point(324, 91);
             this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
