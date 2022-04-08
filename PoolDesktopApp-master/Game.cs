@@ -319,6 +319,7 @@ namespace PoolDesktopApp
         double ypos = 0;
         public void BilliardBall()
         {
+            Getplaycount();
             if (players[0].PlayerTurn == true && players[1].PlayerTurn == false)
             {
                 for (int i = 0; i < ball_det1.balls.GetUpperBound(0); i++)
@@ -508,7 +509,7 @@ namespace PoolDesktopApp
                         connection.Open();
                         NpgsqlCommand cmd = new NpgsqlCommand();
                         cmd.Connection = connection;
-                        cmd.CommandText = "UPDATE game SET winner =" + player[1] + " WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandText = "UPDATE game SET winner =" + player[1].PlayerId + " WHERE gameid =" + GameInfo.GameID;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
@@ -542,7 +543,7 @@ namespace PoolDesktopApp
                         connection.Open();
                         NpgsqlCommand cmd = new NpgsqlCommand();
                         cmd.Connection = connection;
-                        cmd.CommandText = "UPDATE game SET loser =" + player[1] + " WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandText = "UPDATE game SET loser =" + player[1].PlayerId + " WHERE gameid =" + GameInfo.GameID;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
@@ -580,6 +581,38 @@ namespace PoolDesktopApp
             }
 
         }
+        public void Getplaycount()
+        { 
+            using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING))
+            {
+                 
+                string quary = "SELECT MAX(playcount) as bn FROM billiardball where gameid = (select MAX(gameid) from game)";
+                NpgsqlCommand cmd = connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = quary;
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        count = Int32.Parse(reader["bn"].ToString());
+                    }
+
+                }
+                catch (Exception)
+                {
+                    count = 0;
+                }
+                cmd.Dispose();
+                connection.Close();
+            }
+
+        }
+
     }
    
 }
