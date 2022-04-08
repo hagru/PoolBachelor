@@ -320,6 +320,7 @@ namespace PoolDesktopApp
             this.pboLoading.Location = new System.Drawing.Point(1074, 1300);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
+            this.pboLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboLoading.TabIndex = 70;
             this.pboLoading.TabStop = false;
             // 

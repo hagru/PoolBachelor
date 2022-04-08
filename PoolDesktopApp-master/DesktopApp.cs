@@ -602,8 +602,8 @@ namespace PoolDesktopApp
                 //btnProcess.Text = "";
                 pboLoading.Enabled = true;
                 pboLoading.Show();
-                //pboLoading.Load("../../images/loading.gif");
-                pboLoading.Load("../../images/black.png");
+                pboLoading.Load("../../images/loading.gif");
+                //pboLoading.Load("../../images/black.png");
             }
 
             else
