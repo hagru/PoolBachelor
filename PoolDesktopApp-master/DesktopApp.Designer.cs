@@ -316,15 +316,13 @@ namespace PoolDesktopApp
             // pboLoading
             // 
             this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pboLoading.BackColor = System.Drawing.Color.Transparent;
-            this.pboLoading.Enabled = false;
+            this.pboLoading.BackColor = System.Drawing.Color.Black;
             this.pboLoading.Image = ((System.Drawing.Image)(resources.GetObject("pboLoading.Image")));
             this.pboLoading.Location = new System.Drawing.Point(1240, 1300);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
             this.pboLoading.TabIndex = 70;
             this.pboLoading.TabStop = false;
-            this.pboLoading.Visible = false;
             // 
             // backgroundWorker1
             // 
