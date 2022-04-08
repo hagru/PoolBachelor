@@ -315,10 +315,10 @@ namespace PoolDesktopApp
             // 
             // pboLoading
             // 
-            this.pboLoading.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
-            this.pboLoading.Location = new System.Drawing.Point(1243, 1318);
+            this.pboLoading.Location = new System.Drawing.Point(1382, 1318);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
             this.pboLoading.TabIndex = 70;
@@ -346,8 +346,8 @@ namespace PoolDesktopApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
-            this.Controls.Add(this.lblGameId);
             this.Controls.Add(this.pboLoading);
+            this.Controls.Add(this.lblGameId);
             this.Controls.Add(this.p1Ball8);
             this.Controls.Add(this.p1Ball7);
             this.Controls.Add(this.p1Ball6);
