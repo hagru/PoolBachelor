@@ -316,7 +316,7 @@ namespace PoolDesktopApp
             // pboLoading
             // 
             this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pboLoading.BackColor = System.Drawing.Color.Black;
+            this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Image = ((System.Drawing.Image)(resources.GetObject("pboLoading.Image")));
             this.pboLoading.Location = new System.Drawing.Point(1074, 1300);
             this.pboLoading.Name = "pboLoading";
