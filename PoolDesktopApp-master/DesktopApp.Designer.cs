@@ -56,6 +56,7 @@ namespace PoolDesktopApp
             this.lblP1 = new System.Windows.Forms.Label();
             this.pboLoading = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lblGameId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).BeginInit();
@@ -314,14 +315,12 @@ namespace PoolDesktopApp
             // 
             // pboLoading
             // 
-            this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
-            this.pboLoading.Location = new System.Drawing.Point(1237, 1319);
+            this.pboLoading.Location = new System.Drawing.Point(1376, 1323);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
-            this.pboLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboLoading.TabIndex = 70;
             this.pboLoading.TabStop = false;
             this.pboLoading.Visible = false;
@@ -331,12 +330,23 @@ namespace PoolDesktopApp
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // lblGameId
+            // 
+            this.lblGameId.AutoSize = true;
+            this.lblGameId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameId.Location = new System.Drawing.Point(31, 111);
+            this.lblGameId.Name = "lblGameId";
+            this.lblGameId.Size = new System.Drawing.Size(100, 25);
+            this.lblGameId.TabIndex = 71;
+            this.lblGameId.Text = "Game ID: ";
+            // 
             // DesktopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
+            this.Controls.Add(this.lblGameId);
             this.Controls.Add(this.pboLoading);
             this.Controls.Add(this.p1Ball8);
             this.Controls.Add(this.p1Ball7);
@@ -388,6 +398,7 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboLoading)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -418,6 +429,7 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Label lblP1;
         private System.Windows.Forms.PictureBox pboLoading;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label lblGameId;
     }
 }
 

@@ -19,6 +19,7 @@ namespace PoolDesktopApp
         // Deklarerer tomme variabler som skal fylles ut og sendes videre
         public static string p1Name = "";
         public static string p2Name = "";
+        public static int gameID = 0;
         public static string ballTypeP1 = "";
         public static string ballTypeP2 = "";
         public static bool solidBall = false;

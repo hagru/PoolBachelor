@@ -318,6 +318,8 @@ namespace PoolDesktopApp
         // Følgende blokker henter live video fra kamera, og viser det i applikasjonen ved oppstart
         private void DesktopApp_Load(object sender, EventArgs e)
         {
+            lblGameId.Text = "Game ID: " + GameInfo.GameID.ToString();
+
             // Henter valgt kamera fra Startpage
             int selectedCamera = 0;
             selectedCamera = Startpage.selectedCamera;
