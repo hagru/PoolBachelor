@@ -17,8 +17,6 @@ namespace PoolDesktopApp
 {
     public partial class DesktopApp : Form
     {
-        //comment
-
         Startpage startpage = new Startpage();
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
@@ -664,9 +662,6 @@ namespace PoolDesktopApp
                 bgWorkerActive = true;
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
-
-                
-                //MessageBox.Show("HEI");
             }
         }
 
@@ -676,9 +671,7 @@ namespace PoolDesktopApp
             CheckBalls();
             CheckWhite();
             CheckBlack();
-            
-            
-               CheckResult();
+            CheckResult();
 
         }
 
@@ -690,8 +683,9 @@ namespace PoolDesktopApp
             //    game.BilliardBall();
             //}
             LoadBalls();
-              TurnLogic();
+            TurnLogic();
             game.BilliardBall();
+            LoadBalls();
             bgWorkerActive = false;
             bgWorker();
             shotCounter++;
