@@ -38,7 +38,15 @@ namespace PoolDesktopApp
             Project pro = pros[0];
             string b = "";
             var streamm = new System.IO.MemoryStream();
-            img.Save(streamm, ImageFormat.Jpeg);
+            try
+            {
+                img.Save(streamm, ImageFormat.Jpeg);
+            }
+            catch (Exception)
+            {
+
+            }
+            
             streamm.Position = 0;
             using (var stream = streamm)
             {
