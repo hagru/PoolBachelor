@@ -40,6 +40,7 @@ namespace PoolDesktopApp
             InitializeComponent();
             Game game = new Game();
             game.Getplaycount();
+            Game.count++;
         }
 
         // Metode som setter navn

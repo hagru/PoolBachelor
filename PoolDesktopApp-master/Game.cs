@@ -64,14 +64,14 @@ namespace PoolDesktopApp
 
             if (p1BallType == "Solid")
             {
-                player1 = new Player(0, p1BallType, player1Name, p1Turn, true, false);
-                player2 = new Player(1, p2BallType, player2Name, p2Turn, false, true);
+                player1 = new Player(GameInfo.PlayerID1, p1BallType, player1Name, p1Turn, true, false);
+                player2 = new Player(GameInfo.PlayerID2, p2BallType, player2Name, p2Turn, false, true);
             }
 
             else if (p1BallType == "Half")
             {
-                player1 = new Player(0, p1BallType, player1Name, p1Turn, false, true);
-                player2 = new Player(1, p2BallType, player2Name, p2Turn, true, false);
+                player1 = new Player(GameInfo.PlayerID1, p1BallType, player1Name, p1Turn, false, true);
+                player2 = new Player(GameInfo.PlayerID2, p2BallType, player2Name, p2Turn, true, false);
             }
 
             players1[0] = player1;
@@ -314,7 +314,7 @@ namespace PoolDesktopApp
                 "blue-half", "red-half", "purple-half", "orange-half", "green-half", "brown-half"};
 
         string CONNECTION_STRING = "Server=134.209.89.125;" + "User Id=vision;" + "Password=8FxLL6Ur6Yk!3H7acTKf^pJ$$o9DYipWfYVS;" + "Database=smartpool";
-        static int count = 0;
+       public static int count = 0;
         double xpos = 0;
         double ypos = 0;
         public void BilliardBall()
@@ -443,7 +443,7 @@ namespace PoolDesktopApp
                         connection.Open();
                         NpgsqlCommand cmd = new NpgsqlCommand();
                         cmd.Connection = connection;
-                        cmd.CommandText = "UPDATE game SET winner ="+player[0]+" WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandText = "UPDATE game SET winner ="+player[0].PlayerId+" WHERE gameid =" + GameInfo.GameID;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
@@ -476,7 +476,7 @@ namespace PoolDesktopApp
                         connection.Open();
                         NpgsqlCommand cmd = new NpgsqlCommand();
                         cmd.Connection = connection;
-                        cmd.CommandText = "UPDATE game SET loser =" + player[0] + " WHERE gameid =" + GameInfo.GameID;
+                        cmd.CommandText = "UPDATE game SET loser =" + player[0].PlayerId + " WHERE gameid =" + GameInfo.GameID;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
@@ -567,7 +567,7 @@ namespace PoolDesktopApp
                     connection.Open();
                     NpgsqlCommand cmd = new NpgsqlCommand();
                     cmd.Connection = connection;
-                    cmd.CommandText = "UPDATE game SET endtime ="+"'"+(DateTime.Now) +"'"+"where gameid = " + GameInfo.GameID;
+                    cmd.CommandText = "UPDATE game SET endtime =" + "'" + (DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssZ")) + "'" + " where gameid = " + GameInfo.GameID;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();

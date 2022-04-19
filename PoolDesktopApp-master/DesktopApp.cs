@@ -676,7 +676,9 @@ namespace PoolDesktopApp
             CheckBalls();
             CheckWhite();
             CheckBlack();
-            CheckResult();
+            
+            
+               CheckResult();
 
         }
 
@@ -688,7 +690,7 @@ namespace PoolDesktopApp
             //    game.BilliardBall();
             //}
             LoadBalls();
-            TurnLogic();
+              TurnLogic();
             game.BilliardBall();
             bgWorkerActive = false;
             bgWorker();
@@ -736,11 +738,11 @@ namespace PoolDesktopApp
 
             if (listOfBalls[8].IsOnTable == false)
             {
-                if (p1Turn == true && whiteDown == true)
+                if (p1Turn == false && whiteDown == true)
                 {
                     p1Lost = true;
                 }
-                else if (p2Turn == true && whiteDown == true)
+                else if (p2Turn == false && whiteDown == true)
                 {
                     p2Lost = true;
                 }
@@ -749,11 +751,11 @@ namespace PoolDesktopApp
                 {
                     if (counterHalf < 7)
                     {
-                        if (p1Half == true && p1Turn == true)
+                        if (p1Half == true && p1Turn == false)
                         {
                             p1Lost = true;
                         }
-                        else if (p2Half == true && p2Turn == true)
+                        else if (p2Half == true && p2Turn == false)
                         {
                             p2Lost = true;
                         }
@@ -761,11 +763,11 @@ namespace PoolDesktopApp
 
                     else if (counterHalf >= 7)
                     {
-                        if (p1Half == true && p1Turn == true)
+                        if (p1Half == true && p1Turn == false)
                         {
                             p2Lost = true;
                         }
-                        else if (p2Half == true && p2Turn == true)
+                        else if (p2Half == true && p2Turn == false)
                         {
                             p1Lost = true;
                         }
@@ -773,11 +775,11 @@ namespace PoolDesktopApp
 
                     if (counterSolid < 7)
                     {
-                        if (p1Solid == true && p1Turn == true)
+                        if (p1Solid == true && p1Turn == false)
                         {
                             p1Lost = true;
                         }
-                        else if (p2Solid == true && p2Turn == true)
+                        else if (p2Solid == true && p2Turn == false)
                         {
                             p2Lost = true;
                         }
@@ -785,11 +787,11 @@ namespace PoolDesktopApp
 
                     else if (counterSolid >= 7)
                     {
-                        if (p1Solid == true && p1Turn == true)
+                        if (p1Solid == true && p1Turn == false)
                         {
                             p2Lost = true;
                         }
-                        else if (p2Solid == true && p2Turn == true)
+                        else if (p2Solid == true && p2Turn == false)
                         {
                             p1Lost = true;
                         }
@@ -807,6 +809,8 @@ namespace PoolDesktopApp
                 stopwatch.Stop();
                 MessageBox.Show(player2.Name + " vinner!");
                 players[0].lose = true;
+                players[0].win = false;
+                players[1].lose = false;
                 players[1].win = true;
                 game.Update(players);
                 game.UpdateTimeStamp();
@@ -818,6 +822,8 @@ namespace PoolDesktopApp
                 MessageBox.Show(player1.Name + " vinner!");
                 players[1].lose = true;
                 players[0].win = true;
+                players[1].win = false;
+                players[0].lose = false;
                 game.Update(players);
                 game.UpdateTimeStamp();
 
