@@ -31,6 +31,7 @@ namespace PoolDesktopApp
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimulationApp));
+            this.btnProcess = new System.Windows.Forms.Button();
             this.pBoxMainGame = new System.Windows.Forms.PictureBox();
             this.lblP2 = new System.Windows.Forms.Label();
             this.tmrGameTime = new System.Windows.Forms.Timer(this.components);
@@ -77,6 +78,24 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboLoading)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnProcess
+            // 
+            this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProcess.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnProcess.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProcess.FlatAppearance.BorderSize = 5;
+            this.btnProcess.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcess.ForeColor = System.Drawing.Color.White;
+            this.btnProcess.Location = new System.Drawing.Point(1194, 1273);
+            this.btnProcess.Name = "btnProcess";
+            this.btnProcess.Size = new System.Drawing.Size(179, 104);
+            this.btnProcess.TabIndex = 64;
+            this.btnProcess.Text = "PROCESS";
+            this.btnProcess.UseVisualStyleBackColor = false;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
             // pBoxMainGame
             // 
@@ -314,10 +333,9 @@ namespace PoolDesktopApp
             // 
             // pboLoading
             // 
-            this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
-            this.pboLoading.Location = new System.Drawing.Point(1084, 1300);
+            this.pboLoading.Location = new System.Drawing.Point(1243, 1257);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
             this.pboLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,6 +356,7 @@ namespace PoolDesktopApp
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
             this.Controls.Add(this.pboLoading);
+            this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.pBoxMainGame);
             this.Controls.Add(this.lblP2);
             this.Controls.Add(this.p2Ball8);
@@ -390,6 +409,8 @@ namespace PoolDesktopApp
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.PictureBox pBoxMainGame;
         private System.Windows.Forms.Label lblP2;
         private System.Windows.Forms.Timer tmrGameTime;
