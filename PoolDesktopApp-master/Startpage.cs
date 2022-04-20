@@ -34,6 +34,7 @@ namespace PoolDesktopApp
 
         // Boolsk variabel for å sjekke om navn er oppgitt
         public bool nameOkay = false;
+        public bool gameReady = false;
 
         public Startpage()
         {
@@ -149,6 +150,21 @@ namespace PoolDesktopApp
             selectedCamera = cboCamera.SelectedIndex;
         }
 
+        public void StartGame()
+        {
+            GetInfo();
+            SetName();
+            SetBallType();
+            SetCamera();
+
+            if (nameOkay == true)
+            {
+                DesktopApp desktopApp = new DesktopApp();
+                desktopApp.Show();
+                this.Hide();
+            }
+        }
+
         // Click-event som starter spillet, og sender brukeren videre til hovedsiden
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -173,6 +189,7 @@ namespace PoolDesktopApp
 
         private void Startpage_Load(object sender, EventArgs e)
         {
+            connectClicked = true;
             txtInfo.Text = "Trykk 'Connect' for å koble til et opprettet spill";
             cboCamera.Items.Clear();
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -272,21 +289,22 @@ namespace PoolDesktopApp
         {
             if (timeOut == 0)
             {
-                txtInfo.Text = ".";
+                txtInfo.Text = "";
             }
 
             else if (timeOut == 10)
             {
-                txtInfo.Text = "..";
+                txtInfo.Text = ".";
             }
             else if (timeOut == 20)
             {
-                txtInfo.Text = "...";
+                txtInfo.Text = "..";
             }
 
             if (timeOut == 30)
             {
-                txtInfo.Text = "Fant ikke spill. Prøv igjen";
+                //txtInfo.Text = "Fant ikke spill. Prøv igjen";
+                txtInfo.Text = "...";
                 connectClicked = false;
                 timeOut = 0;
             }
@@ -317,18 +335,26 @@ namespace PoolDesktopApp
             {
                 txtInfo.Text = "Informasjon er hentet, start spillet.";
                 btnStartGame.Enabled = true;
+                gameReady = true;
+
             }
         }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
             
+            RunAsync();
 
             if (connectClicked == true)
             {
                 Connect();
 
                 timeOut++;
+
+                if (gameReady == true)
+                {
+                    StartGame();
+                }
             }
 
             //txtInfo.Text = text.Text + GameInfo.PlayerID1 + GameInfo.Username1 + GameInfo.Username2 
