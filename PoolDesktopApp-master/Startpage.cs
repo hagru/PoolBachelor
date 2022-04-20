@@ -292,16 +292,16 @@ namespace PoolDesktopApp
                 txtInfo.Text = "";
             }
 
-            else if (timeOut == 10)
+            else if (timeOut == 1)
             {
                 txtInfo.Text = ".";
             }
-            else if (timeOut == 20)
+            else if (timeOut == 2)
             {
                 txtInfo.Text = "..";
             }
 
-            if (timeOut == 30)
+            if (timeOut == 3)
             {
                 //txtInfo.Text = "Fant ikke spill. Prøv igjen";
                 txtInfo.Text = "...";
