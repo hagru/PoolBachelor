@@ -126,6 +126,7 @@ namespace PoolDesktopApp
             this.p1Ball1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball1.TabIndex = 7;
             this.p1Ball1.TabStop = false;
+            this.p1Ball1.Visible = false;
             // 
             // p1Ball2
             // 
@@ -137,6 +138,7 @@ namespace PoolDesktopApp
             this.p1Ball2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball2.TabIndex = 8;
             this.p1Ball2.TabStop = false;
+            this.p1Ball2.Visible = false;
             // 
             // p1Ball3
             // 
@@ -148,6 +150,7 @@ namespace PoolDesktopApp
             this.p1Ball3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball3.TabIndex = 9;
             this.p1Ball3.TabStop = false;
+            this.p1Ball3.Visible = false;
             // 
             // p1Ball4
             // 
@@ -159,6 +162,7 @@ namespace PoolDesktopApp
             this.p1Ball4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball4.TabIndex = 10;
             this.p1Ball4.TabStop = false;
+            this.p1Ball4.Visible = false;
             // 
             // p1Ball5
             // 
@@ -170,6 +174,7 @@ namespace PoolDesktopApp
             this.p1Ball5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball5.TabIndex = 11;
             this.p1Ball5.TabStop = false;
+            this.p1Ball5.Visible = false;
             // 
             // p1Ball6
             // 
@@ -181,6 +186,7 @@ namespace PoolDesktopApp
             this.p1Ball6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball6.TabIndex = 12;
             this.p1Ball6.TabStop = false;
+            this.p1Ball6.Visible = false;
             // 
             // p1Ball7
             // 
@@ -192,6 +198,7 @@ namespace PoolDesktopApp
             this.p1Ball7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Ball7.TabIndex = 13;
             this.p1Ball7.TabStop = false;
+            this.p1Ball7.Visible = false;
             // 
             // p2Ball7
             // 
@@ -203,6 +210,7 @@ namespace PoolDesktopApp
             this.p2Ball7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball7.TabIndex = 20;
             this.p2Ball7.TabStop = false;
+            this.p2Ball7.Visible = false;
             // 
             // p2Ball6
             // 
@@ -214,6 +222,7 @@ namespace PoolDesktopApp
             this.p2Ball6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball6.TabIndex = 19;
             this.p2Ball6.TabStop = false;
+            this.p2Ball6.Visible = false;
             // 
             // p2Ball5
             // 
@@ -225,6 +234,7 @@ namespace PoolDesktopApp
             this.p2Ball5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball5.TabIndex = 18;
             this.p2Ball5.TabStop = false;
+            this.p2Ball5.Visible = false;
             // 
             // p2Ball4
             // 
@@ -236,6 +246,7 @@ namespace PoolDesktopApp
             this.p2Ball4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball4.TabIndex = 17;
             this.p2Ball4.TabStop = false;
+            this.p2Ball4.Visible = false;
             // 
             // p2Ball3
             // 
@@ -247,6 +258,7 @@ namespace PoolDesktopApp
             this.p2Ball3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball3.TabIndex = 16;
             this.p2Ball3.TabStop = false;
+            this.p2Ball3.Visible = false;
             // 
             // p2Ball2
             // 
@@ -258,6 +270,7 @@ namespace PoolDesktopApp
             this.p2Ball2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball2.TabIndex = 15;
             this.p2Ball2.TabStop = false;
+            this.p2Ball2.Visible = false;
             // 
             // p2Ball1
             // 
@@ -269,6 +282,7 @@ namespace PoolDesktopApp
             this.p2Ball1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Ball1.TabIndex = 14;
             this.p2Ball1.TabStop = false;
+            this.p2Ball1.Visible = false;
             // 
             // p1Ball8
             // 
