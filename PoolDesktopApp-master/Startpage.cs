@@ -353,6 +353,7 @@ namespace PoolDesktopApp
 
                 if (gameReady == true)
                 {
+                    txtInfo.Text = "Connected";
                     StartGame();
                 }
             }
