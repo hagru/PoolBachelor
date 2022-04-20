@@ -75,7 +75,9 @@ namespace PoolDesktopApp
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
         {
+
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
+            
         }
 
         Image oldpic = null;
@@ -127,6 +129,7 @@ namespace PoolDesktopApp
         public DesktopApp()
         {
             InitializeComponent();
+            tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
             Init();
@@ -540,13 +543,13 @@ namespace PoolDesktopApp
                 switch (Ball.IsOnTable)
                 {
                     case true:
-                        BallType();
+                        //BallType();
 
                         break;
                     case false:
                         //Ball.ImageString = ("../../images/transparent.png");
 
-                        BallType();
+                        //BallType();
 
 
                         if (Ball.IsOnTable == false && Ball.BallType == "Solid")
