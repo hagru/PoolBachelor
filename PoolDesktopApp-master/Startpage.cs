@@ -168,17 +168,17 @@ namespace PoolDesktopApp
         // Click-event som starter spillet, og sender brukeren videre til hovedsiden
         private void btnStart_Click(object sender, EventArgs e)
         {
-            GetInfo();
-            SetName();
-            SetBallType();
-            SetCamera();
+            //GetInfo();
+            //SetName();
+            //SetBallType();
+            //SetCamera();
 
-            if (nameOkay == true)
-            {
-                DesktopApp desktopApp = new DesktopApp();
-                desktopApp.Show();
-                this.Hide();
-            }
+            //if (nameOkay == true)
+            //{
+            //    DesktopApp desktopApp = new DesktopApp();
+            //    desktopApp.Show();
+            //    this.Hide();
+            //}
         }
 
         private void Startpage_FormClosed(object sender, FormClosedEventArgs e)
@@ -355,6 +355,7 @@ namespace PoolDesktopApp
                 {
                     txtInfo.Text = "Connected";
                     StartGame();
+                    timer1.Stop();
                 }
             }
 
@@ -365,5 +366,6 @@ namespace PoolDesktopApp
 
 
         }
+
     }
 }

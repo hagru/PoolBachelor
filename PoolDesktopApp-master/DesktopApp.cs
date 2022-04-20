@@ -60,6 +60,10 @@ namespace PoolDesktopApp
         public bool p2Lost = false;
         public bool whiteDown = false;
         public bool bgWorkerActive = false;
+        public bool p1Black = false;
+        public bool p2Black = false;
+
+       
 
         public int counter = 0;
         public int shotCounter = 0;
@@ -123,7 +127,6 @@ namespace PoolDesktopApp
         public DesktopApp()
         {
             InitializeComponent();
-            tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
             Init();
@@ -132,11 +135,11 @@ namespace PoolDesktopApp
         public void ShowBalls()
         {
 
-            ballDetection = game.ball_det1.TestIteration(img1);
+          //ballDetection = game.ball_det1.TestIteration(img1);
             string[] ballNames = { "white", "yellow-whole", "blue-whole", "red-whole", "purple-whole", "orange-whole", "green-whole", "brown-whole", "black", "yellow-half",
                 "blue-half", "red-half", "purple-half", "orange-half", "green-half", "brown-half"};
 
-            balls = ballDetection.balls;
+            //balls = ballDetection.balls;
 
             if (balls.Contains("white"))
             {
@@ -228,10 +231,28 @@ namespace PoolDesktopApp
             {
                 ball8.IsOnTable = true;
             }
+            if (balls.Contains("black") && p1Black == true)
+            {
+                ball8.IsOnTable = true;
+                p1Ball8.Visible = true;
+            }
             if (balls.Contains("black") == false)
             {
                 ball8.IsOnTable = false;
+                p2Ball8.Visible = true;
             }
+
+            if (balls.Contains("black") && p2Black == true)
+            {
+                ball8.IsOnTable = true;
+                p2Ball8.Visible = true;
+            }
+            if (balls.Contains("black") == false)
+            {
+                ball8.IsOnTable = false;
+                p2Ball8.Visible = false;
+            }
+
             if (balls.Contains("yellow-half"))
             {
                 ball9.IsOnTable = true;
@@ -317,7 +338,7 @@ namespace PoolDesktopApp
         {
             InitPlayer();
             AddBalls();
-            //LoadBalls();
+            LoadBalls();
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -339,6 +360,8 @@ namespace PoolDesktopApp
             listOfBalls.Add(ball14);
             listOfBalls.Add(ball15);
 
+            //ShowBalls();
+
         }
 
 
@@ -348,7 +371,8 @@ namespace PoolDesktopApp
         {
             lblGameId.Text = "Game ID: " + GameInfo.GameID.ToString();
 
-            // Henter valgt kamera fra Startpage
+
+            //Henter valgt kamera fra Startpage
             int selectedCamera = 0;
             selectedCamera = Startpage.selectedCamera;
 
@@ -422,7 +446,6 @@ namespace PoolDesktopApp
 
 
 
-
         // Metode for å initialisere baller, og legge dem til riktig spiller
         public void AddBalls()
         {
@@ -450,6 +473,7 @@ namespace PoolDesktopApp
             // sett med pictureboxes
 
         }
+
 
         public void LoadBalls()
         {
@@ -480,24 +504,24 @@ namespace PoolDesktopApp
             switch (player2.BallType)
             {
                 case "Half":
-                    p2Ball1.Visible= true;/*Load(ball9.ImageString);*/
-                    p2Ball2.Visible= true;/*Load(ball10.ImageString);*/
-                    p2Ball3.Visible= true;/*Load(ball11.ImageString);*/
-                    p2Ball4.Visible= true;/*Load(ball12.ImageString);*/
-                    p2Ball5.Visible= true;/*Load(ball13.ImageString);*/
-                    p2Ball6.Visible= true;/*Load(ball14.ImageString);*/
+                    p2Ball1.Visible = true;/*Load(ball9.ImageString);*/
+                    p2Ball2.Visible = true;/*Load(ball10.ImageString);*/
+                    p2Ball3.Visible = true;/*Load(ball11.ImageString);*/
+                    p2Ball4.Visible = true;/*Load(ball12.ImageString);*/
+                    p2Ball5.Visible = true;/*Load(ball13.ImageString);*/
+                    p2Ball6.Visible = true;/*Load(ball14.ImageString);*/
                     p2Ball7.Visible = true;/*Load(ball15.ImageString);*/
                     p2Half = true;
                     break;
-                //case "Solid":
-                //    p2Ball1.Load(ball1.ImageString);
-                //    p2Ball2.Load(ball2.ImageString);
-                //    p2Ball3.Load(ball3.ImageString);
-                //    p2Ball4.Load(ball4.ImageString);
-                //    p2Ball5.Load(ball5.ImageString);
-                //    p2Ball6.Load(ball6.ImageString);
-                //    p2Ball7.Load(ball7.ImageString);
-                //    p2Solid = true;
+                    //case "Solid":
+                    //    p2Ball1.Load(ball1.ImageString);
+                    //    p2Ball2.Load(ball2.ImageString);
+                    //    p2Ball3.Load(ball3.ImageString);
+                    //    p2Ball4.Load(ball4.ImageString);
+                    //    p2Ball5.Load(ball5.ImageString);
+                    //    p2Ball6.Load(ball6.ImageString);
+                    //    p2Ball7.Load(ball7.ImageString);
+                    //    p2Solid = true;
                     //break;
             }
         }
@@ -509,7 +533,7 @@ namespace PoolDesktopApp
             counterSolid = 0;
             counterHalf = 0;
 
-            ShowBalls();
+            //ShowBalls();
 
             foreach (var Ball in listOfBalls)
             {
@@ -531,17 +555,13 @@ namespace PoolDesktopApp
 
                             if (counterSolid >= 7)
                             {
-                                if (p1Solid == true && p2Half == true)
-                                {
-                                    //p1Ball8.Load("../../images/black.png");
-                                    p1Ball8.Visible = true;
-                                }
 
-                                else if (p2Solid == true && p1Half == true)
-                                {
-                                    //p2Ball8.Load("../../images/black.png");
-                                    p2Ball8.Visible = true;
-                                }
+                                //p1Ball8.Load("../../images/black.png");
+                                p1Black = true;
+                                //p1Ball8.Visible = true;
+
+
+
                             }
                         }
 
@@ -551,23 +571,21 @@ namespace PoolDesktopApp
 
                             if (counterHalf >= 7)
                             {
-                                if (p1Solid == true && p2Half == true)
-                                {
-                                    //p2Ball8.Load("../../images/black.png");
-                                    p2Ball8.Visible = true;
-                                }
 
-                                else if (p2Solid == true && p1Half == true)
-                                {
-                                    //p1Ball8.Load("../../images/black.png");
-                                    p1Ball8.Visible = true;
-                                }
+                                //p2Ball8.Load("../../images/black.png");
+                                p2Black = true;
+                                //p2Ball8.Visible = true;
+
+
+
+
+
                             }
                         }
                         break;
                 }
             }
-            ShowBalls();
+            //ShowBalls();
         }
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
@@ -578,24 +596,24 @@ namespace PoolDesktopApp
                 switch (player1.BallType)
                 {
                     case "Solid":
-                        p1Ball1.Visible=true;/*Load(ball1.ImageString);*/
-                        p1Ball2.Visible=true;/*Load(ball2.ImageString);*/
-                        p1Ball3.Visible=true;/*Load(ball3.ImageString);*/
-                        p1Ball4.Visible=true;/*Load(ball4.ImageString);*/
-                        p1Ball5.Visible=true;/*Load(ball5.ImageString);*/
-                        p1Ball6.Visible=true;/*Load(ball6.ImageString);*/
+                        p1Ball1.Visible = true;/*Load(ball1.ImageString);*/
+                        p1Ball2.Visible = true;/*Load(ball2.ImageString);*/
+                        p1Ball3.Visible = true;/*Load(ball3.ImageString);*/
+                        p1Ball4.Visible = true;/*Load(ball4.ImageString);*/
+                        p1Ball5.Visible = true;/*Load(ball5.ImageString);*/
+                        p1Ball6.Visible = true;/*Load(ball6.ImageString);*/
                         p1Ball7.Visible = true;/*Load(ball7.ImageString);*/
                         break;
 
-                    //case "Half":
-                    //    p1Ball1.Load(ball9.ImageString);
-                    //    p1Ball2.Load(ball10.ImageString);
-                    //    p1Ball3.Load(ball11.ImageString);
-                    //    p1Ball4.Load(ball12.ImageString);
-                    //    p1Ball5.Load(ball13.ImageString);
-                    //    p1Ball6.Load(ball14.ImageString);
-                    //    p1Ball7.Load(ball15.ImageString);
-                    //    break;
+                        //case "Half":
+                        //    p1Ball1.Load(ball9.ImageString);
+                        //    p1Ball2.Load(ball10.ImageString);
+                        //    p1Ball3.Load(ball11.ImageString);
+                        //    p1Ball4.Load(ball12.ImageString);
+                        //    p1Ball5.Load(ball13.ImageString);
+                        //    p1Ball6.Load(ball14.ImageString);
+                        //    p1Ball7.Load(ball15.ImageString);
+                        //    break;
                 }
 
                 switch (player2.BallType)
@@ -611,7 +629,7 @@ namespace PoolDesktopApp
                     //    break;
 
                     case "Half":
-                        p2Ball1.Visible = true;/* Load(ball9.ImageString);*/                       
+                        p2Ball1.Visible = true;/* Load(ball9.ImageString);*/
                         p2Ball2.Visible = true;/* Load(ball10.ImageString);*/
                         p2Ball3.Visible = true;/* Load(ball11.ImageString);*/
                         p2Ball4.Visible = true;/* Load(ball12.ImageString);*/
@@ -639,12 +657,13 @@ namespace PoolDesktopApp
                 pboLoading.Enabled = true;
                 pboLoading.Show();
                 pboLoading.Load("../../images/loading.gif");
+                pboLoading.Visible = true;
                 //pboLoading.Load("../../images/black.png");
             }
 
             else
             {
-                pboLoading.Hide();
+                //pboLoading.Hide();
                 //btnProcess.Enabled = true;
                 //btnProcess.Text = "PROCESS";
                 //btnProcess.BackColor = Color.SteelBlue;
@@ -698,6 +717,8 @@ namespace PoolDesktopApp
         {
             if (e.KeyChar == 32)
             {
+                //Snapshot();
+                //ShowBalls();
                 bgWorkerActive = true;
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
@@ -706,11 +727,16 @@ namespace PoolDesktopApp
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Snapshot();
-            CheckBalls();
-            CheckWhite();
-            CheckBlack();
-            CheckResult();
+           Snapshot();
+            ballDetection = game.ball_det1.TestIteration(img1);
+            balls = ballDetection.balls;
+            //ShowBalls();
+            //CheckBalls();
+            //CheckWhite();
+            //CheckBlack();
+            //CheckResult();
+            bgWorkerActive = false;
+            bgWorker();
 
         }
 
@@ -722,11 +748,19 @@ namespace PoolDesktopApp
             //    game.BilliardBall();
             //}
             //LoadBalls();
+
+
+            ShowBalls();
+            CheckBalls();
+            CheckWhite();
+            CheckBlack();
+            CheckResult();
             TurnLogic();
             game.BilliardBall();
             //LoadBalls();
-            bgWorkerActive = false;
-            bgWorker();
+            pboLoading.Visible = false;
+
+
             shotCounter++;
 
         }
