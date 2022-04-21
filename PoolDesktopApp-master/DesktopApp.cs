@@ -81,30 +81,8 @@ namespace PoolDesktopApp
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
 
         }
-        void labletimer()
-        {
-            try
-            {
-                lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
-            }
-            catch (Exception)
-            {
-
-                return;
-            }
-           
-        }
-        public void timer()
-        {
-            aTimer = new System.Timers.Timer(2000);
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            labletimer();
-        }
+       
+        
 
         Image oldpic = null;
         bool PicComparer()
@@ -155,11 +133,11 @@ namespace PoolDesktopApp
         public DesktopApp()
         {
             InitializeComponent();
-            //tmrGameTime.Start();
+            tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
             Init();
-            timer();
+           
             
         }
 
