@@ -17,10 +17,11 @@ namespace PoolDesktopApp
         public static int PlayerID1 { get; set; }
         public static int PlayerID2 { get; set; }
         public static DateTime Timestamp { get; set; }
-            //static public bool DataReceived;
-            //djjdjdjdj
+        public static bool ConnectedToDatabase { get; set; }
+        //static public bool DataReceived;
+        //djjdjdjdj
 
 
-        
+
     }
 }

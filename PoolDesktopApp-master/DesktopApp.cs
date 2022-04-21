@@ -62,6 +62,7 @@ namespace PoolDesktopApp
         public bool bgWorkerActive = false;
         public bool p1Black = false;
         public bool p2Black = false;
+        public int endGame = 0;
 
        
 
@@ -372,7 +373,16 @@ namespace PoolDesktopApp
         // Følgende blokker henter live video fra kamera, og viser det i applikasjonen ved oppstart
         private void DesktopApp_Load(object sender, EventArgs e)
         {
-            lblGameId.Text = "Game ID: " + GameInfo.GameID.ToString();
+            if (GameInfo.ConnectedToDatabase == true)
+            {
+                lblGameId.Text = "Game ID: " + GameInfo.GameID.ToString();
+            }
+            else if (GameInfo.ConnectedToDatabase == false)
+            {
+                lblGameId.Text = "Game ID: Quick game";
+            }
+
+
 
 
             //Henter valgt kamera fra Startpage
@@ -477,6 +487,7 @@ namespace PoolDesktopApp
 
         }
 
+        
 
         public void LoadBalls()
         {
@@ -730,7 +741,7 @@ namespace PoolDesktopApp
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-           Snapshot();
+            Snapshot();
             ballDetection = game.ball_det1.TestIteration(img1);
             balls = ballDetection.balls;
             //ShowBalls();
@@ -759,7 +770,11 @@ namespace PoolDesktopApp
             CheckBlack();
             CheckResult();
             TurnLogic();
-            game.BilliardBall();
+            if (GameInfo.ConnectedToDatabase == true)
+            {
+                game.BilliardBall();
+            }
+            
             //LoadBalls();
             pboLoading.Visible = false;
 
@@ -882,25 +897,50 @@ namespace PoolDesktopApp
             {
                 stopwatch.Stop();
                 MessageBox.Show(player2.Name + " vinner!");
-                players[0].lose = true;
-                players[0].win = false;
-                players[1].lose = false;
-                players[1].win = true;
-                game.Update(players);
-                game.UpdateTimeStamp();
+                lblWinner.Text = player2.Name + " vinner!";
+                lblWinner.Visible = true;
+                if (GameInfo.ConnectedToDatabase == true)
+                {
+                    players[0].lose = true;
+                    players[0].win = false;
+                    players[1].lose = false;
+                    players[1].win = true;
+                    game.Update(players);
+                    game.UpdateTimeStamp();
+                }
+
+                tmrEndGame.Start();
+                
             }
 
             else if (p2Lost == true)
             {
                 stopwatch.Stop();
-                MessageBox.Show(player1.Name + " vinner!");
-                players[1].lose = true;
-                players[0].win = true;
-                players[1].win = false;
-                players[0].lose = false;
-                game.Update(players);
-                game.UpdateTimeStamp();
+                //MessageBox.Show(player1.Name + " vinner!");
+                lblWinner.Text = player1.Name + " vinner!";
+                lblWinner.Visible = true;
+                if (GameInfo.ConnectedToDatabase == true)
+                {
+                    players[1].lose = true;
+                    players[0].win = true;
+                    players[1].win = false;
+                    players[0].lose = false;
+                    game.Update(players);
+                    game.UpdateTimeStamp();
+                }
 
+            }
+        }
+
+        private void tmrEndGame_Tick(object sender, EventArgs e)
+        {
+            endGame++;
+
+            if (endGame == 3)
+            {
+                Startpage startpage = new Startpage();
+                startpage.Show();
+                this.Close();
             }
         }
 

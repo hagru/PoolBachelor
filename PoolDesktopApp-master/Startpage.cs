@@ -26,6 +26,7 @@ namespace PoolDesktopApp
         public static bool halfBall = false;
         public static bool simulationMode = false;
         public static int selectedCamera = 0;
+        public static bool connectedToDatabase = false;
         public static FilterInfoCollection filterInfoCollection;
         public static VideoCaptureDevice videoCaptureDevice;
         public bool connectClicked = false;
@@ -47,11 +48,11 @@ namespace PoolDesktopApp
         // Metode som setter navn
         public void SetName()
         {
-            //p1Name = "Sander";
-            //p2Name = "Amanuel";
+            p1Name = txtPlayer1.Text;
+            p2Name = txtPlayer2.Text;
 
             // Sjekker om navnefelt er fyllt ut
-            if (p1Name == "" && p2Name == "")
+            if (p1Name == "" && p2Name == "" && connectedToDatabase == true)
             {
                 nameOkay = true;
                 p1Name = GameInfo.Username1;
@@ -59,18 +60,29 @@ namespace PoolDesktopApp
                 //nameOkay = false;
                 //MessageBox.Show("Mangler navn");
             }
-            else if (p1Name == "" && p2Name != "")
+            else if (p1Name == "" && p2Name == "" && connectedToDatabase == false)
             {
                 nameOkay = true;
-                p1Name = "Amanuel";
+                p1Name = "Player 1";
+                p2Name = "Player 2";
+                //nameOkay = false;
+                //MessageBox.Show("Mangler navn");
             }
-            else if (p1Name != "" && p2Name == "")
+            else if (p1Name == "" && p2Name != "" && connectedToDatabase == false)
             {
                 nameOkay = true;
-                p2Name = "Sander";
+                p1Name = "Player 1";
             }
-            else
+            else if (p1Name != "" && p2Name == "" && connectedToDatabase == false)
             {
+                nameOkay = true;
+                p2Name = "Player 2";
+            }
+            else if (p1Name != "" && p2Name != "" && connectedToDatabase == false)
+            {
+                
+                p1Name = txtPlayer1.Text;
+                p2Name = txtPlayer2.Text;
                 nameOkay = true;
             }
         }
@@ -168,6 +180,8 @@ namespace PoolDesktopApp
         // Click-event som starter spillet, og sender brukeren videre til hovedsiden
         private void btnStart_Click(object sender, EventArgs e)
         {
+            connectedToDatabase = false;
+            GameInfo.ConnectedToDatabase = connectedToDatabase;
             GetInfo();
             SetName();
             SetBallType();
@@ -354,7 +368,10 @@ namespace PoolDesktopApp
 
                 if (gameReady == true)
                 {
-                    txtInfo.Text = "Connected";
+                    connectedToDatabase = true;
+                    GameInfo.ConnectedToDatabase = connectedToDatabase;
+                    txtInfo.Text = "Connected! Game starting!";
+                    System.Threading.Thread.Sleep(2000);
                     StartGame();
                     timer1.Stop();
                 }

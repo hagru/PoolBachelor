@@ -41,14 +41,18 @@ namespace PoolDesktopApp
             this.label2 = new System.Windows.Forms.Label();
             this.rdoSolid = new System.Windows.Forms.RadioButton();
             this.rdoHalf = new System.Windows.Forms.RadioButton();
+            this.txtPlayer1 = new System.Windows.Forms.TextBox();
+            this.txtPlayer2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStartGame
             // 
-            this.btnStartGame.Location = new System.Drawing.Point(61, 274);
-            this.btnStartGame.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnStartGame.Location = new System.Drawing.Point(92, 422);
+            this.btnStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartGame.Name = "btnStartGame";
-            this.btnStartGame.Size = new System.Drawing.Size(151, 75);
+            this.btnStartGame.Size = new System.Drawing.Size(226, 115);
             this.btnStartGame.TabIndex = 0;
             this.btnStartGame.Text = "Start Game";
             this.btnStartGame.UseVisualStyleBackColor = true;
@@ -64,18 +68,18 @@ namespace PoolDesktopApp
             "1",
             "2",
             "3"});
-            this.cboCamera.Location = new System.Drawing.Point(258, 224);
-            this.cboCamera.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.cboCamera.Location = new System.Drawing.Point(387, 345);
+            this.cboCamera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCamera.Name = "cboCamera";
-            this.cboCamera.Size = new System.Drawing.Size(146, 21);
+            this.cboCamera.Size = new System.Drawing.Size(217, 28);
             this.cboCamera.TabIndex = 47;
             // 
             // btnStartSim
             // 
-            this.btnStartSim.Location = new System.Drawing.Point(252, 274);
-            this.btnStartSim.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnStartSim.Location = new System.Drawing.Point(378, 422);
+            this.btnStartSim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartSim.Name = "btnStartSim";
-            this.btnStartSim.Size = new System.Drawing.Size(151, 75);
+            this.btnStartSim.Size = new System.Drawing.Size(226, 115);
             this.btnStartSim.TabIndex = 48;
             this.btnStartSim.Text = "Start Simulation";
             this.btnStartSim.UseVisualStyleBackColor = true;
@@ -83,10 +87,10 @@ namespace PoolDesktopApp
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(61, 59);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnConnect.Location = new System.Drawing.Point(92, 91);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(151, 55);
+            this.btnConnect.Size = new System.Drawing.Size(226, 85);
             this.btnConnect.TabIndex = 49;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -94,12 +98,12 @@ namespace PoolDesktopApp
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(216, 59);
-            this.txtInfo.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtInfo.Location = new System.Drawing.Point(324, 91);
+            this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
-            this.txtInfo.Size = new System.Drawing.Size(245, 56);
+            this.txtInfo.Size = new System.Drawing.Size(366, 84);
             this.txtInfo.TabIndex = 50;
             // 
             // timer1
@@ -111,10 +115,9 @@ namespace PoolDesktopApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 192);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(88, 295);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 13);
+            this.label1.Size = new System.Drawing.Size(186, 20);
             this.label1.TabIndex = 51;
             this.label1.Text = "Choose Player 1 ball type";
             // 
@@ -122,10 +125,9 @@ namespace PoolDesktopApp
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(59, 224);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(88, 345);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 52;
             this.label2.Text = "Pick camera";
             // 
@@ -134,10 +136,10 @@ namespace PoolDesktopApp
             this.rdoSolid.AutoSize = true;
             this.rdoSolid.Checked = true;
             this.rdoSolid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoSolid.Location = new System.Drawing.Point(258, 190);
-            this.rdoSolid.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.rdoSolid.Location = new System.Drawing.Point(387, 292);
+            this.rdoSolid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoSolid.Name = "rdoSolid";
-            this.rdoSolid.Size = new System.Drawing.Size(48, 17);
+            this.rdoSolid.Size = new System.Drawing.Size(69, 24);
             this.rdoSolid.TabIndex = 53;
             this.rdoSolid.TabStop = true;
             this.rdoSolid.Text = "Solid";
@@ -147,19 +149,55 @@ namespace PoolDesktopApp
             // 
             this.rdoHalf.AutoSize = true;
             this.rdoHalf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoHalf.Location = new System.Drawing.Point(361, 190);
-            this.rdoHalf.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.rdoHalf.Location = new System.Drawing.Point(542, 292);
+            this.rdoHalf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoHalf.Name = "rdoHalf";
-            this.rdoHalf.Size = new System.Drawing.Size(44, 17);
+            this.rdoHalf.Size = new System.Drawing.Size(63, 24);
             this.rdoHalf.TabIndex = 54;
             this.rdoHalf.Text = "Half";
             this.rdoHalf.UseVisualStyleBackColor = true;
             // 
+            // txtPlayer1
+            // 
+            this.txtPlayer1.Location = new System.Drawing.Point(387, 215);
+            this.txtPlayer1.Name = "txtPlayer1";
+            this.txtPlayer1.Size = new System.Drawing.Size(218, 26);
+            this.txtPlayer1.TabIndex = 55;
+            // 
+            // txtPlayer2
+            // 
+            this.txtPlayer2.Location = new System.Drawing.Point(387, 250);
+            this.txtPlayer2.Name = "txtPlayer2";
+            this.txtPlayer2.Size = new System.Drawing.Size(218, 26);
+            this.txtPlayer2.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(249, 218);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 20);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Player 1:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(249, 253);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 20);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "Player 2:";
+            // 
             // Startpage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 396);
+            this.ClientSize = new System.Drawing.Size(718, 609);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtPlayer2);
+            this.Controls.Add(this.txtPlayer1);
             this.Controls.Add(this.rdoHalf);
             this.Controls.Add(this.rdoSolid);
             this.Controls.Add(this.label2);
@@ -170,7 +208,7 @@ namespace PoolDesktopApp
             this.Controls.Add(this.cboCamera);
             this.Controls.Add(this.btnStartGame);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Startpage";
             this.Text = "Startpage";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Startpage_FormClosed);
@@ -192,5 +230,9 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdoSolid;
         private System.Windows.Forms.RadioButton rdoHalf;
+        private System.Windows.Forms.TextBox txtPlayer1;
+        private System.Windows.Forms.TextBox txtPlayer2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
