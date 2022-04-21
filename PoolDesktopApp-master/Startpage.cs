@@ -214,10 +214,21 @@ namespace PoolDesktopApp
             }
             cboCamera.SelectedIndex = 0;
             videoCaptureDevice = new VideoCaptureDevice();
-            client.BaseAddress = new Uri("http://10.8.0.2:80/");
+            clientConfig();
             timer1.Start();
         }
+        static bool onetime = false;
+        public void clientConfig()
+        {
+            if (onetime == false)
+            {
+                client.BaseAddress = new Uri("http://10.8.0.2:80/");
+                onetime = true;
+            }
 
+        }
+       
+        
         private void btnStartSim_Click(object sender, EventArgs e)
         {
             simulationMode = true;

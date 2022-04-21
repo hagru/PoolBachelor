@@ -76,9 +76,8 @@ namespace PoolDesktopApp
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
         {
-
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
-            
+
         }
 
         Image oldpic = null;
@@ -134,6 +133,7 @@ namespace PoolDesktopApp
             game = new Game();
             ballDetection = new BallDetection();
             Init();
+            
         }
 
         public void ShowBalls()
@@ -725,6 +725,7 @@ namespace PoolDesktopApp
         }
         private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             if (e.KeyChar == 32)
             {
                 //Snapshot();
@@ -733,6 +734,8 @@ namespace PoolDesktopApp
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
             }
+            tmrEndGame.Start();
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -891,6 +894,7 @@ namespace PoolDesktopApp
         {
             if (p1Lost == true)
             {
+               
                 stopwatch.Stop();
                 MessageBox.Show(player2.Name + " vinner!");
                 lblWinner.Text = player2.Name + " vinner!";
@@ -904,15 +908,16 @@ namespace PoolDesktopApp
                     game.Update(players);
                     game.UpdateTimeStamp();
                 }
-
+                tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
                 
             }
 
             else if (p2Lost == true)
             {
+                
                 stopwatch.Stop();
-                //MessageBox.Show(player1.Name + " vinner!");
+                MessageBox.Show(player1.Name + " vinner!");
                 lblWinner.Text = player1.Name + " vinner!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
@@ -924,21 +929,24 @@ namespace PoolDesktopApp
                     game.Update(players);
                     game.UpdateTimeStamp();
                 }
-
+                
             }
+           
+            
         }
 
         private void tmrEndGame_Tick(object sender, EventArgs e)
         {
             endGame++;
-
-            if (endGame == 1)
+            
+            if (endGame == 6 && (p1Lost == true || p2Lost == true))
             {
                 Startpage startpage = new Startpage();
                 startpage.Show();
-                DesktopApp desktopApp = new DesktopApp();
-                desktopApp.Close();
+
+                this.Hide();
             }
+
         }
 
 
