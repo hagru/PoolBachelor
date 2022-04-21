@@ -572,7 +572,7 @@ namespace PoolDesktopApp
 
                                 //p1Ball8.Load("../../images/black.png");
                                 p1Black = true;
-                                //p1Ball8.Visible = true;
+                                p1Ball8.Visible = true;
 
 
 
@@ -588,11 +588,7 @@ namespace PoolDesktopApp
 
                                 //p2Ball8.Load("../../images/black.png");
                                 p2Black = true;
-                                //p2Ball8.Visible = true;
-
-
-
-
+                                p2Ball8.Visible = true;
 
                             }
                         }
@@ -936,11 +932,12 @@ namespace PoolDesktopApp
         {
             endGame++;
 
-            if (endGame == 3)
+            if (endGame == 1)
             {
                 Startpage startpage = new Startpage();
                 startpage.Show();
-                this.Close();
+                DesktopApp desktopApp = new DesktopApp();
+                desktopApp.Close();
             }
         }
 

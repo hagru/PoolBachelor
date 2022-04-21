@@ -57,7 +57,7 @@ namespace PoolDesktopApp
 
                 foreach (var c in result.Predictions)
                 {
-                    if (c.TagName != b && c.Probability >= 0.30)
+                    if (c.TagName != b && c.Probability >= 0.55)
                     {
                         //Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
 
