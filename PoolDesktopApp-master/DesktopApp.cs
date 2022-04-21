@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
@@ -71,6 +72,7 @@ namespace PoolDesktopApp
 
         // Objekt av stoppeklokke for timer
         private Stopwatch stopwatch;
+        private static System.Timers.Timer aTimer;
 
 
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
@@ -78,6 +80,30 @@ namespace PoolDesktopApp
         {
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
 
+        }
+        void labletimer()
+        {
+            try
+            {
+                lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+           
+        }
+        public void timer()
+        {
+            aTimer = new System.Timers.Timer(2000);
+            aTimer.Elapsed += OnTimedEvent;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
+        }
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            labletimer();
         }
 
         Image oldpic = null;
@@ -129,10 +155,11 @@ namespace PoolDesktopApp
         public DesktopApp()
         {
             InitializeComponent();
-            tmrGameTime.Start();
+            //tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
             Init();
+            timer();
             
         }
 
