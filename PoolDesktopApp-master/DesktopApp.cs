@@ -725,7 +725,7 @@ namespace PoolDesktopApp
         }
         private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+           
             if (e.KeyChar == 32)
             {
                 //Snapshot();
