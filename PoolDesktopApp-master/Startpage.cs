@@ -198,8 +198,9 @@ namespace PoolDesktopApp
 
         private void Startpage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.ExitThread();
             timer1.Stop();
+            Application.ExitThread();
+            
         }
 
         private void Startpage_Load(object sender, EventArgs e)
@@ -382,9 +383,10 @@ namespace PoolDesktopApp
                     connectedToDatabase = true;
                     GameInfo.ConnectedToDatabase = connectedToDatabase;
                     txtInfo.Text = "Connected! Game starting!";
-                    System.Threading.Thread.Sleep(2000);
-                    StartGame();
                     timer1.Stop();
+                    //System.Threading.Thread.Sleep(2000);
+                    StartGame();
+                    
                 }
             }
 
