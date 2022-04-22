@@ -778,6 +778,7 @@ namespace PoolDesktopApp
             CheckBlack();
             CheckResult();
             TurnLogic();
+
             if (GameInfo.ConnectedToDatabase == true)
             {
                 game.BilliardBall();
@@ -824,13 +825,14 @@ namespace PoolDesktopApp
 
         public void CheckWhite()
         {
-            whiteDown = game.CheckWhite();
+            whiteDown = game.CheckWhite(ballDetection);
         }
 
         // Metode som sjekker om svart er puttet, og om det evt er flere baller av en sort på bordet
         // noe som vil bety at den andre vinner
         public void CheckBlack()
         {
+            
             //whiteDown = game.CheckWhite();
 
             if (listOfBalls[8].IsOnTable == false)

@@ -569,7 +569,7 @@ namespace PoolDesktopApp
         {
             Snapshot();
             CheckBalls();
-            CheckWhite();
+            //CheckWhite();
             CheckBlack();
             CheckResult();
         }
@@ -669,7 +669,7 @@ namespace PoolDesktopApp
 
         public void CheckWhite()
         {
-            whiteDown = game.CheckWhite();
+            //whiteDown = game.CheckWhite();
         }
 
         public void CheckResult()

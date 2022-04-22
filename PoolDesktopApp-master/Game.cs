@@ -43,6 +43,7 @@ namespace PoolDesktopApp
         bool help = false;
         int gameID;
         public BallDetection ball_det1;
+        public bool whiteDown = false;
 
 
         public Game()
@@ -90,12 +91,12 @@ namespace PoolDesktopApp
             int solid = NumberOfBallsOfEachtype(ballDetection.balls)[1];
             int half = NumberOfBallsOfEachtype(ballDetection.balls)[0];
 
-            if (player1.PlayerTurn == true && CheckWhite() == true)
+            if (player1.PlayerTurn == true && CheckWhite(ball_det1) == true)
             {
                 player1.PlayerTurn = false;
                 player2.PlayerTurn = true;
             }
-            else if (player2.PlayerTurn == true && CheckWhite() == true)
+            else if (player2.PlayerTurn == true && CheckWhite(ball_det1) == true)
             {
                 player1.PlayerTurn = true;
                 player2.PlayerTurn = false;
@@ -402,11 +403,9 @@ namespace PoolDesktopApp
             count++;
         }
 
-        public bool CheckWhite()
+        public bool CheckWhite(BallDetection detection)
         {
-            bool whiteDown = false;
-
-
+            ball_det1 = detection;
             if (ball_det1.balls.Contains("white"))
             {
                 whiteDown = false;
