@@ -397,21 +397,19 @@ namespace PoolDesktopApp
             filterInfoCollection = Startpage.filterInfoCollection;
             videoCaptureDevice = Startpage.videoCaptureDevice;
 
-            // Formaterer videofeeden til 1920x1080 og viser det i pictureboxen
+            // Formaterer videofeeden til 1280x720 og viser det i pictureboxen
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[selectedCamera].MonikerString);
-            try
-            {
-                videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[9];
-                for (int i = 0; i < videoCaptureDevice.VideoCapabilities.Length; i++)
-                {
-                    string resolution = "Resolution Number " + Convert.ToString(i);
-                    string resolution_size = videoCaptureDevice.VideoCapabilities[i].FrameSize.ToString();
-                }
-            }
-            catch (Exception b)
-            {
-                MessageBox.Show(b.Message);
-            }
+            videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[7];
+           
+
+                //for (int i = 0; i < videoCaptureDevice.VideoCapabilities.Length; i++)
+                //{
+                //    string resolution = "Resolution Number " + Convert.ToString(i);
+                //    string resolution_size = videoCaptureDevice.VideoCapabilities[i].FrameSize.ToString();
+                //    lblGameId.Text += resolution + " " + resolution_size + "\r\n";
+                //}
+            
+         
 
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
