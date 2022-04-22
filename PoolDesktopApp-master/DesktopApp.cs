@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Timers;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using API_Class;
 using PoolDesktopApp.Properties;
 
 namespace PoolDesktopApp
@@ -132,13 +134,17 @@ namespace PoolDesktopApp
 
         public DesktopApp()
         {
+            
             InitializeComponent();
+            clientConfig();
             tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
             Init();
-           
             
+
+
+
         }
 
         public void ShowBalls()
@@ -978,6 +984,37 @@ namespace PoolDesktopApp
         {
             videoCaptureDevice.Stop();
             Application.Exit();
+        }
+        static HttpClient client = new HttpClient();
+
+        static async Task RunAsync()
+        {
+
+            GameConfig product = new GameConfig
+            {
+                GameStart = true
+            };
+            GameConfig f = await SetGameStartAsync(product);
+        }
+        static async Task<GameConfig> SetGameStartAsync(GameConfig path)
+        {
+
+            HttpResponseMessage response = await client.PutAsJsonAsync(
+                $"/GameDone", path);
+            int b = 0;
+            response.EnsureSuccessStatusCode();
+            return path;
+
+        }
+        static bool onetime;
+        public void clientConfig()
+        {
+            if (onetime == false)
+            {
+                client.BaseAddress = new Uri("http://10.8.0.2:80/");
+                onetime = true;
+            }
+
         }
     }
 }

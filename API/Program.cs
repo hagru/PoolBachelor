@@ -29,7 +29,7 @@ app.MapPut("/update", (GameConfig g) =>
    
      
 });
-app.MapPut("/GameDone", (GameConfig g) =>
+app.MapPut("/GameDone", () =>
 {
     gamecon.GameStop = true;
     gamecon.PlayerID1 = 0;
@@ -37,6 +37,7 @@ app.MapPut("/GameDone", (GameConfig g) =>
     gamecon.GameID = 0;
     gamecon.Username1 = "";
     gamecon.Username2 = "";
+    gamecon.GameStart = true;
 
     return gamecon.GameStart;
 
