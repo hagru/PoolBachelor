@@ -141,9 +141,7 @@ namespace PoolDesktopApp
             game = new Game();
             ballDetection = new BallDetection();
             Init();
-            
-
-
+            clientConfig();
 
         }
 
@@ -918,6 +916,7 @@ namespace PoolDesktopApp
                     players[1].win = true;
                     game.Update(players);
                     game.UpdateTimeStamp();
+                    RunAsync();
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
@@ -939,8 +938,10 @@ namespace PoolDesktopApp
                     players[0].lose = false;
                     game.Update(players);
                     game.UpdateTimeStamp();
+                    RunAsync();
                 }
-                
+                tmrEndGame.Enabled = true;
+                tmrEndGame.Start();
             }
            
             
