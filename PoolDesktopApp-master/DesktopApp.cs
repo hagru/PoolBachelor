@@ -474,17 +474,19 @@ namespace PoolDesktopApp
             }
         }
 
-        private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            videoCaptureDevice.Stop();
-          
-        }
+
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
         {
             videoCaptureDevice.Stop();
-            
         }
+
+        private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            videoCaptureDevice.Stop();
+        }
+
+
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
         public void BallType()
