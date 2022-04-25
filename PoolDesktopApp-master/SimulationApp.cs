@@ -513,20 +513,16 @@ namespace PoolDesktopApp
 
             if (bgWorkerActive == true)
             {
-                btnProcess.Enabled = false;
-                btnProcess.BackColor = SystemColors.Control;
-                btnProcess.Text = "";
                 pboLoading.Enabled = true;
-                pboLoading.Show();
                 pboLoading.Load("../../images/loading.gif");
+                pboLoading.Show();
+                pboLoading.Visible = true;
             }
 
             else
             {
-                pboLoading.Hide();
-                btnProcess.Enabled = true;
-                btnProcess.Text = "PROCESS";
-                btnProcess.BackColor = Color.SteelBlue;
+                //pboLoading.Enabled = false;
+                //pboLoading.Hide();
             }
         }
         private void btnProcess_Click(object sender, EventArgs e)
