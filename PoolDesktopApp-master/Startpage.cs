@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using API_Class;
 using System.Net.Http;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace PoolDesktopApp
 {
@@ -43,7 +44,9 @@ namespace PoolDesktopApp
             Game game = new Game();
             game.Getplaycount();
             Game.count++;
-            timer1.Start();
+            gameReady = false;
+            check = false;
+
         }
 
         // Metode som setter navn
@@ -157,7 +160,7 @@ namespace PoolDesktopApp
                 ballTypeP2 = "Solid";
             }
         }
-
+        
         public void SetCamera()
         {
             selectedCamera = cboCamera.SelectedIndex;
@@ -169,12 +172,15 @@ namespace PoolDesktopApp
             SetName();
             SetBallType();
             SetCamera();
-
+           
             if (nameOkay == true)
             {
                 DesktopApp desktopApp = new DesktopApp();
                 desktopApp.Show();
+                nameOkay = false;
+                timer1.Stop();
                 this.Hide();
+
             }
         }
 
@@ -206,6 +212,7 @@ namespace PoolDesktopApp
 
         private void Startpage_Load(object sender, EventArgs e)
         {
+            gameReady = false;
             connectClicked = true;
             txtInfo.Text = "Trykk 'Connect' for å koble til et opprettet spill";
             cboCamera.Items.Clear();
@@ -217,6 +224,9 @@ namespace PoolDesktopApp
             cboCamera.SelectedIndex = 0;
             videoCaptureDevice = new VideoCaptureDevice();
             clientConfig();
+            Thread.Sleep(3000);
+            timer1.Start();
+
             
         }
         static bool onetime = false;
@@ -248,9 +258,9 @@ namespace PoolDesktopApp
 
         private void btnConnect_Click_1(object sender, EventArgs e)
         {
-            txtInfo.Text = ".";
-            connectClicked = true;
-            RunAsync();
+            //txtInfo.Text = ".";
+            //connectClicked = true;
+            //RunAsync();
 
         }
         static HttpClient client = new HttpClient();
@@ -280,8 +290,9 @@ namespace PoolDesktopApp
             txtInfo.Text = text.Text;
             GetInfo();
         }
-        void GetInfo()
+        public void GetInfo()
         {
+           
             RunAsync2();
         }
         GameConfig gamecon = new GameConfig();
@@ -308,6 +319,7 @@ namespace PoolDesktopApp
             if (GameInfo.PlayerID1 != 0)
             {
                 text.Text = "ready";
+                check = true;
             }
             return info;
         }
@@ -356,48 +368,49 @@ namespace PoolDesktopApp
 
             
         }
-
+        static bool check = false;
         public void Connected()
         {
             if (GameInfo.PlayerID1 != 0)
             {
                 txtInfo.Text = "Informasjon er hentet, start spillet.";
                 btnStartGame.Enabled = true;
+               
                 gameReady = true;
 
             }
         }
         
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
-            
             RunAsync();
-
-            if (connectClicked == true)
-            {
-                Connect();
+            GetInfo();
+            Connect();
 
                 timeOut++;
 
-                if (gameReady == true)
-                {
-                    connectedToDatabase = true;
-                    GameInfo.ConnectedToDatabase = connectedToDatabase;
-                    txtInfo.Text = "Connected! Game starting!";
-                    timer1.Stop();
-                    //System.Threading.Thread.Sleep(2000);
-                    StartGame();
-                    
-                }
+            if (gameReady == true && check == true)
+            {
+                connectedToDatabase = true;
+                GameInfo.ConnectedToDatabase = connectedToDatabase;
+                txtInfo.Text = "Connected! Game starting!";
+                //System.Threading.Thread.Sleep(2000);
+                gameReady = false;
+                StartGame();
+
             }
+
 
             //txtInfo.Text = text.Text + GameInfo.PlayerID1 + GameInfo.Username1 + GameInfo.Username2 
             //    + GameInfo.GameID;
-            
-            GetInfo();
+
+
 
 
         }
+
+        
+
 
     }
 }

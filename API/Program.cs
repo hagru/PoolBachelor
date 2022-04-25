@@ -38,7 +38,7 @@ app.MapPut("/GameDone", () =>
     gamecon.Username1 = "";
     gamecon.Username2 = "";
     gamecon.GameStart = true;
-
+    Console.WriteLine("ok");
     return gamecon.GameStart;
 
 });

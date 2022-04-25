@@ -336,6 +336,7 @@ namespace PoolDesktopApp
 
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
+            
         }
 
 
@@ -471,6 +472,18 @@ namespace PoolDesktopApp
                         break;
                 }
             }
+        }
+
+        private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            videoCaptureDevice.Stop();
+          
+        }
+
+        private void DesktopApp_Deactivate(object sender, EventArgs e)
+        {
+            videoCaptureDevice.Stop();
+            
         }
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
@@ -747,18 +760,17 @@ namespace PoolDesktopApp
             }
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            videoCaptureDevice.Stop();
-            Application.Exit();
-        }
-
+     
         static async Task RunAsync()
         {
             GameConfig product = new GameConfig
             {
-                GameStart = true
-            };
+                GameStart = true,
+                PlayerID1 = 0,
+                PlayerID2 = 0,
+                GameID = 0
+            
+        };
             GameConfig f = await SetGameStartAsync(product);
         }
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
