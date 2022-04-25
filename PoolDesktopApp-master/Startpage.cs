@@ -233,9 +233,12 @@ namespace PoolDesktopApp
         
         private void btnStartSim_Click(object sender, EventArgs e)
         {
-            simulationMode = true;
-            SetNameSim();
-            SetBallTypeSim();
+            connectedToDatabase = false;
+            GameInfo.ConnectedToDatabase = connectedToDatabase;
+            GetInfo();
+            SetName();
+            SetBallType();
+            SetCamera();
 
             if (nameOkay == true)
             {

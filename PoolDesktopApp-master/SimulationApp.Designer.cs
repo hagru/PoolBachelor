@@ -56,6 +56,7 @@ namespace PoolDesktopApp
             this.lblTimer = new System.Windows.Forms.Label();
             this.pboLoading = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lblWinner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).BeginInit();
@@ -363,12 +364,25 @@ namespace PoolDesktopApp
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // lblWinner
+            // 
+            this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWinner.AutoSize = true;
+            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.Location = new System.Drawing.Point(1012, 1230);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(184, 58);
+            this.lblWinner.TabIndex = 73;
+            this.lblWinner.Text = "Winner";
+            this.lblWinner.Visible = false;
+            // 
             // SimulationApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
+            this.Controls.Add(this.lblWinner);
             this.Controls.Add(this.pboLoading);
             this.Controls.Add(this.pBoxMainGame);
             this.Controls.Add(this.lblP2);
@@ -419,6 +433,7 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboLoading)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -448,5 +463,6 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.PictureBox pboLoading;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label lblWinner;
     }
 }
