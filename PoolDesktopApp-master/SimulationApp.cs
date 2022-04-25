@@ -286,6 +286,7 @@ namespace PoolDesktopApp
             stopwatch = new Stopwatch();
             stopwatch.Start();
 
+            listOfBalls.Add(ball0);
             listOfBalls.Add(ball1);
             listOfBalls.Add(ball2);
             listOfBalls.Add(ball3);
@@ -501,6 +502,7 @@ namespace PoolDesktopApp
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            Snapshot();
             ballDetection = game.ball_det1.TestIteration(img1);
             balls = ballDetection.balls;
             //ShowBalls();
