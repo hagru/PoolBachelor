@@ -397,6 +397,7 @@ namespace PoolDesktopApp
             this.Text = "SimulationApp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SimulationApp_FormClosed);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SimulationApp_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).EndInit();

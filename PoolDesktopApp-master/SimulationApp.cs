@@ -309,6 +309,16 @@ namespace PoolDesktopApp
             }
         }
 
+        private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                bgWorkerActive = true;
+                bgWorker();
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
 
         // Metode for å initialisere baller, og legge dem til riktig spiller
         public void AddBalls()
