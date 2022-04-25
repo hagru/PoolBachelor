@@ -43,6 +43,7 @@ namespace PoolDesktopApp
             Game game = new Game();
             game.Getplaycount();
             Game.count++;
+            timer1.Start();
         }
 
         // Metode som setter navn
@@ -216,7 +217,7 @@ namespace PoolDesktopApp
             cboCamera.SelectedIndex = 0;
             videoCaptureDevice = new VideoCaptureDevice();
             clientConfig();
-            timer1.Start();
+            
         }
         static bool onetime = false;
         public void clientConfig()
