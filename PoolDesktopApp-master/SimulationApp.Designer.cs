@@ -305,6 +305,7 @@ namespace PoolDesktopApp
             // pBoxCueP2
             // 
             this.pBoxCueP2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pBoxCueP2.Image = ((System.Drawing.Image)(resources.GetObject("pBoxCueP2.Image")));
             this.pBoxCueP2.Location = new System.Drawing.Point(1579, 1215);
             this.pBoxCueP2.Name = "pBoxCueP2";
             this.pBoxCueP2.Size = new System.Drawing.Size(649, 73);
@@ -315,6 +316,7 @@ namespace PoolDesktopApp
             // pBoxCueP1
             // 
             this.pBoxCueP1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pBoxCueP1.Image = ((System.Drawing.Image)(resources.GetObject("pBoxCueP1.Image")));
             this.pBoxCueP1.Location = new System.Drawing.Point(333, 1215);
             this.pBoxCueP1.Name = "pBoxCueP1";
             this.pBoxCueP1.Size = new System.Drawing.Size(649, 73);
