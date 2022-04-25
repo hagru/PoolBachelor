@@ -523,8 +523,8 @@ namespace PoolDesktopApp
 
             else
             {
-                pboLoading.Enabled = false;
-                pboLoading.Hide();
+                //pboLoading.Enabled = false;
+                //pboLoading.Hide();
             }
         }
 
@@ -536,7 +536,7 @@ namespace PoolDesktopApp
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
             }
-            tmrEndGame.Start();
+            
 
         }
 
@@ -680,7 +680,7 @@ namespace PoolDesktopApp
             if (p1Lost == true)
             {
                 stopwatch.Stop();
-                MessageBox.Show(player2.Name + " vinner!");
+                
                 lblWinner.Text = player2.Name + " vinner!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
@@ -701,7 +701,7 @@ namespace PoolDesktopApp
             else if (p2Lost == true)
             {
                 stopwatch.Stop();
-                MessageBox.Show(player1.Name + " vinner!");
+                
                 lblWinner.Text = player1.Name + " vinner!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
@@ -723,7 +723,7 @@ namespace PoolDesktopApp
         {
             endGame++;
             
-            if (endGame == 6 && (p1Lost == true || p2Lost == true))
+               if (endGame == 2 && (p1Lost == true || p2Lost == true))
             {
                 Startpage startpage = new Startpage();
                 startpage.Show();
