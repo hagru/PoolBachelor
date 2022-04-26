@@ -27,7 +27,6 @@ namespace PoolDesktopApp
         Image img;
         Bitmap img1;
 
-
         Game game;
         BallDetection ballDetection;
         static HttpClient client = new HttpClient();
@@ -76,17 +75,14 @@ namespace PoolDesktopApp
         private Stopwatch stopwatch;
         private static System.Timers.Timer aTimer;
 
-
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
         {
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
-
         }
 
         public DesktopApp()
         {
-            
             InitializeComponent();
             clientConfig();
             tmrGameTime.Start();
@@ -108,7 +104,6 @@ namespace PoolDesktopApp
             {
                 ball0.IsOnTable = false;
             }
-
             if (balls.Contains("yellow-whole"))
             {
                 ball1.IsOnTable = true;
@@ -321,9 +316,10 @@ namespace PoolDesktopApp
         // Følgende blokker henter live video fra kamera, og viser det i applikasjonen ved oppstart
         private void DesktopApp_Load(object sender, EventArgs e)
         {
+            // Viser GameID
             ShowGameId();
 
-            //Henter valgt kamera fra Startpage
+            // Henter valgt kamera fra Startpage
             int selectedCamera = 0;
             selectedCamera = Startpage.selectedCamera;
 
@@ -340,13 +336,10 @@ namespace PoolDesktopApp
             {
                 return;
             }
-            
 
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
-            
         }
-
 
 
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -408,7 +401,6 @@ namespace PoolDesktopApp
             ball15 = new Ball("brownHalf", false, "../../images/brownHalf.png", "Half", 0, 0);
             #endregion
         }
-        
 
         public void LoadBalls()
         {
@@ -452,8 +444,8 @@ namespace PoolDesktopApp
                 switch (Ball.IsOnTable)
                 {
                     case true:
-
                         break;
+
                     case false:
 
                         if (Ball.IsOnTable == false && Ball.BallType == "Solid")
@@ -495,8 +487,6 @@ namespace PoolDesktopApp
             Application.ExitThread();
         }
 
-
-
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
         public void BallType()
         {
@@ -537,19 +527,9 @@ namespace PoolDesktopApp
 
         public void bgWorker()
         {
-            if (bgWorkerActive == true)
-            {
-                pboLoading.Enabled = true;
-                pboLoading.Load("../../images/loading.gif");
-                pboLoading.Show();
-                pboLoading.Visible = true;
-            }
-
-            else
-            {
-                //pboLoading.Enabled = false;
-                //pboLoading.Hide();
-            }
+            pboLoading.Load("../../images/loading.gif");
+            pboLoading.Enabled = true;
+            pboLoading.Visible = true;
         }
 
         private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
@@ -560,8 +540,6 @@ namespace PoolDesktopApp
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
             }
-            
-
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -569,14 +547,6 @@ namespace PoolDesktopApp
             Snapshot();
             ballDetection = game.ball_det1.TestIteration(img1);
             balls = ballDetection.balls;
-            //ShowBalls();
-            //CheckBalls();
-            //CheckWhite();
-            //CheckBlack();
-            //CheckResult();
-            bgWorkerActive = false;
-            bgWorker();
-
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -592,7 +562,9 @@ namespace PoolDesktopApp
             {
                 game.BilliardBall();
             }
-            
+
+            bgWorkerActive = false;
+
             pboLoading.Visible = false;
 
             shotCounter++;

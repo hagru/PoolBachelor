@@ -354,7 +354,7 @@ namespace PoolDesktopApp
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
             this.pboLoading.Image = ((System.Drawing.Image)(resources.GetObject("pboLoading.Image")));
-            this.pboLoading.Location = new System.Drawing.Point(1084, 1300);
+            this.pboLoading.Location = new System.Drawing.Point(1237, 1278);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
             this.pboLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -373,11 +373,12 @@ namespace PoolDesktopApp
             this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWinner.AutoSize = true;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinner.Location = new System.Drawing.Point(1012, 1230);
+            this.lblWinner.Location = new System.Drawing.Point(1121, 1230);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(184, 58);
             this.lblWinner.TabIndex = 73;
             this.lblWinner.Text = "Winner";
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWinner.Visible = false;
             // 
             // tmrEndGame

@@ -73,18 +73,6 @@ namespace PoolDesktopApp
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
         }
 
-        private void UpdateText()
-        {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new Action(() => UpdateText()));
-            }
-            else
-            {
-                lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
-            }
-        }
-
         public void ShowGameId()
         {
             lblGameId.Text = "Game ID: Simulation";
@@ -507,20 +495,9 @@ namespace PoolDesktopApp
 
         public void bgWorker()
         {
-
-            if (bgWorkerActive == true)
-            {
-                pboLoading.Enabled = true;
-                pboLoading.Load("../../images/loading.gif");
-                pboLoading.Show();
-                pboLoading.Visible = true;
-            }
-
-            else
-            {
-                //pboLoading.Enabled = false;
-                //pboLoading.Hide();
-            }
+            pboLoading.Load("../../images/loading.gif");
+            pboLoading.Enabled = true;
+            pboLoading.Visible = true;
         }
 
 
@@ -529,13 +506,6 @@ namespace PoolDesktopApp
             Snapshot();
             ballDetection = game.ball_det1.TestIteration(img1);
             balls = ballDetection.balls;
-            //ShowBalls();
-            //CheckBalls();
-            //CheckWhite();
-            //CheckBlack();
-            //CheckResult();
-            bgWorkerActive = false;
-            bgWorker();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -551,6 +521,8 @@ namespace PoolDesktopApp
             {
                 game.BilliardBall();
             }
+
+            bgWorkerActive = false;
 
             pboLoading.Visible = false;
 
