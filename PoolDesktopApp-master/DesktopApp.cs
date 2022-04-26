@@ -332,7 +332,15 @@ namespace PoolDesktopApp
 
             // Formaterer videofeeden til 1280x720 og viser det i pictureboxen
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[selectedCamera].MonikerString);
-            videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[7];
+            try
+            {
+                videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[7];
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
 
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
@@ -407,13 +415,13 @@ namespace PoolDesktopApp
             switch (player1.BallType)
             {
                 case "Solid":
-                    p1Ball1.Visible = true;/*Load(ball1.ImageString);*/
-                    p1Ball2.Visible = true;/*Load(ball2.ImageString);*/
-                    p1Ball3.Visible = true;/*Load(ball3.ImageString);*/
-                    p1Ball4.Visible = true;/*Load(ball4.ImageString);*/
-                    p1Ball5.Visible = true;/*Load(ball5.ImageString);*/
-                    p1Ball6.Visible = true;/*Load(ball6.ImageString);*/
-                    p1Ball7.Visible = true;/*Load(ball7.ImageString);*/
+                    p1Ball1.Visible = true;
+                    p1Ball2.Visible = true;
+                    p1Ball3.Visible = true;
+                    p1Ball4.Visible = true;
+                    p1Ball5.Visible = true;
+                    p1Ball6.Visible = true;
+                    p1Ball7.Visible = true;
                     p1Solid = true;
                     break;
             }
@@ -421,13 +429,13 @@ namespace PoolDesktopApp
             switch (player2.BallType)
             {
                 case "Half":
-                    p2Ball1.Visible = true;/*Load(ball9.ImageString);*/
-                    p2Ball2.Visible = true;/*Load(ball10.ImageString);*/
-                    p2Ball3.Visible = true;/*Load(ball11.ImageString);*/
-                    p2Ball4.Visible = true;/*Load(ball12.ImageString);*/
-                    p2Ball5.Visible = true;/*Load(ball13.ImageString);*/
-                    p2Ball6.Visible = true;/*Load(ball14.ImageString);*/
-                    p2Ball7.Visible = true;/*Load(ball15.ImageString);*/
+                    p2Ball1.Visible = true;
+                    p2Ball2.Visible = true;
+                    p2Ball3.Visible = true;
+                    p2Ball4.Visible = true;
+                    p2Ball5.Visible = true;
+                    p2Ball6.Visible = true;
+                    p2Ball7.Visible = true;
                     p2Half = true;
                     break;
             }
@@ -484,6 +492,7 @@ namespace PoolDesktopApp
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
         {
             videoCaptureDevice.Stop();
+            Application.ExitThread();
         }
 
 
@@ -496,26 +505,26 @@ namespace PoolDesktopApp
                 switch (player1.BallType)
                 {
                     case "Solid":
-                        p1Ball1.Visible = true;/*Load(ball1.ImageString);*/
-                        p1Ball2.Visible = true;/*Load(ball2.ImageString);*/
-                        p1Ball3.Visible = true;/*Load(ball3.ImageString);*/
-                        p1Ball4.Visible = true;/*Load(ball4.ImageString);*/
-                        p1Ball5.Visible = true;/*Load(ball5.ImageString);*/
-                        p1Ball6.Visible = true;/*Load(ball6.ImageString);*/
-                        p1Ball7.Visible = true;/*Load(ball7.ImageString);*/
+                        p1Ball1.Visible = true;
+                        p1Ball2.Visible = true;
+                        p1Ball3.Visible = true;
+                        p1Ball4.Visible = true;
+                        p1Ball5.Visible = true;
+                        p1Ball6.Visible = true;
+                        p1Ball7.Visible = true;
                         break;
                 }
 
                 switch (player2.BallType)
                 {
                     case "Half":
-                        p2Ball1.Visible = true;/* Load(ball9.ImageString);*/
-                        p2Ball2.Visible = true;/* Load(ball10.ImageString);*/
-                        p2Ball3.Visible = true;/* Load(ball11.ImageString);*/
-                        p2Ball4.Visible = true;/* Load(ball12.ImageString);*/
-                        p2Ball5.Visible = true;/* Load(ball13.ImageString);*/
-                        p2Ball6.Visible = true;/* Load(ball14.ImageString);*/
-                        p2Ball7.Visible = true;/* Load(ball15.ImageString);*/
+                        p2Ball1.Visible = true;
+                        p2Ball2.Visible = true;
+                        p2Ball3.Visible = true;
+                        p2Ball4.Visible = true;
+                        p2Ball5.Visible = true;
+                        p2Ball6.Visible = true;
+                        p2Ball7.Visible = true;
                         break;
                 }
             }

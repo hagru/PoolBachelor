@@ -401,13 +401,13 @@ namespace PoolDesktopApp
             switch (player1.BallType)
             {
                 case "Solid":
-                    p1Ball1.Load(ball1.ImageString);
-                    p1Ball2.Load(ball2.ImageString);
-                    p1Ball3.Load(ball3.ImageString);
-                    p1Ball4.Load(ball4.ImageString);
-                    p1Ball5.Load(ball5.ImageString);
-                    p1Ball6.Load(ball6.ImageString);
-                    p1Ball7.Load(ball7.ImageString);
+                    p1Ball1.Visible = true;
+                    p1Ball2.Visible = true;
+                    p1Ball3.Visible = true;
+                    p1Ball4.Visible = true;
+                    p1Ball5.Visible = true;
+                    p1Ball6.Visible = true;
+                    p1Ball7.Visible = true;
                     p1Solid = true;
                     break;
             }
@@ -415,13 +415,13 @@ namespace PoolDesktopApp
             switch (player2.BallType)
             {
                 case "Half":
-                    p2Ball1.Load(ball9.ImageString);
-                    p2Ball2.Load(ball10.ImageString);
-                    p2Ball3.Load(ball11.ImageString);
-                    p2Ball4.Load(ball12.ImageString);
-                    p2Ball5.Load(ball13.ImageString);
-                    p2Ball6.Load(ball14.ImageString);
-                    p2Ball7.Load(ball15.ImageString);
+                    p2Ball1.Visible = true;
+                    p2Ball2.Visible = true;
+                    p2Ball3.Visible = true;
+                    p2Ball4.Visible = true;
+                    p2Ball5.Visible = true;
+                    p2Ball6.Visible = true;
+                    p2Ball7.Visible = true;
                     p2Half = true;
                     break;
             }
@@ -476,26 +476,26 @@ namespace PoolDesktopApp
                 switch (player1.BallType)
                 {
                     case "Solid":
-                        p1Ball1.Visible = true;/*Load(ball1.ImageString);*/
-                        p1Ball2.Visible = true;/*Load(ball2.ImageString);*/
-                        p1Ball3.Visible = true;/*Load(ball3.ImageString);*/
-                        p1Ball4.Visible = true;/*Load(ball4.ImageString);*/
-                        p1Ball5.Visible = true;/*Load(ball5.ImageString);*/
-                        p1Ball6.Visible = true;/*Load(ball6.ImageString);*/
-                        p1Ball7.Visible = true;/*Load(ball7.ImageString);*/
+                        p1Ball1.Visible = true;
+                        p1Ball2.Visible = true;
+                        p1Ball3.Visible = true;
+                        p1Ball4.Visible = true;
+                        p1Ball5.Visible = true;
+                        p1Ball6.Visible = true;
+                        p1Ball7.Visible = true;
                         break;
                 }
 
                 switch (player2.BallType)
                 {
                     case "Half":
-                        p2Ball1.Visible = true;/* Load(ball9.ImageString);*/
-                        p2Ball2.Visible = true;/* Load(ball10.ImageString);*/
-                        p2Ball3.Visible = true;/* Load(ball11.ImageString);*/
-                        p2Ball4.Visible = true;/* Load(ball12.ImageString);*/
-                        p2Ball5.Visible = true;/* Load(ball13.ImageString);*/
-                        p2Ball6.Visible = true;/* Load(ball14.ImageString);*/
-                        p2Ball7.Visible = true;/* Load(ball15.ImageString);*/
+                        p2Ball1.Visible = true;
+                        p2Ball2.Visible = true;
+                        p2Ball3.Visible = true;
+                        p2Ball4.Visible = true;
+                        p2Ball5.Visible = true;
+                        p2Ball6.Visible = true;
+                        p2Ball7.Visible = true;
                         break;
                 }
             }

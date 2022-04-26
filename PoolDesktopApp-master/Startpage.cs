@@ -84,7 +84,7 @@ namespace PoolDesktopApp
             }
             else if (p1Name != "" && p2Name != "" && connectedToDatabase == false)
             {
-                
+
                 p1Name = txtPlayer1.Text;
                 p2Name = txtPlayer2.Text;
                 nameOkay = true;
@@ -125,15 +125,11 @@ namespace PoolDesktopApp
         public void SetBallType()
         {
             //ballTypeP1 = cboSelectBall.Text;
-            if (rdoHalf.Checked == true)
-            {
-                ballTypeP1 = "Half";
-            }
-            else if (rdoSolid.Checked == true)
-            {
-                ballTypeP1 = "Solid";
-            }
-            
+
+            ballTypeP1 = "Solid";
+            ballTypeP2 = "Half";
+
+
 
             if (ballTypeP1 == "Solid")
             {
@@ -160,7 +156,7 @@ namespace PoolDesktopApp
                 ballTypeP2 = "Solid";
             }
         }
-        
+
         public void SetCamera()
         {
             selectedCamera = cboCamera.SelectedIndex;
@@ -172,7 +168,7 @@ namespace PoolDesktopApp
             SetName();
             SetBallType();
             SetCamera();
-           
+
             if (nameOkay == true)
             {
                 DesktopApp desktopApp = new DesktopApp();
@@ -207,14 +203,14 @@ namespace PoolDesktopApp
         {
             timer1.Stop();
             Application.ExitThread();
-            
+
         }
 
         private void Startpage_Load(object sender, EventArgs e)
         {
             gameReady = false;
             connectClicked = true;
-            txtInfo.Text = "Trykk 'Connect' for å koble til et opprettet spill";
+            txtInfo.Text = "Start game in webpage, or start a Quickgame";
             cboCamera.Items.Clear();
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filter in filterInfoCollection)
@@ -227,7 +223,7 @@ namespace PoolDesktopApp
             Thread.Sleep(3000);
             timer1.Start();
 
-            
+
         }
         static bool onetime = false;
         public void clientConfig()
@@ -239,8 +235,8 @@ namespace PoolDesktopApp
             }
 
         }
-       
-        
+
+
         private void btnStartSim_Click(object sender, EventArgs e)
         {
             connectedToDatabase = false;
@@ -271,27 +267,21 @@ namespace PoolDesktopApp
         }
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
         {
-            
+
             HttpResponseMessage response = await client.PutAsJsonAsync(
                 $"/update", path);
             int b = 0;
             response.EnsureSuccessStatusCode();
             return path;
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtInfo.Text = text.Text;
-            GetInfo();
-        }
         public void GetInfo()
         {
-           
             RunAsync2();
         }
         GameConfig gamecon = new GameConfig();
-        
+
         static async Task<GameConfig> RunAsync2()
         {
             GameConfig gamecon = null;
@@ -324,22 +314,22 @@ namespace PoolDesktopApp
         {
             if (timeOut == 0)
             {
-                txtInfo.Text = "";
+                txtInfo.Text = "Start game in webpage, or start a Quickgame";
             }
 
             else if (timeOut == 1)
             {
-                txtInfo.Text = ".";
+                txtInfo.Text = "Start game in webpage, or start a Quickgame.";
             }
             else if (timeOut == 2)
             {
-                txtInfo.Text = "..";
+                txtInfo.Text = "Start game in webpage, or start a Quickgame..";
             }
 
             if (timeOut == 3)
             {
                 //txtInfo.Text = "Fant ikke spill. Prøv igjen";
-                txtInfo.Text = "...";
+                txtInfo.Text = "Start game in webpage, or start a Quickgame...";
                 connectClicked = false;
                 timeOut = 0;
             }
@@ -347,12 +337,10 @@ namespace PoolDesktopApp
 
         public void Connect()
         {
-      
+
             if (GameInfo.GameID != 0)
             {
-                txtInfo.Text = "Du er koblet til! Start spillet i websiden";
-                btnConnect.Enabled = false;
-                btnConnect.BackColor = Color.Green;
+                txtInfo.Text = "Connected to game, start game in webpage!";
                 Connected();
             }
 
@@ -361,28 +349,28 @@ namespace PoolDesktopApp
                 TimeOut();
             }
 
-            
+
         }
         static bool check = false;
         public void Connected()
         {
             if (GameInfo.PlayerID1 != 0)
             {
-                txtInfo.Text = "Informasjon er hentet, start spillet.";
+                txtInfo.Text = "Ready! Game starting!";
                 btnStartGame.Enabled = true;
-               
+
                 gameReady = true;
 
             }
         }
-        
+
         private async void timer1_Tick(object sender, EventArgs e)
         {
             RunAsync();
             GetInfo();
             Connect();
 
-                timeOut++;
+            timeOut++;
 
             if (gameReady == true && check == true)
             {
@@ -404,7 +392,7 @@ namespace PoolDesktopApp
 
         }
 
-        
+
 
 
     }

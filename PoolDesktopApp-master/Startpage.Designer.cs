@@ -50,7 +50,7 @@ namespace PoolDesktopApp
             this.btnStartGame.Name = "btnStartGame";
             this.btnStartGame.Size = new System.Drawing.Size(226, 115);
             this.btnStartGame.TabIndex = 0;
-            this.btnStartGame.Text = "Start Game";
+            this.btnStartGame.Text = "Start Quickgame";
             this.btnStartGame.UseVisualStyleBackColor = true;
             this.btnStartGame.Click += new System.EventHandler(this.btnStart_Click);
             // 
