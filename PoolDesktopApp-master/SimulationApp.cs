@@ -629,7 +629,7 @@ namespace PoolDesktopApp
 
         public void CheckWhite()
         {
-            //whiteDown = game.CheckWhite();
+            whiteDown = game.CheckWhite(ballDetection);
         }
 
         public void CheckResult()
