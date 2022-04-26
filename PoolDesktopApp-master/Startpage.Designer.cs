@@ -34,13 +34,9 @@ namespace PoolDesktopApp
             this.btnStartGame = new System.Windows.Forms.Button();
             this.cboCamera = new System.Windows.Forms.ComboBox();
             this.btnStartSim = new System.Windows.Forms.Button();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rdoSolid = new System.Windows.Forms.RadioButton();
-            this.rdoHalf = new System.Windows.Forms.RadioButton();
             this.txtPlayer1 = new System.Windows.Forms.TextBox();
             this.txtPlayer2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,17 +81,6 @@ namespace PoolDesktopApp
             this.btnStartSim.UseVisualStyleBackColor = true;
             this.btnStartSim.Click += new System.EventHandler(this.btnStartSim_Click);
             // 
-            // btnConnect
-            // 
-            this.btnConnect.Location = new System.Drawing.Point(92, 91);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(226, 85);
-            this.btnConnect.TabIndex = 49;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
-            // 
             // txtInfo
             // 
             this.txtInfo.Location = new System.Drawing.Point(324, 91);
@@ -111,16 +96,6 @@ namespace PoolDesktopApp
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 295);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 20);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Choose Player 1 ball type";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -130,32 +105,6 @@ namespace PoolDesktopApp
             this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 52;
             this.label2.Text = "Pick camera";
-            // 
-            // rdoSolid
-            // 
-            this.rdoSolid.AutoSize = true;
-            this.rdoSolid.Checked = true;
-            this.rdoSolid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoSolid.Location = new System.Drawing.Point(387, 292);
-            this.rdoSolid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdoSolid.Name = "rdoSolid";
-            this.rdoSolid.Size = new System.Drawing.Size(69, 24);
-            this.rdoSolid.TabIndex = 53;
-            this.rdoSolid.TabStop = true;
-            this.rdoSolid.Text = "Solid";
-            this.rdoSolid.UseVisualStyleBackColor = true;
-            // 
-            // rdoHalf
-            // 
-            this.rdoHalf.AutoSize = true;
-            this.rdoHalf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoHalf.Location = new System.Drawing.Point(542, 292);
-            this.rdoHalf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdoHalf.Name = "rdoHalf";
-            this.rdoHalf.Size = new System.Drawing.Size(63, 24);
-            this.rdoHalf.TabIndex = 54;
-            this.rdoHalf.Text = "Half";
-            this.rdoHalf.UseVisualStyleBackColor = true;
             // 
             // txtPlayer1
             // 
@@ -198,12 +147,8 @@ namespace PoolDesktopApp
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPlayer2);
             this.Controls.Add(this.txtPlayer1);
-            this.Controls.Add(this.rdoHalf);
-            this.Controls.Add(this.rdoSolid);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInfo);
-            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnStartSim);
             this.Controls.Add(this.cboCamera);
             this.Controls.Add(this.btnStartGame);
@@ -223,13 +168,9 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Button btnStartGame;
         public System.Windows.Forms.ComboBox cboCamera;
         private System.Windows.Forms.Button btnStartSim;
-        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rdoSolid;
-        private System.Windows.Forms.RadioButton rdoHalf;
         private System.Windows.Forms.TextBox txtPlayer1;
         private System.Windows.Forms.TextBox txtPlayer2;
         private System.Windows.Forms.Label label3;

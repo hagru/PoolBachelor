@@ -57,6 +57,8 @@ namespace PoolDesktopApp
             this.pboLoading = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lblWinner = new System.Windows.Forms.Label();
+            this.tmrEndGame = new System.Windows.Forms.Timer(this.components);
+            this.lblGameId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).BeginInit();
@@ -378,12 +380,28 @@ namespace PoolDesktopApp
             this.lblWinner.Text = "Winner";
             this.lblWinner.Visible = false;
             // 
+            // tmrEndGame
+            // 
+            this.tmrEndGame.Interval = 1000;
+            this.tmrEndGame.Tick += new System.EventHandler(this.tmrEndGame_Tick);
+            // 
+            // lblGameId
+            // 
+            this.lblGameId.AutoSize = true;
+            this.lblGameId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameId.Location = new System.Drawing.Point(31, 111);
+            this.lblGameId.Name = "lblGameId";
+            this.lblGameId.Size = new System.Drawing.Size(100, 25);
+            this.lblGameId.TabIndex = 74;
+            this.lblGameId.Text = "Game ID: ";
+            // 
             // SimulationApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
+            this.Controls.Add(this.lblGameId);
             this.Controls.Add(this.lblWinner);
             this.Controls.Add(this.pboLoading);
             this.Controls.Add(this.pBoxMainGame);
@@ -413,6 +431,7 @@ namespace PoolDesktopApp
             this.Text = "SimulationApp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SimulationApp_FormClosed);
+            this.Load += new System.EventHandler(this.SimulationApp_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SimulationApp_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).EndInit();
@@ -466,5 +485,7 @@ namespace PoolDesktopApp
         private System.Windows.Forms.PictureBox pboLoading;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label lblWinner;
+        private System.Windows.Forms.Timer tmrEndGame;
+        private System.Windows.Forms.Label lblGameId;
     }
 }

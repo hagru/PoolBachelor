@@ -58,6 +58,7 @@ namespace PoolDesktopApp
         public bool whiteDown = false;
         public bool p1Black = false;
         public bool p2Black = false;
+        public int endGame = 0;
 
         public int counter = 0;
         public int shotCounter = 0;
@@ -82,6 +83,11 @@ namespace PoolDesktopApp
             {
                 lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
             }
+        }
+
+        public void ShowGameId()
+        {
+            lblGameId.Text = "Game ID: Simulation";
         }
 
         public SimulationApp()
@@ -335,6 +341,24 @@ namespace PoolDesktopApp
             }
         }
 
+        private void tmrEndGame_Tick(object sender, EventArgs e)
+        {
+            endGame++;
+
+            if (endGame == 2 && (p1Lost == true || p2Lost == true))
+            {
+                Startpage startpage = new Startpage();
+                startpage.Show();
+
+                this.Hide();
+            }
+        }
+
+        private void SimulationApp_Load(object sender, EventArgs e)
+        {
+            ShowGameId();
+        }
+
         private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 32)
@@ -498,7 +522,7 @@ namespace PoolDesktopApp
                 //pboLoading.Hide();
             }
         }
-        
+
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -647,8 +671,8 @@ namespace PoolDesktopApp
                     players[1].lose = false;
                     players[1].win = true;
                 }
-                //tmrEndGame.Enabled = true;
-                //tmrEndGame.Start();
+                tmrEndGame.Enabled = true;
+                tmrEndGame.Start();
 
             }
 
@@ -665,8 +689,8 @@ namespace PoolDesktopApp
                     players[1].win = false;
                     players[0].lose = false;
                 }
-                //tmrEndGame.Enabled = true;
-                //tmrEndGame.Start();
+                tmrEndGame.Enabled = true;
+                tmrEndGame.Start();
             }
         }
 

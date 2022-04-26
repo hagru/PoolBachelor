@@ -258,14 +258,6 @@ namespace PoolDesktopApp
             }
         }
 
-
-        private void btnConnect_Click_1(object sender, EventArgs e)
-        {
-            //txtInfo.Text = ".";
-            //connectClicked = true;
-            //RunAsync();
-
-        }
         static HttpClient client = new HttpClient();
 
         static async Task RunAsync()
