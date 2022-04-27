@@ -29,13 +29,14 @@ namespace PoolDesktopApp
         public double[] balls_x = new double[20];
         public double[] ball_y = new double[20];
         public double[] precent = new double[20];
-        public BallDetection TestIteration(System.Drawing.Image img)
+        static CustomVisionTrainingClient TrainingApi;
+        static CustomVisionPredictionClient predictionApi;
+
+        public BallDetection DetectImage(System.Drawing.Image img)
         {
-            CustomVisionTrainingClient TrainingApi = AuthenticateTraining(trainingEndpoint, trainingKey, predictionKey);
-            CustomVisionPredictionClient predictionApi = AuthenticatePrediction(predictionEndpoint, predictionKey);
+            //CustomVisionTrainingClient TrainingApi = AuthenticateTraining(trainingEndpoint, trainingKey, predictionKey);
+            //CustomVisionPredictionClient predictionApi = AuthenticatePrediction(predictionEndpoint, predictionKey);
             BallDetection ball = new BallDetection();
-            var pros = TrainingApi.GetProjects();
-            Project pro = pros[0];
             string b = "";
             var streamm = new System.IO.MemoryStream();
             try
@@ -77,7 +78,14 @@ namespace PoolDesktopApp
             return ball;
             
         }
-
+        static Project pro;
+        public void PredictionConnection()
+        {
+            TrainingApi = AuthenticateTraining(trainingEndpoint, trainingKey, predictionKey);
+            predictionApi = AuthenticatePrediction(predictionEndpoint, predictionKey);
+            var pros = TrainingApi.GetProjects();
+            pro = pros[0];
+        }
         static private CustomVisionTrainingClient AuthenticateTraining(string endpoint, string trainingKey, string predictionKey)
         {
             // Create the Api, passing in the training key

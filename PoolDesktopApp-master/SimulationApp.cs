@@ -504,7 +504,7 @@ namespace PoolDesktopApp
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             Snapshot();
-            ballDetection = game.ball_det1.TestIteration(img1);
+            ballDetection = game.ball_det1.DetectImage(img1);
             balls = ballDetection.balls;
         }
 
