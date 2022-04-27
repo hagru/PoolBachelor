@@ -439,6 +439,12 @@ namespace PoolDesktopApp
                                 p1Black = true;
                                 p1Ball8.Visible = true;
                             }
+
+                            else
+                            {
+                                p1Black = false;
+                                p1Ball8.Visible = false;
+                            }
                         }
 
                         else if (Ball.IsOnTable == false && Ball.BallType == "Half")
@@ -449,6 +455,12 @@ namespace PoolDesktopApp
                             {
                                 p2Black = true;
                                 p2Ball8.Visible = true;
+                            }
+
+                            else
+                            {
+                                p2Black = false;
+                                p2Ball8.Visible = false;
                             }
                         }
                         break;
