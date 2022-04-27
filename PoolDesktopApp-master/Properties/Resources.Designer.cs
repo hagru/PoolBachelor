@@ -63,9 +63,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _new {
+        internal static System.Drawing.Bitmap sim0 {
             get {
-                object obj = ResourceManager.GetObject("_new", resourceCulture);
+                object obj = ResourceManager.GetObject("sim0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Capture {
+        internal static System.Drawing.Bitmap sim1 {
             get {
-                object obj = ResourceManager.GetObject("Capture", resourceCulture);
+                object obj = ResourceManager.GetObject("sim1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new1 {
+        internal static System.Drawing.Bitmap sim10 {
             get {
-                object obj = ResourceManager.GetObject("new1", resourceCulture);
+                object obj = ResourceManager.GetObject("sim10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new2 {
+        internal static System.Drawing.Bitmap sim11 {
             get {
-                object obj = ResourceManager.GetObject("new2", resourceCulture);
+                object obj = ResourceManager.GetObject("sim11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new3 {
+        internal static System.Drawing.Bitmap sim12 {
             get {
-                object obj = ResourceManager.GetObject("new3", resourceCulture);
+                object obj = ResourceManager.GetObject("sim12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new4 {
+        internal static System.Drawing.Bitmap sim2 {
             get {
-                object obj = ResourceManager.GetObject("new4", resourceCulture);
+                object obj = ResourceManager.GetObject("sim2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new5 {
+        internal static System.Drawing.Bitmap sim3 {
             get {
-                object obj = ResourceManager.GetObject("new5", resourceCulture);
+                object obj = ResourceManager.GetObject("sim3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,59 @@ namespace PoolDesktopApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap newx {
+        internal static System.Drawing.Bitmap sim4 {
             get {
-                object obj = ResourceManager.GetObject("newx", resourceCulture);
+                object obj = ResourceManager.GetObject("sim4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sim5 {
+            get {
+                object obj = ResourceManager.GetObject("sim5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sim6 {
+            get {
+                object obj = ResourceManager.GetObject("sim6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sim7 {
+            get {
+                object obj = ResourceManager.GetObject("sim7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sim8 {
+            get {
+                object obj = ResourceManager.GetObject("sim8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sim9 {
+            get {
+                object obj = ResourceManager.GetObject("sim9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

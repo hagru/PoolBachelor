@@ -85,6 +85,9 @@ namespace PoolDesktopApp
             game = new Game();
             ballDetection = new BallDetection();
             Init();
+            game.ball_det1.PredictionConnection();
+            img1 = Resources.sim0;
+            pBoxMainGame.Image = img1;
         }
 
 
@@ -348,16 +351,6 @@ namespace PoolDesktopApp
             ShowGameId();
         }
 
-        private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                bgWorkerActive = true;
-                bgWorker();
-                backgroundWorker1.RunWorkerAsync();
-            }
-        }
-
 
         // Metode for å initialisere baller, og legge dem til riktig spiller
         public void AddBalls()
@@ -513,11 +506,21 @@ namespace PoolDesktopApp
             pboLoading.Visible = true;
         }
 
+        private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                bgWorkerActive = true;
+                bgWorker();
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Snapshot();
             ballDetection = game.ball_det1.DetectImage(img1);
+            Snapshot();
+            
             balls = ballDetection.balls;
         }
 
@@ -681,59 +684,67 @@ namespace PoolDesktopApp
 
         public void Snapshot()
         {
-            counter++;
+            
 
             if (counter == 1)
             {
-                img1 = Resources._new;
-                //newPic = Resources.Capture;
+                img1 = Resources.sim1;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 2)
             {
-                //newPic = Resources.new5;
-
-                img1 = Resources.new1;
+                img1 = Resources.sim2;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 3)
             {
-                //newPic = Resources.new5;
-                img1 = Resources._new;
+                img1 = Resources.sim3;
                 pBoxMainGame.Image = img1;
             }
 
             else if (counter == 4)
             {
-                img1 = Resources.newx;
+                img1 = Resources.sim4;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 5)
             {
-                img1 = Resources.new2;
+                img1 = Resources.sim6;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 6)
             {
-                img1 = Resources.new3;
+                img1 = Resources.sim7;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 7)
             {
-                img1 = Resources.new4;
+                img1 = Resources.sim8;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 8)
             {
-                img1 = Resources.new5;
+                img1 = Resources.sim9;
                 pBoxMainGame.Image = img1;
             }
             else if (counter == 9)
             {
-                img1 = Resources.new5;
-                img1 = Resources.Capture;
+                img1 = Resources.sim10;
                 pBoxMainGame.Image = img1;
             }
+            else if (counter == 10)
+            {
+                img1 = Resources.sim11;
+                pBoxMainGame.Image = img1;
+            }
+            else if (counter == 11)
+            {
+                img1 = Resources.sim12;
+                pBoxMainGame.Image = img1;
+            }
+
+            counter++;
+
         }
         private void SimulationApp_FormClosed(object sender, FormClosedEventArgs e)
         {
