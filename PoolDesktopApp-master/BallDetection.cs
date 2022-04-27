@@ -47,7 +47,7 @@ namespace PoolDesktopApp
             {
 
             }
-            
+            int loops = 0;
             streamm.Position = 0;
             using (var stream = streamm)
             {
@@ -58,7 +58,17 @@ namespace PoolDesktopApp
 
                 foreach (var c in result.Predictions)
                 {
-                    if (c.TagName != b && c.Probability >= 0.40)
+                    if(loops == 0 && c.Probability >= 0.38)
+                    {
+                        ball.balls[loop] = c.TagName;
+                        ball.balls_x[loop] = c.BoundingBox.Left;
+                        ball.ball_y[loop] = c.BoundingBox.Top;
+                        precent[loop] = c.Probability;
+                        b = c.TagName;
+                        loops++;
+                        loop++;
+                    }
+                    else if (c.TagName != b && c.Probability >= 0.45)
                     {
                         //Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
 

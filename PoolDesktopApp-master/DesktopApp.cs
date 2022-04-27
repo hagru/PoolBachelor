@@ -91,6 +91,7 @@ namespace PoolDesktopApp
             game.ball_det1.PredictionConnection();
             Init();
             clientConfig();
+            
         }
 
 
@@ -492,7 +493,7 @@ namespace PoolDesktopApp
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
         {
-            videoCaptureDevice.Stop();
+            //videoCaptureDevice.Stop();
         }
 
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
@@ -735,10 +736,12 @@ namespace PoolDesktopApp
             
                if (endGame == 2 && (p1Lost == true || p2Lost == true))
             {
+                this.Hide();
+                Thread.Sleep(500);
                 Startpage startpage = new Startpage();
                 startpage.Show();
 
-                this.Hide();
+                
             }
         }
 
