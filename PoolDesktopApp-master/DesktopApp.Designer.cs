@@ -431,6 +431,7 @@ namespace PoolDesktopApp
             this.Name = "DesktopApp";
             this.Text = "Pool desktop application";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.DesktopApp_Activated);
             this.Deactivate += new System.EventHandler(this.DesktopApp_Deactivate);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DesktopApp_FormClosed);
             this.Load += new System.EventHandler(this.DesktopApp_Load);

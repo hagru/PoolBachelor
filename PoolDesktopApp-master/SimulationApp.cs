@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
@@ -335,10 +336,10 @@ namespace PoolDesktopApp
 
             if (endGame == 2 && (p1Lost == true || p2Lost == true))
             {
+                this.Hide();
+                Thread.Sleep(500);
                 Startpage startpage = new Startpage();
                 startpage.Show();
-
-                this.Hide();
             }
         }
 

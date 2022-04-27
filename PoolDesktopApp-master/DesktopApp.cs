@@ -91,7 +91,7 @@ namespace PoolDesktopApp
             game.ball_det1.PredictionConnection();
             Init();
             clientConfig();
-            
+
         }
 
 
@@ -493,13 +493,18 @@ namespace PoolDesktopApp
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
         {
-            //videoCaptureDevice.Stop();
+            videoCaptureDevice.Stop();
         }
 
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
         {
             videoCaptureDevice.Stop();
             Application.ExitThread();
+        }
+
+        private void DesktopApp_Activated(object sender, EventArgs e)
+        {
+            videoCaptureDevice.Start();
         }
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
@@ -691,7 +696,7 @@ namespace PoolDesktopApp
             if (p1Lost == true)
             {
                 stopwatch.Stop();
-                
+
                 lblWinner.Text = player2.Name + " vinner!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
@@ -706,13 +711,13 @@ namespace PoolDesktopApp
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
-                
+
             }
 
             else if (p2Lost == true)
             {
                 stopwatch.Stop();
-                
+
                 lblWinner.Text = player1.Name + " vinner!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
@@ -733,15 +738,13 @@ namespace PoolDesktopApp
         private void tmrEndGame_Tick(object sender, EventArgs e)
         {
             endGame++;
-            
-               if (endGame == 2 && (p1Lost == true || p2Lost == true))
+
+            if (endGame == 2 && (p1Lost == true || p2Lost == true))
             {
                 this.Hide();
                 Thread.Sleep(500);
                 Startpage startpage = new Startpage();
                 startpage.Show();
-
-                
             }
         }
 
@@ -760,7 +763,7 @@ namespace PoolDesktopApp
             }
         }
 
-     
+
         static async Task RunAsync()
         {
             GameConfig product = new GameConfig
@@ -769,8 +772,8 @@ namespace PoolDesktopApp
                 PlayerID1 = 0,
                 PlayerID2 = 0,
                 GameID = 0
-            
-        };
+
+            };
             GameConfig f = await SetGameStartAsync(product);
         }
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
@@ -781,7 +784,7 @@ namespace PoolDesktopApp
             response.EnsureSuccessStatusCode();
             return path;
         }
-        
+
         public void clientConfig()
         {
             if (onetime == false)
