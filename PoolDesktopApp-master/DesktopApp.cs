@@ -504,7 +504,15 @@ namespace PoolDesktopApp
 
         private void DesktopApp_Activated(object sender, EventArgs e)
         {
-            videoCaptureDevice.Start();
+            try
+            {
+                videoCaptureDevice.Start();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller

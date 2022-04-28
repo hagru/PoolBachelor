@@ -45,6 +45,7 @@ namespace PoolDesktopApp
             // 
             // btnStartGame
             // 
+            this.btnStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartGame.Location = new System.Drawing.Point(92, 422);
             this.btnStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartGame.Name = "btnStartGame";
@@ -64,14 +65,15 @@ namespace PoolDesktopApp
             "1",
             "2",
             "3"});
-            this.cboCamera.Location = new System.Drawing.Point(387, 345);
+            this.cboCamera.Location = new System.Drawing.Point(378, 345);
             this.cboCamera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCamera.Name = "cboCamera";
-            this.cboCamera.Size = new System.Drawing.Size(217, 28);
+            this.cboCamera.Size = new System.Drawing.Size(226, 28);
             this.cboCamera.TabIndex = 47;
             // 
             // btnStartSim
             // 
+            this.btnStartSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartSim.Location = new System.Drawing.Point(378, 422);
             this.btnStartSim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartSim.Name = "btnStartSim";
@@ -83,12 +85,14 @@ namespace PoolDesktopApp
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(324, 91);
+            this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfo.Location = new System.Drawing.Point(157, 108);
             this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
-            this.txtInfo.Size = new System.Drawing.Size(366, 84);
+            this.txtInfo.Size = new System.Drawing.Size(533, 84);
             this.txtInfo.TabIndex = 50;
             // 
             // timer1
@@ -99,42 +103,44 @@ namespace PoolDesktopApp
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(88, 345);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(199, 344);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 20);
+            this.label2.Size = new System.Drawing.Size(119, 25);
             this.label2.TabIndex = 52;
             this.label2.Text = "Pick camera";
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(387, 215);
+            this.txtPlayer1.Location = new System.Drawing.Point(378, 239);
             this.txtPlayer1.Name = "txtPlayer1";
-            this.txtPlayer1.Size = new System.Drawing.Size(218, 26);
+            this.txtPlayer1.Size = new System.Drawing.Size(226, 26);
             this.txtPlayer1.TabIndex = 55;
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(387, 250);
+            this.txtPlayer2.Location = new System.Drawing.Point(378, 274);
             this.txtPlayer2.Name = "txtPlayer2";
-            this.txtPlayer2.Size = new System.Drawing.Size(218, 26);
+            this.txtPlayer2.Size = new System.Drawing.Size(226, 26);
             this.txtPlayer2.TabIndex = 56;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 218);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(229, 238);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
+            this.label3.Size = new System.Drawing.Size(89, 25);
             this.label3.TabIndex = 57;
             this.label3.Text = "Player 1:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(249, 253);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(229, 273);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 20);
+            this.label4.Size = new System.Drawing.Size(89, 25);
             this.label4.TabIndex = 58;
             this.label4.Text = "Player 2:";
             // 
