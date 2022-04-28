@@ -18,9 +18,7 @@ namespace PoolDesktopApp
     public partial class SimulationApp : Form
     {
         Startpage startpage = new Startpage();
-        Image newPic;
-        Image img;
-        Bitmap img1;
+        Bitmap img;
 
         Game game;
         BallDetection ballDetection;
@@ -86,8 +84,8 @@ namespace PoolDesktopApp
             ballDetection = new BallDetection();
             Init();
             game.ball_det1.PredictionConnection();
-            img1 = Resources.sim0;
-            pBoxMainGame.Image = img1;
+            img = Resources.sim0;
+            pBoxMainGame.Image = img;
         }
 
 
@@ -518,7 +516,7 @@ namespace PoolDesktopApp
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            ballDetection = game.ball_det1.DetectImage(img1);
+            ballDetection = game.ball_det1.DetectImage(img);
             Snapshot();
             
             balls = ballDetection.balls;
@@ -688,59 +686,59 @@ namespace PoolDesktopApp
 
             if (counter == 1)
             {
-                img1 = Resources.sim1;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim1;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 2)
             {
-                img1 = Resources.sim2;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim2;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 3)
             {
-                img1 = Resources.sim3;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim3;
+                pBoxMainGame.Image = img;
             }
 
             else if (counter == 4)
             {
-                img1 = Resources.sim4;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim4;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 5)
             {
-                img1 = Resources.sim6;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim6;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 6)
             {
-                img1 = Resources.sim7;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim7;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 7)
             {
-                img1 = Resources.sim8;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim8;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 8)
             {
-                img1 = Resources.sim9;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim9;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 9)
             {
-                img1 = Resources.sim10;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim10;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 10)
             {
-                img1 = Resources.sim11;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim11;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 11)
             {
-                img1 = Resources.sim12;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim12;
+                pBoxMainGame.Image = img;
             }
 
             counter++;

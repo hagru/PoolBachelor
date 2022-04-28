@@ -73,7 +73,6 @@ namespace PoolDesktopApp
 
         // Objekt av stoppeklokke for timer
         private Stopwatch stopwatch;
-        private static System.Timers.Timer aTimer;
 
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
@@ -91,7 +90,6 @@ namespace PoolDesktopApp
             game.ball_det1.PredictionConnection();
             Init();
             clientConfig();
-
         }
 
 
@@ -190,7 +188,6 @@ namespace PoolDesktopApp
                 ball8.IsOnTable = false;
                 p2Ball8.Visible = true;
             }
-
             if (balls.Contains("black") && p2Black == true)
             {
                 ball8.IsOnTable = true;
@@ -201,7 +198,6 @@ namespace PoolDesktopApp
                 ball8.IsOnTable = false;
                 p2Ball8.Visible = false;
             }
-
             if (balls.Contains("yellow-half"))
             {
                 ball9.IsOnTable = true;
@@ -512,7 +508,6 @@ namespace PoolDesktopApp
             {
                 return;
             }
-            
         }
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
@@ -550,7 +545,6 @@ namespace PoolDesktopApp
             {
                 return;
             }
-
         }
 
         public void bgWorker()
@@ -592,7 +586,6 @@ namespace PoolDesktopApp
             }
 
             bgWorkerActive = false;
-
             pboLoading.Visible = false;
 
             shotCounter++;
@@ -719,7 +712,6 @@ namespace PoolDesktopApp
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
-
             }
 
             else if (p2Lost == true)
@@ -766,7 +758,6 @@ namespace PoolDesktopApp
             }
             catch (Exception)
             {
-
                 return;
             }
         }
@@ -780,15 +771,14 @@ namespace PoolDesktopApp
                 PlayerID1 = 0,
                 PlayerID2 = 0,
                 GameID = 0
-
             };
+
             GameConfig f = await SetGameStartAsync(product);
         }
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
                 $"/GameDone", path);
-            int b = 0;
             response.EnsureSuccessStatusCode();
             return path;
         }
