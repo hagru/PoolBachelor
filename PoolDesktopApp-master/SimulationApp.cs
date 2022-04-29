@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
@@ -17,9 +18,7 @@ namespace PoolDesktopApp
     public partial class SimulationApp : Form
     {
         Startpage startpage = new Startpage();
-        Image newPic;
-        Image img;
-        Bitmap img1;
+        Bitmap img;
 
         Game game;
         BallDetection ballDetection;
@@ -84,6 +83,9 @@ namespace PoolDesktopApp
             game = new Game();
             ballDetection = new BallDetection();
             Init();
+            game.ball_det1.PredictionConnection();
+            img = Resources.sim0;
+            pBoxMainGame.Image = img;
         }
 
 
@@ -335,26 +337,16 @@ namespace PoolDesktopApp
 
             if (endGame == 2 && (p1Lost == true || p2Lost == true))
             {
+                this.Hide();
+                Thread.Sleep(500);
                 Startpage startpage = new Startpage();
                 startpage.Show();
-
-                this.Hide();
             }
         }
 
         private void SimulationApp_Load(object sender, EventArgs e)
         {
             ShowGameId();
-        }
-
-        private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                bgWorkerActive = true;
-                bgWorker();
-                backgroundWorker1.RunWorkerAsync();
-            }
         }
 
 
@@ -512,11 +504,21 @@ namespace PoolDesktopApp
             pboLoading.Visible = true;
         }
 
+        private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                bgWorkerActive = true;
+                bgWorker();
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            ballDetection = game.ball_det1.DetectImage(img);
             Snapshot();
-            ballDetection = game.ball_det1.DetectImage(img1);
+            
             balls = ballDetection.balls;
         }
 
@@ -680,59 +682,67 @@ namespace PoolDesktopApp
 
         public void Snapshot()
         {
-            counter++;
+            
 
             if (counter == 1)
             {
-                img1 = Resources._new;
-                //newPic = Resources.Capture;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim1;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 2)
             {
-                //newPic = Resources.new5;
-
-                img1 = Resources.new1;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim2;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 3)
             {
-                //newPic = Resources.new5;
-                img1 = Resources._new;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim3;
+                pBoxMainGame.Image = img;
             }
 
             else if (counter == 4)
             {
-                img1 = Resources.newx;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim4;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 5)
             {
-                img1 = Resources.new2;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim6;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 6)
             {
-                img1 = Resources.new3;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim7;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 7)
             {
-                img1 = Resources.new4;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim8;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 8)
             {
-                img1 = Resources.new5;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim9;
+                pBoxMainGame.Image = img;
             }
             else if (counter == 9)
             {
-                img1 = Resources.new5;
-                img1 = Resources.Capture;
-                pBoxMainGame.Image = img1;
+                img = Resources.sim10;
+                pBoxMainGame.Image = img;
             }
+            else if (counter == 10)
+            {
+                img = Resources.sim11;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 11)
+            {
+                img = Resources.sim12;
+                pBoxMainGame.Image = img;
+            }
+
+            counter++;
+
         }
         private void SimulationApp_FormClosed(object sender, FormClosedEventArgs e)
         {
