@@ -734,10 +734,10 @@ namespace PoolDesktopApp
         {
             endGame++;
             
-               if (endGame == 2 && (p1Lost == true || p2Lost == true))
+               if (endGame == 8 && (p1Lost == true || p2Lost == true))
             {
                 this.Hide();
-                Thread.Sleep(500);
+                Thread.Sleep(200);
                 Startpage startpage = new Startpage();
                 startpage.Show();
 
