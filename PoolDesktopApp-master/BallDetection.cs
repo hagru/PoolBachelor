@@ -26,12 +26,13 @@ namespace PoolDesktopApp
         private static string publishedModelName = "BallModel10"; //Denne finner vi under performace/iteration/publish (Vi velger navn når vi publisher)
         string projectID = "d2266057-b9f2-4d8e-a4a8-14fe78ac2edc";
         public string[] balls = new string[20];
+        public string[] balls2 = new string[5000];
         public double[] balls_x = new double[20];
         public double[] ball_y = new double[20];
-        public double[] precent = new double[20];
+        public double[] precent = new double[5000];
         static CustomVisionTrainingClient TrainingApi;
         static CustomVisionPredictionClient predictionApi;
-
+        int loops2 = 0;
         public BallDetection DetectImage(System.Drawing.Image img)
         {
             //CustomVisionTrainingClient TrainingApi = AuthenticateTraining(trainingEndpoint, trainingKey, predictionKey);
@@ -58,7 +59,8 @@ namespace PoolDesktopApp
 
                 foreach (var c in result.Predictions)
                 {
-                    if(loops == 0 && c.Probability >= 0.38)
+                 
+                    if (loops == 0 && c.Probability >= 0.35)
                     {
                         ball.balls[loop] = c.TagName;
                         ball.balls_x[loop] = c.BoundingBox.Left;
@@ -70,21 +72,20 @@ namespace PoolDesktopApp
                     }
                     else if (c.TagName != b && c.Probability >= 0.45)
                     {
-                        //Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
-
                         ball.balls[loop] = c.TagName;
                         ball.balls_x[loop] = c.BoundingBox.Left;
                         ball.ball_y[loop] = c.BoundingBox.Top;
                         precent[loop] = c.Probability;
                         b = c.TagName;
+                        loops++;
                         loop++;
                     }
                     
-                }
 
+                }
             }
 
-            
+
             return ball;
             
         }

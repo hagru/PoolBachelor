@@ -493,7 +493,11 @@ namespace PoolDesktopApp
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
         {
-            //videoCaptureDevice.Stop();
+            videoCaptureDevice.Stop();
+        }
+        private void DesktopApp_Activate(object sender, EventArgs e)
+        {
+            videoCaptureDevice.Start();
         }
 
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)

@@ -97,7 +97,6 @@ app.MapPost("/gamestop", (GameConfig g) =>
     
    
 });
-
 app.Run();
 
 
