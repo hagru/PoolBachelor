@@ -39,7 +39,7 @@ app.MapPut("/GameDone", () =>
     gamecon.Username2 = "";
     gamecon.GameStart = true;
     Console.WriteLine("ok");
-    return gamecon.GameStart;
+    return Results.Ok();
 
 });
 app.MapGet("/checktable", () =>
