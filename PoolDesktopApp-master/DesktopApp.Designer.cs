@@ -163,8 +163,7 @@ namespace PoolDesktopApp
             // 
             // lblTimer
             // 
-            this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTimer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTimer.BackColor = System.Drawing.Color.Transparent;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.White;
@@ -410,12 +409,12 @@ namespace PoolDesktopApp
             // 
             // lblWinner
             // 
-            this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblWinner.AutoSize = true;
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(1120, 95);
+            this.lblWinner.Location = new System.Drawing.Point(1185, 95);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(184, 58);
             this.lblWinner.TabIndex = 73;
@@ -465,6 +464,8 @@ namespace PoolDesktopApp
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(229, 3);
             this.panel2.Name = "panel2";
