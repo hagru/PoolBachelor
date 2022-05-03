@@ -105,7 +105,7 @@ namespace PoolDesktopApp
             this.lblP2.BackColor = System.Drawing.Color.Transparent;
             this.lblP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP2.ForeColor = System.Drawing.Color.White;
-            this.lblP2.Location = new System.Drawing.Point(2233, -1147);
+            this.lblP2.Location = new System.Drawing.Point(2234, -1147);
             this.lblP2.Name = "lblP2";
             this.lblP2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
             this.lblP2.Size = new System.Drawing.Size(330, 1300);
@@ -366,6 +366,7 @@ namespace PoolDesktopApp
             // 
             // lblTimer
             // 
+            this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimer.BackColor = System.Drawing.Color.Transparent;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.White;
@@ -378,6 +379,7 @@ namespace PoolDesktopApp
             // 
             // pboLoading
             // 
+            this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
             this.pboLoading.Image = ((System.Drawing.Image)(resources.GetObject("pboLoading.Image")));
@@ -397,7 +399,7 @@ namespace PoolDesktopApp
             // 
             // lblWinner
             // 
-            this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWinner.AutoSize = true;
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
