@@ -379,7 +379,7 @@ namespace PoolDesktopApp
             // 
             // pboLoading
             // 
-            this.pboLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboLoading.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
             this.pboLoading.Image = ((System.Drawing.Image)(resources.GetObject("pboLoading.Image")));
@@ -399,12 +399,12 @@ namespace PoolDesktopApp
             // 
             // lblWinner
             // 
-            this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblWinner.AutoSize = true;
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(1120, 85);
+            this.lblWinner.Location = new System.Drawing.Point(1182, 85);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(184, 58);
             this.lblWinner.TabIndex = 73;
@@ -465,6 +465,8 @@ namespace PoolDesktopApp
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(229, 3);
             this.panel2.Name = "panel2";
