@@ -269,7 +269,7 @@ namespace PoolDesktopApp
         {
 
             HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/update", path);
+                $"/UpdateTableStatus", path);
             response.EnsureSuccessStatusCode();
             return path;
 

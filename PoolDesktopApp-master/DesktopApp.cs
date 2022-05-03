@@ -780,7 +780,7 @@ namespace PoolDesktopApp
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/GameDone", path);
+                $"/GameStop", path);
             int b = 0;
             response.EnsureSuccessStatusCode();
             return path;
