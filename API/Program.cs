@@ -62,7 +62,7 @@ app.MapPost("/GameStart", (GameConfig g) =>
     return Results.Ok();
 });
 
-app.MapDelete("/GameStop", (GameConfig g) =>
+app.MapPut("/GameStop", (GameConfig g) =>
 {
     //This will try to delete the active game if the received gameid matches the active gameid
     Console.WriteLine("Trying to stop the game.");
