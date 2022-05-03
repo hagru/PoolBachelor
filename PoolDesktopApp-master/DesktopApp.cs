@@ -96,6 +96,16 @@ namespace PoolDesktopApp
             
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparam = base.CreateParams;
+                handleparam.ExStyle |= 0x02000000;
+                return handleparam;
+            }
+        }
+
 
         // Metode som sjekker hvilke baller som er på bordet, og viser/fjerner de riktige ballene
         public void ShowBalls()
