@@ -84,6 +84,8 @@ namespace PoolDesktopApp
         public DesktopApp()
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(175, Color.Black);
+            panel2.BackColor = Color.FromArgb(175, Color.Black);
             clientConfig();
             tmrGameTime.Start();
             game = new Game();
@@ -307,20 +309,16 @@ namespace PoolDesktopApp
         {
             if (GameInfo.ConnectedToDatabase == true)
             {
-                lblGameId.Text = "Game ID: " + GameInfo.GameID.ToString();
+                lblGameId.Text = "Game ID:" + "\r\n" + GameInfo.GameID.ToString();
             }
             else if (GameInfo.ConnectedToDatabase == false)
             {
-                lblGameId.Text = "Game ID: Quick game";
+                lblGameId.Text = "Game ID:" + "\r\n" + "Quick game";
             }
         }
 
-        // Følgende blokker henter live video fra kamera, og viser det i applikasjonen ved oppstart
-        private void DesktopApp_Load(object sender, EventArgs e)
+        public void EnableCamera()
         {
-            // Viser GameID
-            ShowGameId();
-
             // Henter valgt kamera fra Startpage
             int selectedCamera = 0;
             selectedCamera = Startpage.selectedCamera;
@@ -341,6 +339,15 @@ namespace PoolDesktopApp
 
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
+        }
+
+        // Følgende blokker henter live video fra kamera, og viser det i applikasjonen ved oppstart
+        private void DesktopApp_Load(object sender, EventArgs e)
+        {
+            // Viser GameID
+            ShowGameId();
+
+            
         }
 
 
@@ -489,15 +496,23 @@ namespace PoolDesktopApp
             }
         }
 
-
+        private void DesktopApp_Activated(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                EnableCamera();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
+        }
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
         {
             videoCaptureDevice.Stop();
-        }
-        private void DesktopApp_Activate(object sender, EventArgs e)
-        {
-            videoCaptureDevice.Start();
         }
 
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
@@ -780,7 +795,7 @@ namespace PoolDesktopApp
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/GameStop", path);
+                $"/GameDone", path);
             int b = 0;
             response.EnsureSuccessStatusCode();
             return path;

@@ -34,25 +34,33 @@ namespace PoolDesktopApp
             this.btnStartGame = new System.Windows.Forms.Button();
             this.cboCamera = new System.Windows.Forms.ComboBox();
             this.btnStartSim = new System.Windows.Forms.Button();
-            this.txtInfo = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtPlayer1 = new System.Windows.Forms.TextBox();
             this.txtPlayer2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStartGame
             // 
+            this.btnStartGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
+            this.btnStartGame.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartGame.Location = new System.Drawing.Point(92, 422);
+            this.btnStartGame.ForeColor = System.Drawing.Color.White;
+            this.btnStartGame.Location = new System.Drawing.Point(94, 499);
             this.btnStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartGame.Name = "btnStartGame";
             this.btnStartGame.Size = new System.Drawing.Size(226, 115);
             this.btnStartGame.TabIndex = 0;
             this.btnStartGame.Text = "Start Quickgame";
-            this.btnStartGame.UseVisualStyleBackColor = true;
+            this.btnStartGame.UseVisualStyleBackColor = false;
             this.btnStartGame.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // cboCamera
@@ -65,7 +73,7 @@ namespace PoolDesktopApp
             "1",
             "2",
             "3"});
-            this.cboCamera.Location = new System.Drawing.Point(378, 345);
+            this.cboCamera.Location = new System.Drawing.Point(380, 422);
             this.cboCamera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCamera.Name = "cboCamera";
             this.cboCamera.Size = new System.Drawing.Size(226, 28);
@@ -73,27 +81,19 @@ namespace PoolDesktopApp
             // 
             // btnStartSim
             // 
+            this.btnStartSim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
+            this.btnStartSim.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnStartSim.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStartSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartSim.Location = new System.Drawing.Point(378, 422);
+            this.btnStartSim.ForeColor = System.Drawing.Color.White;
+            this.btnStartSim.Location = new System.Drawing.Point(380, 499);
             this.btnStartSim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartSim.Name = "btnStartSim";
             this.btnStartSim.Size = new System.Drawing.Size(226, 115);
             this.btnStartSim.TabIndex = 48;
             this.btnStartSim.Text = "Start Simulation";
-            this.btnStartSim.UseVisualStyleBackColor = true;
+            this.btnStartSim.UseVisualStyleBackColor = false;
             this.btnStartSim.Click += new System.EventHandler(this.btnStartSim_Click);
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfo.Location = new System.Drawing.Point(157, 108);
-            this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtInfo.Multiline = true;
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ReadOnly = true;
-            this.txtInfo.Size = new System.Drawing.Size(533, 84);
-            this.txtInfo.TabIndex = 50;
             // 
             // timer1
             // 
@@ -103,23 +103,25 @@ namespace PoolDesktopApp
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(199, 344);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(125, 421);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 25);
+            this.label2.Size = new System.Drawing.Size(145, 29);
             this.label2.TabIndex = 52;
             this.label2.Text = "Pick camera";
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(378, 239);
+            this.txtPlayer1.Location = new System.Drawing.Point(380, 316);
             this.txtPlayer1.Name = "txtPlayer1";
             this.txtPlayer1.Size = new System.Drawing.Size(226, 26);
             this.txtPlayer1.TabIndex = 55;
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(378, 274);
+            this.txtPlayer2.Location = new System.Drawing.Point(380, 351);
             this.txtPlayer2.Name = "txtPlayer2";
             this.txtPlayer2.Size = new System.Drawing.Size(226, 26);
             this.txtPlayer2.TabIndex = 56;
@@ -127,45 +129,85 @@ namespace PoolDesktopApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(229, 238);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(155, 312);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 25);
+            this.label3.Size = new System.Drawing.Size(106, 29);
             this.label3.TabIndex = 57;
             this.label3.Text = "Player 1:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(229, 273);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(155, 347);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 25);
+            this.label4.Size = new System.Drawing.Size(106, 29);
             this.label4.TabIndex = 58;
             this.label4.Text = "Player 2:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(94, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(512, 203);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 59;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblInfo);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtPlayer2);
+            this.panel1.Controls.Add(this.txtPlayer1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnStartSim);
+            this.panel1.Controls.Add(this.cboCamera);
+            this.panel1.Controls.Add(this.btnStartGame);
+            this.panel1.Location = new System.Drawing.Point(943, 235);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(722, 722);
+            this.panel1.TabIndex = 60;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.White;
+            this.lblInfo.Location = new System.Drawing.Point(98, 234);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(494, 29);
+            this.lblInfo.TabIndex = 60;
+            this.lblInfo.Text = "Start game in webpage, or start a Quickgame";
             // 
             // Startpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 609);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPlayer2);
-            this.Controls.Add(this.txtPlayer1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtInfo);
-            this.Controls.Add(this.btnStartSim);
-            this.Controls.Add(this.cboCamera);
-            this.Controls.Add(this.btnStartGame);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(2564, 1570);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Startpage";
             this.Text = "Startpage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Startpage_FormClosed);
             this.Load += new System.EventHandler(this.Startpage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -174,12 +216,14 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Button btnStartGame;
         public System.Windows.Forms.ComboBox cboCamera;
         private System.Windows.Forms.Button btnStartSim;
-        private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPlayer1;
         private System.Windows.Forms.TextBox txtPlayer2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

@@ -41,6 +41,7 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(125, Color.Black);
             Game game = new Game();
             game.Getplaycount();
             Game.count++;
@@ -210,7 +211,7 @@ namespace PoolDesktopApp
         {
             gameReady = false;
             connectClicked = true;
-            txtInfo.Text = "Start game in webpage, or start a Quickgame";
+            lblInfo.Text = "Start game in webpage, or start a Quickgame";
             cboCamera.Items.Clear();
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filter in filterInfoCollection)
@@ -269,7 +270,7 @@ namespace PoolDesktopApp
         {
 
             HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/UpdateTableStatus", path);
+                $"/update", path);
             response.EnsureSuccessStatusCode();
             return path;
 
@@ -292,7 +293,7 @@ namespace PoolDesktopApp
         {
             GameConfig info = null;
             HttpResponseMessage response = await client.GetAsync(
-                $"/GetInfo");
+                $"/getinfo");
             info = await response.Content.ReadAsAsync<GameConfig>();
             GameInfo.GameID = info.GameID;
             GameInfo.PlayerID1 = info.PlayerID1;
@@ -312,22 +313,21 @@ namespace PoolDesktopApp
         {
             if (timeOut == 0)
             {
-                txtInfo.Text = "Start game in webpage, or start a Quickgame";
+                lblInfo.Text = "Start game in webpage, or start a Quickgame";
             }
 
             else if (timeOut == 1)
             {
-                txtInfo.Text = "Start game in webpage, or start a Quickgame.";
+                lblInfo.Text = "Start game in webpage, or start a Quickgame.";
             }
             else if (timeOut == 2)
             {
-                txtInfo.Text = "Start game in webpage, or start a Quickgame..";
+                lblInfo.Text = "Start game in webpage, or start a Quickgame..";
             }
 
             if (timeOut == 3)
             {
-                //txtInfo.Text = "Fant ikke spill. Prøv igjen";
-                txtInfo.Text = "Start game in webpage, or start a Quickgame...";
+                lblInfo.Text = "Start game in webpage, or start a Quickgame...";
                 connectClicked = false;
                 timeOut = 0;
             }
@@ -338,7 +338,7 @@ namespace PoolDesktopApp
 
             if (GameInfo.GameID != 0)
             {
-                txtInfo.Text = "Connected to game, start game in webpage!";
+                lblInfo.Text = "Connected to game, start game in webpage!";
                 Connected();
             }
 
@@ -354,7 +354,7 @@ namespace PoolDesktopApp
         {
             if (GameInfo.PlayerID1 != 0)
             {
-                txtInfo.Text = "Ready! Game starting!";
+                lblInfo.Text = "Ready! Game starting!";
                 btnStartGame.Enabled = true;
 
                 gameReady = true;
@@ -374,24 +374,12 @@ namespace PoolDesktopApp
             {
                 connectedToDatabase = true;
                 GameInfo.ConnectedToDatabase = connectedToDatabase;
-                txtInfo.Text = "Connected! Game starting!";
+                lblInfo.Text = "Connected! Game starting!";
                 //System.Threading.Thread.Sleep(2000);
                 gameReady = false;
                 StartGame();
 
             }
-
-
-            //txtInfo.Text = text.Text + GameInfo.PlayerID1 + GameInfo.Username1 + GameInfo.Username2 
-            //    + GameInfo.GameID;
-
-
-
-
         }
-
-
-
-
     }
 }

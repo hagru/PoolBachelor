@@ -74,12 +74,14 @@ namespace PoolDesktopApp
 
         public void ShowGameId()
         {
-            lblGameId.Text = "Game ID: Simulation";
+            lblGameId.Text = "Game ID:" + "\r\n" + "Simulation";
         }
 
         public SimulationApp()
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(175, Color.Black);
+            panel2.BackColor = Color.FromArgb(175, Color.Black);
             game = new Game();
             ballDetection = new BallDetection();
             Init();

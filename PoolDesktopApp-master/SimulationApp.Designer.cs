@@ -59,6 +59,9 @@ namespace PoolDesktopApp
             this.lblWinner = new System.Windows.Forms.Label();
             this.tmrEndGame = new System.Windows.Forms.Timer(this.components);
             this.lblGameId = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).BeginInit();
@@ -79,6 +82,8 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboLoading)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pBoxMainGame
@@ -96,9 +101,10 @@ namespace PoolDesktopApp
             // 
             // lblP2
             // 
-            this.lblP2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblP2.BackColor = System.Drawing.Color.Transparent;
             this.lblP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP2.Location = new System.Drawing.Point(2234, 0);
+            this.lblP2.ForeColor = System.Drawing.Color.White;
+            this.lblP2.Location = new System.Drawing.Point(2233, -1147);
             this.lblP2.Name = "lblP2";
             this.lblP2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
             this.lblP2.Size = new System.Drawing.Size(330, 1300);
@@ -115,8 +121,9 @@ namespace PoolDesktopApp
             // p2Ball8
             // 
             this.p2Ball8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball8.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball8.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball8.Image")));
-            this.p2Ball8.Location = new System.Drawing.Point(1448, 1300);
+            this.p2Ball8.Location = new System.Drawing.Point(1447, 155);
             this.p2Ball8.Name = "p2Ball8";
             this.p2Ball8.Size = new System.Drawing.Size(125, 125);
             this.p2Ball8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -127,8 +134,9 @@ namespace PoolDesktopApp
             // p1Ball8
             // 
             this.p1Ball8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball8.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball8.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball8.Image")));
-            this.p1Ball8.Location = new System.Drawing.Point(988, 1300);
+            this.p1Ball8.Location = new System.Drawing.Point(987, 155);
             this.p1Ball8.Name = "p1Ball8";
             this.p1Ball8.Size = new System.Drawing.Size(125, 125);
             this.p1Ball8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,8 +147,9 @@ namespace PoolDesktopApp
             // p2Ball7
             // 
             this.p2Ball7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball7.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball7.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball7.Image")));
-            this.p2Ball7.Location = new System.Drawing.Point(2365, 1300);
+            this.p2Ball7.Location = new System.Drawing.Point(2364, 155);
             this.p2Ball7.Name = "p2Ball7";
             this.p2Ball7.Size = new System.Drawing.Size(125, 125);
             this.p2Ball7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,8 +160,9 @@ namespace PoolDesktopApp
             // p2Ball6
             // 
             this.p2Ball6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball6.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball6.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball6.Image")));
-            this.p2Ball6.Location = new System.Drawing.Point(2234, 1300);
+            this.p2Ball6.Location = new System.Drawing.Point(2233, 155);
             this.p2Ball6.Name = "p2Ball6";
             this.p2Ball6.Size = new System.Drawing.Size(125, 125);
             this.p2Ball6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,8 +173,9 @@ namespace PoolDesktopApp
             // p2Ball5
             // 
             this.p2Ball5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball5.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball5.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball5.Image")));
-            this.p2Ball5.Location = new System.Drawing.Point(2103, 1300);
+            this.p2Ball5.Location = new System.Drawing.Point(2102, 155);
             this.p2Ball5.Name = "p2Ball5";
             this.p2Ball5.Size = new System.Drawing.Size(125, 125);
             this.p2Ball5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,8 +186,9 @@ namespace PoolDesktopApp
             // p2Ball4
             // 
             this.p2Ball4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball4.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball4.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball4.Image")));
-            this.p2Ball4.Location = new System.Drawing.Point(1972, 1300);
+            this.p2Ball4.Location = new System.Drawing.Point(1971, 155);
             this.p2Ball4.Name = "p2Ball4";
             this.p2Ball4.Size = new System.Drawing.Size(125, 125);
             this.p2Ball4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -187,8 +199,9 @@ namespace PoolDesktopApp
             // p2Ball3
             // 
             this.p2Ball3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball3.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball3.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball3.Image")));
-            this.p2Ball3.Location = new System.Drawing.Point(1841, 1300);
+            this.p2Ball3.Location = new System.Drawing.Point(1840, 155);
             this.p2Ball3.Name = "p2Ball3";
             this.p2Ball3.Size = new System.Drawing.Size(125, 125);
             this.p2Ball3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,8 +212,9 @@ namespace PoolDesktopApp
             // p2Ball2
             // 
             this.p2Ball2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball2.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball2.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball2.Image")));
-            this.p2Ball2.Location = new System.Drawing.Point(1710, 1300);
+            this.p2Ball2.Location = new System.Drawing.Point(1709, 155);
             this.p2Ball2.Name = "p2Ball2";
             this.p2Ball2.Size = new System.Drawing.Size(125, 125);
             this.p2Ball2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -211,8 +225,9 @@ namespace PoolDesktopApp
             // p2Ball1
             // 
             this.p2Ball1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2Ball1.BackColor = System.Drawing.Color.Transparent;
             this.p2Ball1.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball1.Image")));
-            this.p2Ball1.Location = new System.Drawing.Point(1579, 1300);
+            this.p2Ball1.Location = new System.Drawing.Point(1578, 155);
             this.p2Ball1.Name = "p2Ball1";
             this.p2Ball1.Size = new System.Drawing.Size(125, 125);
             this.p2Ball1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -223,8 +238,9 @@ namespace PoolDesktopApp
             // p1Ball7
             // 
             this.p1Ball7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball7.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball7.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball7.Image")));
-            this.p1Ball7.Location = new System.Drawing.Point(857, 1300);
+            this.p1Ball7.Location = new System.Drawing.Point(856, 155);
             this.p1Ball7.Name = "p1Ball7";
             this.p1Ball7.Size = new System.Drawing.Size(125, 125);
             this.p1Ball7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -235,8 +251,9 @@ namespace PoolDesktopApp
             // p1Ball6
             // 
             this.p1Ball6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball6.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball6.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball6.Image")));
-            this.p1Ball6.Location = new System.Drawing.Point(726, 1300);
+            this.p1Ball6.Location = new System.Drawing.Point(725, 155);
             this.p1Ball6.Name = "p1Ball6";
             this.p1Ball6.Size = new System.Drawing.Size(125, 125);
             this.p1Ball6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,8 +264,9 @@ namespace PoolDesktopApp
             // p1Ball5
             // 
             this.p1Ball5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball5.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball5.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball5.Image")));
-            this.p1Ball5.Location = new System.Drawing.Point(595, 1300);
+            this.p1Ball5.Location = new System.Drawing.Point(594, 155);
             this.p1Ball5.Name = "p1Ball5";
             this.p1Ball5.Size = new System.Drawing.Size(125, 125);
             this.p1Ball5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -259,8 +277,9 @@ namespace PoolDesktopApp
             // p1Ball4
             // 
             this.p1Ball4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball4.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball4.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball4.Image")));
-            this.p1Ball4.Location = new System.Drawing.Point(464, 1300);
+            this.p1Ball4.Location = new System.Drawing.Point(463, 155);
             this.p1Ball4.Name = "p1Ball4";
             this.p1Ball4.Size = new System.Drawing.Size(125, 125);
             this.p1Ball4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -271,8 +290,9 @@ namespace PoolDesktopApp
             // p1Ball3
             // 
             this.p1Ball3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball3.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball3.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball3.Image")));
-            this.p1Ball3.Location = new System.Drawing.Point(333, 1300);
+            this.p1Ball3.Location = new System.Drawing.Point(332, 155);
             this.p1Ball3.Name = "p1Ball3";
             this.p1Ball3.Size = new System.Drawing.Size(125, 125);
             this.p1Ball3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -283,8 +303,9 @@ namespace PoolDesktopApp
             // p1Ball2
             // 
             this.p1Ball2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball2.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball2.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball2.Image")));
-            this.p1Ball2.Location = new System.Drawing.Point(202, 1300);
+            this.p1Ball2.Location = new System.Drawing.Point(201, 155);
             this.p1Ball2.Name = "p1Ball2";
             this.p1Ball2.Size = new System.Drawing.Size(125, 125);
             this.p1Ball2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -295,8 +316,9 @@ namespace PoolDesktopApp
             // p1Ball1
             // 
             this.p1Ball1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p1Ball1.BackColor = System.Drawing.Color.Transparent;
             this.p1Ball1.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball1.Image")));
-            this.p1Ball1.Location = new System.Drawing.Point(71, 1300);
+            this.p1Ball1.Location = new System.Drawing.Point(70, 155);
             this.p1Ball1.Name = "p1Ball1";
             this.p1Ball1.Size = new System.Drawing.Size(125, 125);
             this.p1Ball1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -307,8 +329,9 @@ namespace PoolDesktopApp
             // pBoxCueP2
             // 
             this.pBoxCueP2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pBoxCueP2.BackColor = System.Drawing.Color.Transparent;
             this.pBoxCueP2.Image = ((System.Drawing.Image)(resources.GetObject("pBoxCueP2.Image")));
-            this.pBoxCueP2.Location = new System.Drawing.Point(1579, 1215);
+            this.pBoxCueP2.Location = new System.Drawing.Point(1578, 70);
             this.pBoxCueP2.Name = "pBoxCueP2";
             this.pBoxCueP2.Size = new System.Drawing.Size(649, 73);
             this.pBoxCueP2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,8 +341,9 @@ namespace PoolDesktopApp
             // pBoxCueP1
             // 
             this.pBoxCueP1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pBoxCueP1.BackColor = System.Drawing.Color.Transparent;
             this.pBoxCueP1.Image = ((System.Drawing.Image)(resources.GetObject("pBoxCueP1.Image")));
-            this.pBoxCueP1.Location = new System.Drawing.Point(333, 1215);
+            this.pBoxCueP1.Location = new System.Drawing.Point(332, 70);
             this.pBoxCueP1.Name = "pBoxCueP1";
             this.pBoxCueP1.Size = new System.Drawing.Size(649, 73);
             this.pBoxCueP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -328,9 +352,10 @@ namespace PoolDesktopApp
             // 
             // lblP1
             // 
-            this.lblP1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblP1.BackColor = System.Drawing.Color.Transparent;
             this.lblP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP1.Location = new System.Drawing.Point(0, 0);
+            this.lblP1.ForeColor = System.Drawing.Color.White;
+            this.lblP1.Location = new System.Drawing.Point(-1, -1147);
             this.lblP1.Name = "lblP1";
             this.lblP1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
             this.lblP1.Size = new System.Drawing.Size(327, 1300);
@@ -340,21 +365,22 @@ namespace PoolDesktopApp
             // 
             // lblTimer
             // 
-            this.lblTimer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTimer.BackColor = System.Drawing.Color.Transparent;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(0, 1300);
+            this.lblTimer.ForeColor = System.Drawing.Color.White;
+            this.lblTimer.Location = new System.Drawing.Point(1118, 257);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(2564, 270);
+            this.lblTimer.Size = new System.Drawing.Size(323, 159);
             this.lblTimer.TabIndex = 67;
             this.lblTimer.Text = "00:00";
-            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pboLoading
             // 
             this.pboLoading.BackColor = System.Drawing.Color.Transparent;
             this.pboLoading.Enabled = false;
             this.pboLoading.Image = ((System.Drawing.Image)(resources.GetObject("pboLoading.Image")));
-            this.pboLoading.Location = new System.Drawing.Point(1237, 1278);
+            this.pboLoading.Location = new System.Drawing.Point(1236, 124);
             this.pboLoading.Name = "pboLoading";
             this.pboLoading.Size = new System.Drawing.Size(83, 83);
             this.pboLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -372,8 +398,10 @@ namespace PoolDesktopApp
             // 
             this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWinner.AutoSize = true;
+            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinner.Location = new System.Drawing.Point(1121, 1230);
+            this.lblWinner.ForeColor = System.Drawing.Color.White;
+            this.lblWinner.Location = new System.Drawing.Point(1120, 85);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(184, 58);
             this.lblWinner.TabIndex = 73;
@@ -389,44 +417,81 @@ namespace PoolDesktopApp
             // lblGameId
             // 
             this.lblGameId.AutoSize = true;
-            this.lblGameId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameId.Location = new System.Drawing.Point(31, 111);
+            this.lblGameId.BackColor = System.Drawing.Color.Transparent;
+            this.lblGameId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameId.ForeColor = System.Drawing.Color.White;
+            this.lblGameId.Location = new System.Drawing.Point(55, 298);
             this.lblGameId.Name = "lblGameId";
-            this.lblGameId.Size = new System.Drawing.Size(100, 25);
+            this.lblGameId.Size = new System.Drawing.Size(119, 29);
             this.lblGameId.TabIndex = 74;
             this.lblGameId.Text = "Game ID: ";
+            this.lblGameId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.lblTimer);
+            this.panel1.Controls.Add(this.pBoxCueP2);
+            this.panel1.Controls.Add(this.p2Ball7);
+            this.panel1.Controls.Add(this.lblP2);
+            this.panel1.Controls.Add(this.p2Ball6);
+            this.panel1.Controls.Add(this.p2Ball5);
+            this.panel1.Controls.Add(this.p2Ball4);
+            this.panel1.Controls.Add(this.p2Ball3);
+            this.panel1.Controls.Add(this.p2Ball2);
+            this.panel1.Controls.Add(this.p2Ball1);
+            this.panel1.Controls.Add(this.p1Ball7);
+            this.panel1.Controls.Add(this.p1Ball6);
+            this.panel1.Controls.Add(this.p1Ball5);
+            this.panel1.Controls.Add(this.p1Ball4);
+            this.panel1.Controls.Add(this.p1Ball3);
+            this.panel1.Controls.Add(this.p1Ball1);
+            this.panel1.Controls.Add(this.p1Ball2);
+            this.panel1.Controls.Add(this.pBoxCueP1);
+            this.panel1.Controls.Add(this.lblP1);
+            this.panel1.Controls.Add(this.lblWinner);
+            this.panel1.Controls.Add(this.pboLoading);
+            this.panel1.Controls.Add(this.p2Ball8);
+            this.panel1.Controls.Add(this.p1Ball8);
+            this.panel1.Location = new System.Drawing.Point(0, 1156);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(2564, 416);
+            this.panel1.TabIndex = 75;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(229, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(2107, 1206);
+            this.panel2.TabIndex = 76;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(223, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 79;
+            this.pictureBox1.TabStop = false;
             // 
             // SimulationApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblGameId);
-            this.Controls.Add(this.lblWinner);
-            this.Controls.Add(this.pboLoading);
             this.Controls.Add(this.pBoxMainGame);
-            this.Controls.Add(this.lblP2);
-            this.Controls.Add(this.p2Ball8);
-            this.Controls.Add(this.p1Ball8);
-            this.Controls.Add(this.p2Ball7);
-            this.Controls.Add(this.p2Ball6);
-            this.Controls.Add(this.p2Ball5);
-            this.Controls.Add(this.p2Ball4);
-            this.Controls.Add(this.p2Ball3);
-            this.Controls.Add(this.p2Ball2);
-            this.Controls.Add(this.p2Ball1);
-            this.Controls.Add(this.p1Ball7);
-            this.Controls.Add(this.p1Ball6);
-            this.Controls.Add(this.p1Ball5);
-            this.Controls.Add(this.p1Ball4);
-            this.Controls.Add(this.p1Ball3);
-            this.Controls.Add(this.p1Ball2);
-            this.Controls.Add(this.p1Ball1);
-            this.Controls.Add(this.pBoxCueP2);
-            this.Controls.Add(this.pBoxCueP1);
-            this.Controls.Add(this.lblP1);
-            this.Controls.Add(this.lblTimer);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SimulationApp";
             this.Text = "SimulationApp";
@@ -454,6 +519,9 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboLoading)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,5 +556,8 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Label lblWinner;
         private System.Windows.Forms.Timer tmrEndGame;
         private System.Windows.Forms.Label lblGameId;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
