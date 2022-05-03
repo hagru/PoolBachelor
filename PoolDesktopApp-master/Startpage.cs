@@ -41,7 +41,7 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
-            panel1.BackColor = Color.FromArgb(125, Color.Black);
+            panel1.BackColor = Color.FromArgb(175, Color.Black);
             Game game = new Game();
             game.Getplaycount();
             Game.count++;
@@ -50,6 +50,7 @@ namespace PoolDesktopApp
 
         }
 
+        // Override for å redusere flickering ved loading av form og picturebokser
         protected override CreateParams CreateParams
         {
             get 

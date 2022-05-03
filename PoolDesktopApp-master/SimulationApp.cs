@@ -90,6 +90,7 @@ namespace PoolDesktopApp
             pBoxMainGame.Image = img;
         }
 
+        // Override for å redusere flickering ved loading av form og picturebokser
         protected override CreateParams CreateParams
         {
             get

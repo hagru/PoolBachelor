@@ -173,8 +173,8 @@ namespace PoolDesktopApp
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtPlayer2);
@@ -183,7 +183,7 @@ namespace PoolDesktopApp
             this.panel1.Controls.Add(this.btnStartSim);
             this.panel1.Controls.Add(this.cboCamera);
             this.panel1.Controls.Add(this.btnStartGame);
-            this.panel1.Location = new System.Drawing.Point(943, 235);
+            this.panel1.Location = new System.Drawing.Point(927, 350);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 722);
             this.panel1.TabIndex = 60;
