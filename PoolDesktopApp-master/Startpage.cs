@@ -270,7 +270,7 @@ namespace PoolDesktopApp
         {
 
             HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/update", path);
+                $"/UpdateTableStatus", path);
             response.EnsureSuccessStatusCode();
             return path;
 
@@ -293,7 +293,7 @@ namespace PoolDesktopApp
         {
             GameConfig info = null;
             HttpResponseMessage response = await client.GetAsync(
-                $"/getinfo");
+                $"/GetInfo");
             info = await response.Content.ReadAsAsync<GameConfig>();
             GameInfo.GameID = info.GameID;
             GameInfo.PlayerID1 = info.PlayerID1;
