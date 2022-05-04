@@ -102,7 +102,7 @@ namespace PoolDesktopApp
             get
             {
                 CreateParams handleparam = base.CreateParams;
-                handleparam.ExStyle |= 0x02000000;
+                //handleparam.ExStyle |= 0x02000000;
                 return handleparam;
             }
         }
