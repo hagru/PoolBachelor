@@ -56,12 +56,12 @@ namespace PoolDesktopApp
             this.p1Ball2 = new System.Windows.Forms.PictureBox();
             this.pBoxCueP1 = new System.Windows.Forms.PictureBox();
             this.lblP1 = new System.Windows.Forms.Label();
-            this.lblWinner = new System.Windows.Forms.Label();
             this.pboLoading = new System.Windows.Forms.PictureBox();
             this.p2Ball8 = new System.Windows.Forms.PictureBox();
             this.p1Ball8 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblWinner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).BeginInit();
@@ -133,6 +133,7 @@ namespace PoolDesktopApp
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.lblWinner);
             this.panel1.Controls.Add(this.lblTimer);
             this.panel1.Controls.Add(this.pBoxCueP2);
             this.panel1.Controls.Add(this.p2Ball7);
@@ -152,7 +153,6 @@ namespace PoolDesktopApp
             this.panel1.Controls.Add(this.p1Ball2);
             this.panel1.Controls.Add(this.pBoxCueP1);
             this.panel1.Controls.Add(this.lblP1);
-            this.panel1.Controls.Add(this.lblWinner);
             this.panel1.Controls.Add(this.pboLoading);
             this.panel1.Controls.Add(this.p2Ball8);
             this.panel1.Controls.Add(this.p1Ball8);
@@ -407,20 +407,6 @@ namespace PoolDesktopApp
             this.lblP1.Text = "Player 1";
             this.lblP1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // lblWinner
-            // 
-            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblWinner.AutoSize = true;
-            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
-            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(977, 80);
-            this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(614, 58);
-            this.lblWinner.TabIndex = 73;
-            this.lblWinner.Text = "Sjekker om den er sentrert";
-            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pboLoading
             // 
             this.pboLoading.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -482,6 +468,19 @@ namespace PoolDesktopApp
             this.pictureBox1.TabIndex = 78;
             this.pictureBox1.TabStop = false;
             // 
+            // lblWinner
+            // 
+            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.ForeColor = System.Drawing.Color.White;
+            this.lblWinner.Location = new System.Drawing.Point(1118, 80);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(323, 159);
+            this.lblWinner.TabIndex = 70;
+            this.lblWinner.Text = "Winner";
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // DesktopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -507,7 +506,6 @@ namespace PoolDesktopApp
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DesktopApp_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball6)).EndInit();
@@ -560,11 +558,11 @@ namespace PoolDesktopApp
         private System.Windows.Forms.PictureBox p1Ball2;
         private System.Windows.Forms.PictureBox pBoxCueP1;
         private System.Windows.Forms.Label lblP1;
-        private System.Windows.Forms.Label lblWinner;
         private System.Windows.Forms.PictureBox pboLoading;
         private System.Windows.Forms.PictureBox p2Ball8;
         private System.Windows.Forms.PictureBox p1Ball8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblWinner;
     }
 }
