@@ -374,9 +374,8 @@ namespace PoolDesktopApp
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(323, 130);
             this.lblTimer.TabIndex = 67;
-            this.lblTimer.Text = "Winner";
+            this.lblTimer.Text = "00:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTimer.Visible = false;
             // 
             // pboLoading
             // 
@@ -480,8 +479,9 @@ namespace PoolDesktopApp
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(585, 73);
             this.lblWinner.TabIndex = 70;
-            this.lblWinner.Text = "00:00";
-            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblWinner.Text = "Winner";
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWinner.Visible = false;
             // 
             // SimulationApp
             // 

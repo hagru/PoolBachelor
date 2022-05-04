@@ -479,7 +479,7 @@ namespace PoolDesktopApp
             this.lblWinner.Size = new System.Drawing.Size(585, 73);
             this.lblWinner.TabIndex = 70;
             this.lblWinner.Text = "Winner";
-            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWinner.Visible = false;
             // 
             // DesktopApp
