@@ -409,12 +409,11 @@ namespace PoolDesktopApp
             // 
             // lblWinner
             // 
-            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblWinner.AutoSize = true;
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(1185, 95);
+            this.lblWinner.Location = new System.Drawing.Point(1116, 80);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(184, 58);
             this.lblWinner.TabIndex = 73;
@@ -499,7 +498,7 @@ namespace PoolDesktopApp
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DesktopApp";
-            this.Text = "Pool desktop application";
+            this.Text = "8-ball - Play!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.DesktopApp_Activated);
             this.Deactivate += new System.EventHandler(this.DesktopApp_Deactivate);

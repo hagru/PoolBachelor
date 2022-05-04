@@ -404,7 +404,7 @@ namespace PoolDesktopApp
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(1182, 85);
+            this.lblWinner.Location = new System.Drawing.Point(1116, 85);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(184, 58);
             this.lblWinner.TabIndex = 73;
@@ -500,7 +500,7 @@ namespace PoolDesktopApp
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SimulationApp";
-            this.Text = "SimulationApp";
+            this.Text = "8-ball - Simulation";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SimulationApp_FormClosed);
             this.Load += new System.EventHandler(this.SimulationApp_Load);

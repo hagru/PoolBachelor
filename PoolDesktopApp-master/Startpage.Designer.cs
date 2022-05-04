@@ -212,7 +212,7 @@ namespace PoolDesktopApp
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Startpage";
-            this.Text = "Startpage";
+            this.Text = "8-ball - Startpage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Startpage_FormClosed);
             this.Load += new System.EventHandler(this.Startpage_Load);
