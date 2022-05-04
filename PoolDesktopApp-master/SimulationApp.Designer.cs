@@ -59,9 +59,9 @@ namespace PoolDesktopApp
             this.tmrEndGame = new System.Windows.Forms.Timer(this.components);
             this.lblGameId = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWinner = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblWinner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).BeginInit();
@@ -448,6 +448,20 @@ namespace PoolDesktopApp
             this.panel1.Size = new System.Drawing.Size(2564, 416);
             this.panel1.TabIndex = 75;
             // 
+            // lblWinner
+            // 
+            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.ForeColor = System.Drawing.Color.White;
+            this.lblWinner.Location = new System.Drawing.Point(987, 70);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(585, 73);
+            this.lblWinner.TabIndex = 70;
+            this.lblWinner.Text = "Winner";
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWinner.Visible = false;
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -469,25 +483,11 @@ namespace PoolDesktopApp
             this.pictureBox1.TabIndex = 79;
             this.pictureBox1.TabStop = false;
             // 
-            // lblWinner
-            // 
-            this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
-            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(987, 70);
-            this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(585, 73);
-            this.lblWinner.TabIndex = 70;
-            this.lblWinner.Text = "Winner";
-            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblWinner.Visible = false;
-            // 
             // SimulationApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
