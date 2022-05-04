@@ -420,7 +420,7 @@ namespace PoolDesktopApp
             this.lblWinner.Size = new System.Drawing.Size(614, 58);
             this.lblWinner.TabIndex = 73;
             this.lblWinner.Text = "Sjekker om den er sentrert";
-            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pboLoading
             // 
