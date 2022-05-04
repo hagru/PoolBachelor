@@ -62,6 +62,7 @@ namespace PoolDesktopApp
             this.p1Ball8 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).BeginInit();
@@ -84,6 +85,7 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pBoxMainGame
@@ -482,13 +484,22 @@ namespace PoolDesktopApp
             this.pictureBox1.TabIndex = 78;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(2586, 1626);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 79;
+            this.pictureBox2.TabStop = false;
+            // 
             // DesktopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
             this.Controls.Add(this.pictureBox1);
@@ -496,6 +507,7 @@ namespace PoolDesktopApp
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblGameId);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox2);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DesktopApp";
@@ -528,6 +540,7 @@ namespace PoolDesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,5 +579,6 @@ namespace PoolDesktopApp
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblWinner;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
