@@ -414,13 +414,12 @@ namespace PoolDesktopApp
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
             this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.White;
-            this.lblWinner.Location = new System.Drawing.Point(1098, 85);
+            this.lblWinner.Location = new System.Drawing.Point(977, 80);
             this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(184, 58);
+            this.lblWinner.Size = new System.Drawing.Size(614, 58);
             this.lblWinner.TabIndex = 73;
-            this.lblWinner.Text = "Winner";
+            this.lblWinner.Text = "Sjekker om den er sentrert";
             this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblWinner.Visible = false;
             // 
             // pboLoading
             // 
