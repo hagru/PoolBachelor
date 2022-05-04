@@ -208,7 +208,6 @@ namespace PoolDesktopApp
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
             this.Controls.Add(this.panel1);
-            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Startpage";
