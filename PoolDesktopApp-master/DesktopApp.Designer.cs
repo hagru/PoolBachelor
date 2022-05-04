@@ -472,11 +472,11 @@ namespace PoolDesktopApp
             // 
             this.lblWinner.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
-            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.White;
             this.lblWinner.Location = new System.Drawing.Point(1118, 80);
             this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(323, 159);
+            this.lblWinner.Size = new System.Drawing.Size(323, 44);
             this.lblWinner.TabIndex = 70;
             this.lblWinner.Text = "Winner";
             this.lblWinner.TextAlign = System.Drawing.ContentAlignment.TopCenter;
