@@ -111,7 +111,6 @@ namespace PoolDesktopApp
             {
                 ball0.IsOnTable = false;
             }
-
             if (balls.Contains("yellow-whole"))
             {
                 ball1.IsOnTable = true;
@@ -196,7 +195,6 @@ namespace PoolDesktopApp
                 ball8.IsOnTable = false;
                 p2Ball8.Visible = true;
             }
-
             if (balls.Contains("black") && p2Black == true)
             {
                 ball8.IsOnTable = true;
@@ -207,7 +205,6 @@ namespace PoolDesktopApp
                 ball8.IsOnTable = false;
                 p2Ball8.Visible = false;
             }
-
             if (balls.Contains("yellow-half"))
             {
                 ball9.IsOnTable = true;
@@ -279,7 +276,6 @@ namespace PoolDesktopApp
                 p2Ball7.Visible = false;
             }
         }
-
 
 
         // Initialiserer spillet ved å legge til ballene i respektive lister, 
@@ -548,7 +544,6 @@ namespace PoolDesktopApp
             }
 
             bgWorkerActive = false;
-
             pboLoading.Visible = false;
 
             shotCounter++;
@@ -571,7 +566,6 @@ namespace PoolDesktopApp
                 pBoxCueP1.Visible = false;
                 pBoxCueP2.Visible = true;
             }
-
         }
 
         private void TurnLogic()
@@ -659,7 +653,7 @@ namespace PoolDesktopApp
             {
                 stopwatch.Stop();
 
-                lblWinner.Text = player2.Name + " vinner!";
+                lblWinner.Text = player2.Name + " wins!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
                 {
@@ -670,14 +664,13 @@ namespace PoolDesktopApp
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
-
             }
 
             else if (p2Lost == true)
             {
                 stopwatch.Stop();
 
-                lblWinner.Text = player1.Name + " vinner!";
+                lblWinner.Text = player1.Name + " wins!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
                 {
@@ -693,8 +686,6 @@ namespace PoolDesktopApp
 
         public void Snapshot()
         {
-            
-
             if (counter == 1)
             {
                 img = Resources.sim1;
@@ -753,7 +744,6 @@ namespace PoolDesktopApp
             }
 
             counter++;
-
         }
         private void SimulationApp_FormClosed(object sender, FormClosedEventArgs e)
         {

@@ -73,7 +73,6 @@ namespace PoolDesktopApp
 
         // Objekt av stoppeklokke for timer
         private Stopwatch stopwatch;
-        private static System.Timers.Timer aTimer;
 
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
@@ -93,7 +92,6 @@ namespace PoolDesktopApp
             game.ball_det1.PredictionConnection();
             Init();
             clientConfig();
-            
         }
 
         // Override for å redusere flickering ved loading av form og picturebokser
@@ -203,7 +201,6 @@ namespace PoolDesktopApp
                 ball8.IsOnTable = false;
                 p2Ball8.Visible = true;
             }
-
             if (balls.Contains("black") && p2Black == true)
             {
                 ball8.IsOnTable = true;
@@ -214,7 +211,6 @@ namespace PoolDesktopApp
                 ball8.IsOnTable = false;
                 p2Ball8.Visible = false;
             }
-
             if (balls.Contains("yellow-half"))
             {
                 ball9.IsOnTable = true;
@@ -357,8 +353,6 @@ namespace PoolDesktopApp
         {
             // Viser GameID
             ShowGameId();
-
-            
         }
 
 
@@ -509,7 +503,6 @@ namespace PoolDesktopApp
 
         private void DesktopApp_Activated(object sender, EventArgs e)
         {
-            
             try
             {
                 EnableCamera();
@@ -518,7 +511,6 @@ namespace PoolDesktopApp
             {
                 return;
             }
-            
         }
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
@@ -567,7 +559,6 @@ namespace PoolDesktopApp
             {
                 return;
             }
-
         }
 
         public void bgWorker()
@@ -609,7 +600,6 @@ namespace PoolDesktopApp
             }
 
             bgWorkerActive = false;
-
             pboLoading.Visible = false;
 
             shotCounter++;
@@ -711,8 +701,6 @@ namespace PoolDesktopApp
                         }
                     }
                 }
-
-
             }
         }
 
@@ -721,8 +709,8 @@ namespace PoolDesktopApp
             if (p1Lost == true)
             {
                 stopwatch.Stop();
-                
-                lblWinner.Text = player2.Name + " vinner!";
+
+                lblWinner.Text = player2.Name + " wins!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
                 {
@@ -736,14 +724,13 @@ namespace PoolDesktopApp
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
-                
             }
 
             else if (p2Lost == true)
             {
                 stopwatch.Stop();
-                
-                lblWinner.Text = player1.Name + " vinner!";
+
+                lblWinner.Text = player1.Name + " wins!";
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
                 {
@@ -763,15 +750,13 @@ namespace PoolDesktopApp
         private void tmrEndGame_Tick(object sender, EventArgs e)
         {
             endGame++;
-            
-               if (endGame == 8 && (p1Lost == true || p2Lost == true))
+
+            if (endGame == 8 && (p1Lost == true || p2Lost == true))
             {
                 this.Hide();
                 Thread.Sleep(200);
                 Startpage startpage = new Startpage();
                 startpage.Show();
-
-                
             }
         }
 
@@ -790,7 +775,7 @@ namespace PoolDesktopApp
             }
         }
 
-     
+
         static async Task RunAsync()
         {
             GameConfig product = new GameConfig
@@ -799,8 +784,7 @@ namespace PoolDesktopApp
                 PlayerID1 = 0,
                 PlayerID2 = 0,
                 GameID = 0
-            
-        };
+            };
             GameConfig f = await SetGameStartAsync(product);
         }
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
@@ -811,7 +795,7 @@ namespace PoolDesktopApp
             response.EnsureSuccessStatusCode();
             return path;
         }
-        
+
         public void clientConfig()
         {
             if (onetime == false)
