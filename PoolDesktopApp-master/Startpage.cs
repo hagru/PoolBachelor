@@ -183,8 +183,8 @@ namespace PoolDesktopApp
 
             if (nameOkay == true)
             {
-                DesktopApp desktopApp = new DesktopApp();
-                desktopApp.Show();
+                GameManager gameManager = new GameManager();
+                gameManager.Show();
                 nameOkay = false;
                 timer1.Stop();
                 this.Hide();
@@ -204,8 +204,8 @@ namespace PoolDesktopApp
 
             if (nameOkay == true)
             {
-                DesktopApp desktopApp = new DesktopApp();
-                desktopApp.Show();
+                GameManager gameManager = new GameManager();
+                gameManager.Show();
                 this.Hide();
             }
 
@@ -260,8 +260,8 @@ namespace PoolDesktopApp
 
             if (nameOkay == true)
             {
-                SimulationApp simulationApp = new SimulationApp();
-                simulationApp.Show();
+                Simulation simulation = new Simulation();
+                simulation.Show();
                 this.Hide();
             }
         }

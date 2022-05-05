@@ -5,31 +5,23 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
-using API_Class;
 using PoolDesktopApp.Properties;
 
 namespace PoolDesktopApp
 {
-    public partial class DesktopApp : Form
+    public partial class Simulation : Form
     {
         Startpage startpage = new Startpage();
-        FilterInfoCollection filterInfoCollection;
-        VideoCaptureDevice videoCaptureDevice;
-        Image newPic;
-        Image img;
-        Bitmap img1;
+        Bitmap img;
 
         Game game;
         BallDetection ballDetection;
-        static HttpClient client = new HttpClient();
 
         // Counter for å se om alle ballene av dens slag er i hullet, for å vite om en kan putte svart
         public int counterHalf = 0;
@@ -53,20 +45,19 @@ namespace PoolDesktopApp
         public string player2Name;
         public string p1BallType;
         public string p2BallType;
-        public bool p1Turn = true;
-        public bool p2Turn = false;
+        public bool p1Turn = false;
+        public bool p2Turn = true;
         public bool p1Half = false;
         public bool p1Solid = false;
         public bool p2Half = false;
         public bool p2Solid = false;
         public bool p1Lost = false;
         public bool p2Lost = false;
-        public bool whiteDown = false;
         public bool bgWorkerActive = false;
+        public bool whiteDown = false;
         public bool p1Black = false;
         public bool p2Black = false;
         public int endGame = 0;
-        static bool onetime;
 
         public int counter = 0;
         public int shotCounter = 0;
@@ -74,24 +65,29 @@ namespace PoolDesktopApp
         // Objekt av stoppeklokke for timer
         private Stopwatch stopwatch;
 
+
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
         {
             lblTimer.Text = string.Format("{0:mm\\:ss}", stopwatch.Elapsed);
         }
 
-        public DesktopApp()
+        public void ShowGameId()
+        {
+            lblGameId.Text = "Game ID:" + "\r\n" + "Simulation";
+        }
+
+        public Simulation()
         {
             InitializeComponent();
             panel1.BackColor = Color.FromArgb(175, Color.Black);
             panel2.BackColor = Color.FromArgb(175, Color.Black);
-            clientConfig();
-            tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
-            game.ball_det1.PredictionConnection();
             Init();
-            clientConfig();
+            game.ball_det1.PredictionConnection();
+            img = Resources.sim0;
+            pBoxMainGame.Image = img;
         }
 
         // Override for å redusere flickering ved loading av form og picturebokser
@@ -100,13 +96,11 @@ namespace PoolDesktopApp
             get
             {
                 CreateParams handleparam = base.CreateParams;
-                //handleparam.ExStyle |= 0x02000000;
+                handleparam.ExStyle |= 0x02000000;
                 return handleparam;
             }
         }
 
-
-        // Metode som sjekker hvilke baller som er på bordet, og viser/fjerner de riktige ballene
         public void ShowBalls()
         {
             if (balls.Contains("white"))
@@ -283,6 +277,7 @@ namespace PoolDesktopApp
             }
         }
 
+
         // Initialiserer spillet ved å legge til ballene i respektive lister, 
         // initialisere spillere, pluss starte stoppeklokka
         public void Init()
@@ -312,62 +307,13 @@ namespace PoolDesktopApp
             listOfBalls.Add(ball15);
         }
 
-        public void ShowGameId()
-        {
-            if (GameInfo.ConnectedToDatabase == true)
-            {
-                lblGameId.Text = "Game ID:" + "\r\n" + GameInfo.GameID.ToString();
-            }
-            else if (GameInfo.ConnectedToDatabase == false)
-            {
-                lblGameId.Text = "Game ID:" + "\r\n" + "Quick game";
-            }
-        }
-
-        public void EnableCamera()
-        {
-            // Henter valgt kamera fra Startpage
-            int selectedCamera = 0;
-            selectedCamera = Startpage.selectedCamera;
-
-            filterInfoCollection = Startpage.filterInfoCollection;
-            videoCaptureDevice = Startpage.videoCaptureDevice;
-
-            // Formaterer videofeeden til 1280x720 og viser det i pictureboxen
-            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[selectedCamera].MonikerString);
-            try
-            {
-                videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[7];
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-            videoCaptureDevice.Start();
-        }
-
-        // Følgende blokker henter live video fra kamera, og viser det i applikasjonen ved oppstart
-        private void DesktopApp_Load(object sender, EventArgs e)
-        {
-            // Viser GameID
-            ShowGameId();
-        }
-
 
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            try
-            {
-                img = (Bitmap)eventArgs.Frame.Clone();
-                pBoxMainGame.Image = img;
-            }
-            catch (Exception)
-            {
-                return;
-            }
+            img = (Bitmap)eventArgs.Frame.Clone();
+            pBoxMainGame.Image = img;
         }
+
 
         // Metode for å initialisere spillere
         public void InitPlayer()
@@ -391,6 +337,25 @@ namespace PoolDesktopApp
                 pBoxCueP2.Visible = false;
             }
         }
+
+        private void tmrEndGame_Tick(object sender, EventArgs e)
+        {
+            endGame++;
+
+            if (endGame == 8 && (p1Lost == true || p2Lost == true))
+            {
+                this.Hide();
+                Thread.Sleep(500);
+                Startpage startpage = new Startpage();
+                startpage.Show();
+            }
+        }
+
+        private void SimulationApp_Load(object sender, EventArgs e)
+        {
+            ShowGameId();
+        }
+
 
         // Metode for å initialisere baller, og legge dem til riktig spiller
         public void AddBalls()
@@ -416,6 +381,8 @@ namespace PoolDesktopApp
             #endregion
         }
 
+        // Switch case for å vite hvilken spiller som har halve eller hele kuler, og legge kulene i rett
+        // sett med pictureboxes
         public void LoadBalls()
         {
             switch (player1.BallType)
@@ -458,8 +425,8 @@ namespace PoolDesktopApp
                 switch (Ball.IsOnTable)
                 {
                     case true:
-                        break;
 
+                        break;
                     case false:
 
                         if (Ball.IsOnTable == false && Ball.BallType == "Solid")
@@ -495,33 +462,9 @@ namespace PoolDesktopApp
                                 p2Ball8.Visible = false;
                             }
                         }
-
                         break;
                 }
             }
-        }
-
-        private void DesktopApp_Activated(object sender, EventArgs e)
-        {
-            try
-            {
-                EnableCamera();
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
-
-        private void DesktopApp_Deactivate(object sender, EventArgs e)
-        {
-            videoCaptureDevice.Stop();
-        }
-
-        private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            videoCaptureDevice.Stop();
-            Application.ExitThread();
         }
 
         // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
@@ -568,7 +511,7 @@ namespace PoolDesktopApp
             pboLoading.Visible = true;
         }
 
-        private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
+        private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 32)
             {
@@ -580,8 +523,9 @@ namespace PoolDesktopApp
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            ballDetection = game.ball_det1.DetectImage(img);
             Snapshot();
-            ballDetection = game.ball_det1.DetectImage(img1);
+            
             balls = ballDetection.balls;
         }
 
@@ -604,7 +548,6 @@ namespace PoolDesktopApp
 
             shotCounter++;
         }
-
 
         // Metode for å gi cuen over til neste spiller
         public void Turn()
@@ -629,11 +572,6 @@ namespace PoolDesktopApp
         {
             players = game.PlayerTurn1(ballDetection);
             Turn();
-        }
-
-        public void CheckWhite()
-        {
-            whiteDown = game.CheckWhite(ballDetection);
         }
 
         // Metode som sjekker om svart er puttet, og om det evt er flere baller av en sort på bordet
@@ -704,6 +642,11 @@ namespace PoolDesktopApp
             }
         }
 
+        public void CheckWhite()
+        {
+            whiteDown = game.CheckWhite(ballDetection);
+        }
+
         public void CheckResult()
         {
             if (p1Lost == true)
@@ -718,9 +661,6 @@ namespace PoolDesktopApp
                     players[0].win = false;
                     players[1].lose = false;
                     players[1].win = true;
-                    game.Update(players);
-                    game.UpdateTimeStamp();
-                    RunAsync();
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
@@ -738,72 +678,78 @@ namespace PoolDesktopApp
                     players[0].win = true;
                     players[1].win = false;
                     players[0].lose = false;
-                    game.Update(players);
-                    game.UpdateTimeStamp();
-                    RunAsync();
                 }
                 tmrEndGame.Enabled = true;
                 tmrEndGame.Start();
             }
         }
 
-        private void tmrEndGame_Tick(object sender, EventArgs e)
-        {
-            endGame++;
-
-            if (endGame == 8 && (p1Lost == true || p2Lost == true))
-            {
-                this.Hide();
-                Thread.Sleep(200);
-                Startpage startpage = new Startpage();
-                startpage.Show();
-            }
-        }
-
         public void Snapshot()
         {
-            try
+            if (counter == 1)
             {
-                newPic = (Bitmap)img.Clone();
-                Bitmap croppedPic = new Bitmap(newPic);
-                img1 = new Bitmap(croppedPic);
+                img = Resources.sim1;
+                pBoxMainGame.Image = img;
             }
-            catch (Exception)
+            else if (counter == 2)
             {
-
-                return;
+                img = Resources.sim2;
+                pBoxMainGame.Image = img;
             }
-        }
-
-
-        static async Task RunAsync()
-        {
-            GameConfig product = new GameConfig
+            else if (counter == 3)
             {
-                GameStart = true,
-                PlayerID1 = 0,
-                PlayerID2 = 0,
-                GameID = 0
-            };
-            GameConfig f = await SetGameStartAsync(product);
-        }
-        static async Task<GameConfig> SetGameStartAsync(GameConfig path)
-        {
-            HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/GameStop", path);
-            int b = 0;
-            response.EnsureSuccessStatusCode();
-            return path;
-        }
-
-        public void clientConfig()
-        {
-            if (onetime == false)
-            {
-                client.BaseAddress = new Uri("http://10.8.0.2:80/");
-                onetime = true;
+                img = Resources.sim3;
+                pBoxMainGame.Image = img;
             }
+
+            else if (counter == 4)
+            {
+                img = Resources.sim4;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 5)
+            {
+                img = Resources.sim6;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 6)
+            {
+                img = Resources.sim7;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 7)
+            {
+                img = Resources.sim8;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 8)
+            {
+                img = Resources.sim9;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 9)
+            {
+                img = Resources.sim10;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 10)
+            {
+                img = Resources.sim11;
+                pBoxMainGame.Image = img;
+            }
+            else if (counter == 11)
+            {
+                img = Resources.sim12;
+                pBoxMainGame.Image = img;
+            }
+
+            counter++;
+        }
+        private void SimulationApp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
+
 

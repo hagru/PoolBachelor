@@ -147,11 +147,11 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="BallDetection.cs" />
-    <Compile Include="DesktopApp.cs">
+    <Compile Include="GameManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DesktopApp.Designer.cs">
-      <DependentUpon>DesktopApp.cs</DependentUpon>
+    <Compile Include="GameManager.Designer.cs">
+      <DependentUpon>GameManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="GameConfig.cs" />
@@ -164,11 +164,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SimulationApp.cs">
+    <Compile Include="Simulation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimulationApp.Designer.cs">
-      <DependentUpon>SimulationApp.cs</DependentUpon>
+    <Compile Include="Simulation.Designer.cs">
+      <DependentUpon>Simulation.cs</DependentUpon>
     </Compile>
     <Compile Include="Startpage.cs">
       <SubType>Form</SubType>
@@ -176,16 +176,16 @@
     <Compile Include="Startpage.Designer.cs">
       <DependentUpon>Startpage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DesktopApp.resx">
-      <DependentUpon>DesktopApp.cs</DependentUpon>
+    <EmbeddedResource Include="GameManager.resx">
+      <DependentUpon>GameManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimulationApp.resx">
-      <DependentUpon>SimulationApp.cs</DependentUpon>
+    <EmbeddedResource Include="Simulation.resx">
+      <DependentUpon>Simulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Startpage.resx">
       <DependentUpon>Startpage.cs</DependentUpon>
