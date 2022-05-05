@@ -22,36 +22,25 @@ namespace PoolDesktopApp
         public string player2Name;
         Player player1;
         Player player2;
-        Player[] players1 = new Player[2];
 
         public string p1BallType;
         public string p2BallType;
         public bool playerTurn;
         public bool p1Turn = false;
         public bool p2Turn = true;
-
-        static Random rand = new Random();
-        public bool balltypesChosen;
-        int b;
-        bool gameOpend = true;
-        bool c;
-        bool gameStart = true;
         //string smartConfig = ConfigurationManager.ConnectionStrings["Smart_1"].ConnectionString;
         BallDetection ball_det = new BallDetection();
         int numberOFSolid;
         int numberOfHalf;
-        bool help = false;
-        int gameID;
+
         public BallDetection ball_det1;
+
         public bool whiteDown = false;
 
 
         public Game()
         {
-            b = rand.Next(0, 2);
             ball_det1 = new BallDetection();
-          
-
         }
 
         public Player[] InitPLayers()
@@ -75,10 +64,10 @@ namespace PoolDesktopApp
                 player2 = new Player(GameInfo.PlayerID2, p2BallType, player2Name, p2Turn, true, false);
             }
 
-            players1[0] = player1;
-            players1[1] = player2;
+            players[0] = player1;
+            players[1] = player2;
 
-            return players1;
+            return players;
 
         }
 
@@ -101,7 +90,7 @@ namespace PoolDesktopApp
                 player1.PlayerTurn = true;
                 player2.PlayerTurn = false;
             }
-            else if (player1.PlayerTurn == true && player1.Solidball == true)
+            else if (player1.PlayerTurn == true && player1.SolidBall == true)
             {
                 if (solid < numberOFSolid)
                 {
@@ -116,7 +105,7 @@ namespace PoolDesktopApp
                 numberOfHalf = half;
                 numberOFSolid = solid;
             }
-            else if (player1.PlayerTurn == true && player1.Halfball == true)
+            else if (player1.PlayerTurn == true && player1.HalfBall == true)
             {
                 if (half < numberOfHalf)
                 {
@@ -130,7 +119,7 @@ namespace PoolDesktopApp
                 numberOfHalf = half;
                 numberOFSolid = solid;
             }
-            else if (player2.PlayerTurn == true && player2.Solidball == true)
+            else if (player2.PlayerTurn == true && player2.SolidBall == true)
             {
                 if (solid < numberOFSolid)
                 {
@@ -144,7 +133,7 @@ namespace PoolDesktopApp
                 numberOfHalf = half;
                 numberOFSolid = solid;
             }
-            else if (player2.PlayerTurn == true && player2.Halfball == true)
+            else if (player2.PlayerTurn == true && player2.HalfBall == true)
             {
                 if (half < numberOfHalf)
                 {
@@ -315,12 +304,11 @@ namespace PoolDesktopApp
                 "blue-half", "red-half", "purple-half", "orange-half", "green-half", "brown-half"};
 
         string CONNECTION_STRING = "Server=134.209.89.125;" + "User Id=vision;" + "Password=8FxLL6Ur6Yk!3H7acTKf^pJ$$o9DYipWfYVS;" + "Database=smartpool";
-       public static int count = 0;
-        double xpos = 0;
-        double ypos = 0;
+        public static int count = 0;
         public void BilliardBall()
         {
-            
+            double xpos = 0;
+            double ypos = 0;
             if (players[0].PlayerTurn == true && players[1].PlayerTurn == false)
             {
                 for (int i = 0; i < ball_det1.balls.GetUpperBound(0); i++)
@@ -422,7 +410,7 @@ namespace PoolDesktopApp
 
         public void Update(Player[] player)
         {
-            if (player[0].win == true)
+            if (player[0].Win == true)
             {
                 try
                 {
@@ -455,7 +443,7 @@ namespace PoolDesktopApp
                     MessageBox.Show(w.Message);
                 }
             }
-            else if (player[0].win == false)
+            else if (player[0].Win == false)
             {
                 try
                 {
@@ -488,7 +476,7 @@ namespace PoolDesktopApp
                     MessageBox.Show(w.Message);
                 }
             }
-            if (player[1].win == true)
+            if (player[1].Win == true)
             {
                 try
                 {
@@ -522,7 +510,7 @@ namespace PoolDesktopApp
                     MessageBox.Show(w.Message);
                 }
             }
-            else if (player[1].win == false)
+            else if (player[1].Win == false)
             {
                 try
                 {

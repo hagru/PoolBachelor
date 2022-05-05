@@ -714,10 +714,10 @@ namespace PoolDesktopApp
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
                 {
-                    players[0].lose = true;
-                    players[0].win = false;
-                    players[1].lose = false;
-                    players[1].win = true;
+                    players[0].Lose = true;
+                    players[0].Win = false;
+                    players[1].Lose = false;
+                    players[1].Win = true;
                     game.Update(players);
                     game.UpdateTimeStamp();
                     RunAsync();
@@ -734,10 +734,10 @@ namespace PoolDesktopApp
                 lblWinner.Visible = true;
                 if (GameInfo.ConnectedToDatabase == true)
                 {
-                    players[1].lose = true;
-                    players[0].win = true;
-                    players[1].win = false;
-                    players[0].lose = false;
+                    players[1].Lose = true;
+                    players[0].Win = true;
+                    players[1].Win = false;
+                    players[0].Lose = false;
                     game.Update(players);
                     game.UpdateTimeStamp();
                     RunAsync();
