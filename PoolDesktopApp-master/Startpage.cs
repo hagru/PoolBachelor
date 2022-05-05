@@ -28,8 +28,13 @@ namespace PoolDesktopApp
         public static bool simulationMode = false;
         public static int selectedCamera = 0;
         public static bool connectedToDatabase = false;
+        static bool onetime = false;
         public static FilterInfoCollection filterInfoCollection;
         public static VideoCaptureDevice videoCaptureDevice;
+        static HttpClient client = new HttpClient();
+        static TextBox text = new TextBox();
+        static bool check = false;
+        GameConfig gamecon = new GameConfig();
         public bool connectClicked = false;
         public bool infoCollected = false;
         public int timeOut = 0;
@@ -47,7 +52,6 @@ namespace PoolDesktopApp
             Game.count++;
             gameReady = false;
             check = false;
-
         }
 
         // Override for å redusere flickering ved loading av form og picturebokser
@@ -67,22 +71,18 @@ namespace PoolDesktopApp
             p1Name = txtPlayer1.Text;
             p2Name = txtPlayer2.Text;
 
-            // Sjekker om navnefelt er fyllt ut
+            // Sjekker om navnefelt er fyllt ut - autofyller P1 og P2 dersom de ikke er fyllt ut
             if (p1Name == "" && p2Name == "" && connectedToDatabase == true)
             {
                 nameOkay = true;
                 p1Name = GameInfo.Username1;
                 p2Name = GameInfo.Username2;
-                //nameOkay = false;
-                //MessageBox.Show("Mangler navn");
             }
             else if (p1Name == "" && p2Name == "" && connectedToDatabase == false)
             {
                 nameOkay = true;
                 p1Name = "Player 1";
                 p2Name = "Player 2";
-                //nameOkay = false;
-                //MessageBox.Show("Mangler navn");
             }
             else if (p1Name == "" && p2Name != "" && connectedToDatabase == false)
             {
@@ -96,67 +96,18 @@ namespace PoolDesktopApp
             }
             else if (p1Name != "" && p2Name != "" && connectedToDatabase == false)
             {
-
                 p1Name = txtPlayer1.Text;
                 p2Name = txtPlayer2.Text;
                 nameOkay = true;
             }
         }
 
-        public void SetNameSim()
-        {
-            //p1Name = txtP1Name.Text;
-            //p2Name = txtP2Name.Text;
-
-            // Sjekker om navnefelt er fyllt ut
-            if (p1Name == "" && p2Name == "")
-            {
-                nameOkay = true;
-                p1Name = "Sander";
-                p2Name = "Amanuel";
-                //nameOkay = false;
-                //MessageBox.Show("Mangler navn");
-            }
-            else if (p1Name == "" && p2Name != "")
-            {
-                nameOkay = true;
-                p1Name = "Amanuel";
-            }
-            else if (p1Name != "" && p2Name == "")
-            {
-                nameOkay = true;
-                p2Name = "Sander";
-            }
-            else
-            {
-                nameOkay = true;
-            }
-        }
-
-        // Metode som setter balltype etter valg i drop down lista
+        // Metode som setter balltype
         public void SetBallType()
         {
-            //ballTypeP1 = cboSelectBall.Text;
-
             ballTypeP1 = "Solid";
             ballTypeP2 = "Half";
 
-
-
-            if (ballTypeP1 == "Solid")
-            {
-                solidBall = true;
-                ballTypeP2 = "Half";
-            }
-            else
-            {
-                halfBall = true;
-                ballTypeP2 = "Solid";
-            }
-        }
-
-        public void SetBallTypeSim()
-        {
             if (ballTypeP1 == "Solid")
             {
                 solidBall = true;
@@ -188,7 +139,6 @@ namespace PoolDesktopApp
                 nameOkay = false;
                 timer1.Stop();
                 this.Hide();
-
             }
         }
 
@@ -208,14 +158,12 @@ namespace PoolDesktopApp
                 gameManager.Show();
                 this.Hide();
             }
-
         }
 
         private void Startpage_FormClosed(object sender, FormClosedEventArgs e)
         {
             timer1.Stop();
             Application.ExitThread();
-
         }
 
         private void Startpage_Load(object sender, EventArgs e)
@@ -234,10 +182,8 @@ namespace PoolDesktopApp
             clientConfig();
             Thread.Sleep(3000);
             timer1.Start();
-
-
         }
-        static bool onetime = false;
+        
         public void clientConfig()
         {
             if (onetime == false)
@@ -245,7 +191,6 @@ namespace PoolDesktopApp
                 client.BaseAddress = new Uri("http://10.8.0.2:80/");
                 onetime = true;
             }
-
         }
 
 
@@ -266,11 +211,9 @@ namespace PoolDesktopApp
             }
         }
 
-        static HttpClient client = new HttpClient();
 
         static async Task RunAsync()
         {
-
             GameConfig product = new GameConfig
             {
                 GameStart = true
@@ -279,19 +222,16 @@ namespace PoolDesktopApp
         }
         static async Task<GameConfig> SetGameStartAsync(GameConfig path)
         {
-
             HttpResponseMessage response = await client.PutAsJsonAsync(
                 $"/UpdateTableStatus", path);
             response.EnsureSuccessStatusCode();
             return path;
-
         }
 
         public void GetInfo()
         {
             RunAsync2();
         }
-        GameConfig gamecon = new GameConfig();
 
         static async Task<GameConfig> RunAsync2()
         {
@@ -300,6 +240,7 @@ namespace PoolDesktopApp
             GameConfig gameinfo = null;
             return gameinfo;
         }
+
         static async Task<GameConfig> GetInfoAsync(GameConfig path)
         {
             GameConfig info = null;
@@ -318,8 +259,7 @@ namespace PoolDesktopApp
             }
             return info;
         }
-        static TextBox text = new TextBox();
-
+        
         public void TimeOut()
         {
             if (timeOut == 0)
@@ -346,7 +286,6 @@ namespace PoolDesktopApp
 
         public void Connect()
         {
-
             if (GameInfo.GameID != 0)
             {
                 lblInfo.Text = "Connected to game, start game in webpage!";
@@ -357,10 +296,8 @@ namespace PoolDesktopApp
             {
                 TimeOut();
             }
-
-
         }
-        static bool check = false;
+        
         public void Connected()
         {
             if (GameInfo.PlayerID1 != 0)
@@ -369,7 +306,6 @@ namespace PoolDesktopApp
                 btnStartGame.Enabled = true;
 
                 gameReady = true;
-
             }
         }
 
@@ -386,10 +322,8 @@ namespace PoolDesktopApp
                 connectedToDatabase = true;
                 GameInfo.ConnectedToDatabase = connectedToDatabase;
                 lblInfo.Text = "Connected! Game starting!";
-                //System.Threading.Thread.Sleep(2000);
                 gameReady = false;
                 StartGame();
-
             }
         }
     }

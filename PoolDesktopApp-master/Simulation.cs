@@ -103,6 +103,7 @@ namespace PoolDesktopApp
 
         public void ShowBalls()
         {
+            #region Check if ball is in list
             if (balls.Contains("white"))
             {
                 ball0.IsOnTable = true;
@@ -275,6 +276,7 @@ namespace PoolDesktopApp
                 ball15.IsOnTable = false;
                 p2Ball7.Visible = false;
             }
+#endregion
         }
 
 
@@ -381,6 +383,7 @@ namespace PoolDesktopApp
             #endregion
         }
 
+
         // Switch case for å vite hvilken spiller som har halve eller hele kuler, og legge kulene i rett
         // sett med pictureboxes
         public void LoadBalls()
@@ -466,43 +469,7 @@ namespace PoolDesktopApp
                 }
             }
         }
-
-        // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
-        public void BallType()
-        {
-            try
-            {
-                switch (player1.BallType)
-                {
-                    case "Solid":
-                        p1Ball1.Visible = true;
-                        p1Ball2.Visible = true;
-                        p1Ball3.Visible = true;
-                        p1Ball4.Visible = true;
-                        p1Ball5.Visible = true;
-                        p1Ball6.Visible = true;
-                        p1Ball7.Visible = true;
-                        break;
-                }
-
-                switch (player2.BallType)
-                {
-                    case "Half":
-                        p2Ball1.Visible = true;
-                        p2Ball2.Visible = true;
-                        p2Ball3.Visible = true;
-                        p2Ball4.Visible = true;
-                        p2Ball5.Visible = true;
-                        p2Ball6.Visible = true;
-                        p2Ball7.Visible = true;
-                        break;
-                }
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
+       
 
         public void bgWorker()
         {

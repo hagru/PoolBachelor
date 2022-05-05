@@ -109,6 +109,7 @@ namespace PoolDesktopApp
         // Metode som sjekker hvilke baller som er på bordet, og viser/fjerner de riktige ballene
         public void ShowBalls()
         {
+            #region Check if ball is in list
             if (balls.Contains("white"))
             {
                 ball0.IsOnTable = true;
@@ -281,6 +282,7 @@ namespace PoolDesktopApp
                 ball15.IsOnTable = false;
                 p2Ball7.Visible = false;
             }
+            #endregion
         }
 
         // Initialiserer spillet ved å legge til ballene i respektive lister, 
@@ -522,43 +524,6 @@ namespace PoolDesktopApp
         {
             videoCaptureDevice.Stop();
             Application.ExitThread();
-        }
-
-        // Metode for å sjekke hvem som har hvilke baller, og legge riktig baller til riktig spiller
-        public void BallType()
-        {
-            try
-            {
-                switch (player1.BallType)
-                {
-                    case "Solid":
-                        p1Ball1.Visible = true;
-                        p1Ball2.Visible = true;
-                        p1Ball3.Visible = true;
-                        p1Ball4.Visible = true;
-                        p1Ball5.Visible = true;
-                        p1Ball6.Visible = true;
-                        p1Ball7.Visible = true;
-                        break;
-                }
-
-                switch (player2.BallType)
-                {
-                    case "Half":
-                        p2Ball1.Visible = true;
-                        p2Ball2.Visible = true;
-                        p2Ball3.Visible = true;
-                        p2Ball4.Visible = true;
-                        p2Ball5.Visible = true;
-                        p2Ball6.Visible = true;
-                        p2Ball7.Visible = true;
-                        break;
-                }
-            }
-            catch (Exception)
-            {
-                return;
-            }
         }
 
         public void bgWorker()
