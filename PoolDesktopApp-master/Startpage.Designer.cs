@@ -42,6 +42,7 @@ namespace PoolDesktopApp
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -173,6 +174,7 @@ namespace PoolDesktopApp
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.label4);
@@ -187,6 +189,19 @@ namespace PoolDesktopApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 722);
             this.panel1.TabIndex = 60;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.Location = new System.Drawing.Point(526, 619);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(80, 38);
+            this.btnSettings.TabIndex = 61;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // lblInfo
             // 
@@ -236,5 +251,6 @@ namespace PoolDesktopApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnSettings;
     }
 }

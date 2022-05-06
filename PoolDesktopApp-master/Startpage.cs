@@ -1,17 +1,13 @@
 ﻿using AForge.Video.DirectShow;
+using API_Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using API_Class;
-using System.Net.Http;
-using System.Data.SqlClient;
-using System.Threading;
 
 namespace PoolDesktopApp
 {
@@ -325,6 +321,36 @@ namespace PoolDesktopApp
                 gameReady = false;
                 StartGame();
             }
+        }
+
+
+
+
+        public void EditText()
+        {
+            string batFilePath = @"..\..\camerasettings\webcamdialog.bat";
+            if (!File.Exists(batFilePath))
+            {
+                using (FileStream fs = File.Create(batFilePath))
+                {
+                    fs.Close();
+                }
+            }
+
+            using (StreamWriter sw = new StreamWriter(batFilePath))
+            {
+                sw.WriteLine(@"chcp 65001 > nul");
+                sw.WriteLine("@set cam='" + cboCamera.Text + "'");
+                sw.WriteLine("ffmpeg -f dshow -show_video_device_dialog true -i video=%cam%");
+            }
+            Process process = Process.Start(batFilePath);
+            process.WaitForExit();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            EditText();
+            System.Diagnostics.Process.Start("launch.bat");
         }
     }
 }
