@@ -60,7 +60,7 @@ namespace PoolDesktopApp
                 foreach (var c in result.Predictions)
                 {
                  
-                    if (loops == 0 && c.Probability >= 0.35)
+                    if (loops == 0 && c.Probability >= 0.15)
                     {
                         ball.balls[loop] = c.TagName;
                         ball.balls_x[loop] = c.BoundingBox.Left;
@@ -70,7 +70,7 @@ namespace PoolDesktopApp
                         loops++;
                         loop++;
                     }
-                    else if (c.TagName != b && c.Probability >= 0.45)
+                    else if (c.TagName != b && c.Probability >= 0.15)
                     {
                         ball.balls[loop] = c.TagName;
                         ball.balls_x[loop] = c.BoundingBox.Left;
