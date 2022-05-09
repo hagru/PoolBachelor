@@ -468,7 +468,7 @@ namespace PoolDesktopApp
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(229, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2107, 1206);
+            this.panel2.Size = new System.Drawing.Size(2107, 1227);
             this.panel2.TabIndex = 77;
             // 
             // pictureBox1
@@ -482,7 +482,7 @@ namespace PoolDesktopApp
             this.pictureBox1.TabIndex = 78;
             this.pictureBox1.TabStop = false;
             // 
-            // DesktopApp
+            // GameManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -498,7 +498,7 @@ namespace PoolDesktopApp
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DesktopApp";
+            this.Name = "GameManager";
             this.Text = "8-ball - Play!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.DesktopApp_Activated);

@@ -469,7 +469,7 @@ namespace PoolDesktopApp
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(229, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2107, 1206);
+            this.panel2.Size = new System.Drawing.Size(2107, 1217);
             this.panel2.TabIndex = 76;
             // 
             // pictureBox1
@@ -483,7 +483,7 @@ namespace PoolDesktopApp
             this.pictureBox1.TabIndex = 79;
             this.pictureBox1.TabStop = false;
             // 
-            // SimulationApp
+            // Simulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -498,7 +498,7 @@ namespace PoolDesktopApp
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SimulationApp";
+            this.Name = "Simulation";
             this.Text = "8-ball - Simulation";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SimulationApp_FormClosed);
