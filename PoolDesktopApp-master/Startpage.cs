@@ -8,6 +8,9 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DotNetEnv;
+using System.Configuration;
+using System.Collections.Specialized;
 
 namespace PoolDesktopApp
 {
@@ -42,6 +45,7 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
+
             panel1.BackColor = Color.FromArgb(175, Color.Black);
             Game game = new Game();
             game.Getplaycount();
@@ -53,7 +57,7 @@ namespace PoolDesktopApp
         // Override for å redusere flickering ved loading av form og picturebokser
         protected override CreateParams CreateParams
         {
-            get 
+            get
             {
                 CreateParams handleparam = base.CreateParams;
                 handleparam.ExStyle |= 0x02000000;
@@ -179,12 +183,12 @@ namespace PoolDesktopApp
             Thread.Sleep(3000);
             timer1.Start();
         }
-        
+
         public void clientConfig()
         {
             if (onetime == false)
             {
-                client.BaseAddress = new Uri("http://10.8.0.2:80/");
+                client.BaseAddress = new Uri("http://" + ConfigurationManager.AppSettings.Get("ipAddress") + ":80" + "/");
                 onetime = true;
             }
         }
@@ -224,6 +228,27 @@ namespace PoolDesktopApp
             return path;
         }
 
+        static async Task RunAsyncSettings()
+        {
+            GameConfig product = new GameConfig
+            {
+                IP = "http://" + ConfigurationManager.AppSettings.Get("ipAddress") + ":80" + "/"
+            };
+
+            GameConfig f = await SetGameStartAsync(product);
+        }
+
+        static async Task<GameConfig> SetUpdateSettings(GameConfig path)
+        {
+            HttpResponseMessage response = await client.PutAsJsonAsync(
+                $"/UpdateSettings", path);
+            response.EnsureSuccessStatusCode();
+            return path;
+        }
+
+
+
+
         public void GetInfo()
         {
             RunAsync2();
@@ -255,7 +280,7 @@ namespace PoolDesktopApp
             }
             return info;
         }
-        
+
         public void TimeOut()
         {
             if (timeOut == 0)
@@ -293,7 +318,7 @@ namespace PoolDesktopApp
                 TimeOut();
             }
         }
-        
+
         public void Connected()
         {
             if (GameInfo.PlayerID1 != 0)
@@ -323,9 +348,6 @@ namespace PoolDesktopApp
             }
         }
 
-
-
-
         public void EditText()
         {
             string batFilePath = @"..\..\camerasettings\webcamdialog.bat";
@@ -347,10 +369,25 @@ namespace PoolDesktopApp
             process.WaitForExit();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
+        string ipAddress = "NO";
+
+        public void EditIP()
+        {
+            ConfigurationManager.AppSettings.Set("ipAddress", "YES");
+            ipAddress = ConfigurationManager.AppSettings.Get("ipAddress");
+        }
+
+        private void btnCameraSettings_Click(object sender, EventArgs e)
         {
             EditText();
             System.Diagnostics.Process.Start("launch.bat");
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
     }
 }
+

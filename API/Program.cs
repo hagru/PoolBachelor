@@ -29,6 +29,15 @@ app.MapPut("/UpdateTableStatus", (GameConfig g) =>
    
      
 });
+
+app.MapPut("/UpdateSettings", (GameConfig g) =>
+{
+    //This changes the IP
+    gamecon.IP = g.IP;
+
+
+});
+
 app.MapGet("/CheckTableStatus", () =>
 {
     //This will retrun the table status. If there is an active game we return false else we return true.

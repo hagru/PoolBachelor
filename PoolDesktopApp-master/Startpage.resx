@@ -777,6 +777,17 @@
         TkSuQmCC
 </value>
   </data>
+  <data name="btnSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABuuAAAbrgGMXXP4AAAAB3RJ
+        TUUH5gUJCSI610422AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAPdEVYdFRp
+        dGxlAHdoaXRlX2NvZ0K+hrwAAADGSURBVDhPrZPBDcIwEARdBlSBELRCFQiaCX1QCw9KgC9fUARmx/Ea
+        E/FAmJVGOt/tXWInDlaMccxOWMRv9aIqORVbMRMrcRAWMTlqePAOg3IwEXtxFydxFWORo4YHLz1lwEZQ
+        qMX6kvlUo6cM4NXOwjqKtVhkiMlZeOkpA9jfTSCMc+GaIecheOlJAzrhA3sInpaaLK9zDQ+ipyPZp+Ug
+        9rsUufUlcrmGx+r/MqB5C9B0iND8GZt/pOZfGX67TJYTFV9c5xCelSpB7gfPe5sAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABDAAAALQCAIAAADpYhf5AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1

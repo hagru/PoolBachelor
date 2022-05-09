@@ -43,6 +43,7 @@ namespace PoolDesktopApp
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.btnCameraSettings = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -113,9 +114,9 @@ namespace PoolDesktopApp
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(125, 421);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 29);
+            this.label2.Size = new System.Drawing.Size(167, 29);
             this.label2.TabIndex = 52;
-            this.label2.Text = "Pick camera";
+            this.label2.Text = "Select camera";
             // 
             // txtPlayer1
             // 
@@ -175,6 +176,7 @@ namespace PoolDesktopApp
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnCameraSettings);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.label4);
@@ -195,13 +197,25 @@ namespace PoolDesktopApp
             this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(526, 619);
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(554, 619);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(80, 38);
-            this.btnSettings.TabIndex = 61;
-            this.btnSettings.Text = "Settings";
+            this.btnSettings.Size = new System.Drawing.Size(52, 52);
+            this.btnSettings.TabIndex = 62;
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnCameraSettings
+            // 
+            this.btnCameraSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
+            this.btnCameraSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCameraSettings.ForeColor = System.Drawing.Color.White;
+            this.btnCameraSettings.Location = new System.Drawing.Point(380, 619);
+            this.btnCameraSettings.Name = "btnCameraSettings";
+            this.btnCameraSettings.Size = new System.Drawing.Size(168, 52);
+            this.btnCameraSettings.TabIndex = 61;
+            this.btnCameraSettings.Text = "Camera settings";
+            this.btnCameraSettings.UseVisualStyleBackColor = false;
             // 
             // lblInfo
             // 
@@ -251,6 +265,7 @@ namespace PoolDesktopApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnCameraSettings;
         private System.Windows.Forms.Button btnSettings;
     }
 }
