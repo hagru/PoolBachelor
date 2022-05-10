@@ -278,12 +278,6 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="BallDetection.cs" />
-    <Compile Include="SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GameManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,9 +307,6 @@
     <Compile Include="Startpage.Designer.cs">
       <DependentUpon>Startpage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GameManager.resx">
       <DependentUpon>GameManager.cs</DependentUpon>
     </EmbeddedResource>

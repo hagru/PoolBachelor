@@ -349,24 +349,10 @@ namespace PoolDesktopApp
             process.WaitForExit();
         }
 
-        string ipAddress = "NO";
-
-        public void EditIP()
-        {
-            ConfigurationManager.AppSettings.Set("ipAddress", "YES");
-            ipAddress = ConfigurationManager.AppSettings.Get("ipAddress");
-        }
-
         private void btnCameraSettings_Click(object sender, EventArgs e)
         {
             EditText();
             System.Diagnostics.Process.Start("launch.bat");
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.Show();
         }
     }
 }
