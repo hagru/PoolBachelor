@@ -89,7 +89,6 @@ namespace PoolDesktopApp
             panel1.BackColor = Color.FromArgb(175, Color.Black);
             panel2.BackColor = Color.FromArgb(175, Color.Black);
             clientConfig();
-            tmrGameTime.Start();
             game = new Game();
             ballDetection = new BallDetection();
             game.ball_det1.PredictionConnection();
@@ -539,6 +538,7 @@ namespace PoolDesktopApp
             {
                 if (spacePresses == 0)
                 {
+                    tmrGameTime.Start();
                     stopwatch.Start();
                 }
 
