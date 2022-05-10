@@ -58,6 +58,7 @@ namespace PoolDesktopApp
         public bool p1Black = false;
         public bool p2Black = false;
         public int endGame = 0;
+        public bool gameOver = false;
 
         public int counter = 0;
         public int shotCounter = 0;
@@ -365,21 +366,21 @@ namespace PoolDesktopApp
             // Legger verdier til objektene av ballene
             #region Add balls as objects
             ball0 = new Ball("white", false, "", "White", 0, 0);
-            ball1 = new Ball("yellowSolid", false, "../../images/yellowWhole.png", "Solid", 0, 0);
-            ball2 = new Ball("blueSolid", false, "../../images/blueWhole.png", "Solid", 0, 0);
-            ball3 = new Ball("redSolid", false, "../../images/redWhole.png", "Solid", 0, 0);
-            ball4 = new Ball("purpleSolid", false, "../../images/purpleWhole.png", "Solid", 0, 0);
-            ball5 = new Ball("orangeSolid", false, "../../images/orangeWhole.png", "Solid", 0, 0);
-            ball6 = new Ball("greenSolid", false, "../../images/greenWhole.png", "Solid", 0, 0);
-            ball7 = new Ball("brownSolid", false, "../../images/brownWhole.png", "Solid", 0, 0);
-            ball8 = new Ball("black", false, "../../images/black.png", "Black", 0, 0);
-            ball9 = new Ball("yellowHalf", false, "../../images/yellowHalf.png", "Half", 0, 0);
-            ball10 = new Ball("blueHalf", false, "../../images/blueHalf.png", "Half", 0, 0);
-            ball11 = new Ball("redHalf", false, "../../images/redHalf.png", "Half", 0, 0);
-            ball12 = new Ball("purpleHalf", false, "../../images/purpleHalf.png", "Half", 0, 0);
-            ball13 = new Ball("orangeHalf", false, "../../images/orangeHalf.png", "Half", 0, 0);
-            ball14 = new Ball("greenHalf", false, "../../images/greenHalf.png", "Half", 0, 0);
-            ball15 = new Ball("brownHalf", false, "../../images/brownHalf.png", "Half", 0, 0);
+            ball1 = new Ball("yellowSolid", false, "images/yellowWhole.png", "Solid", 0, 0);
+            ball2 = new Ball("blueSolid", false, "images/blueWhole.png", "Solid", 0, 0);
+            ball3 = new Ball("redSolid", false, "images/redWhole.png", "Solid", 0, 0);
+            ball4 = new Ball("purpleSolid", false, "images/purpleWhole.png", "Solid", 0, 0);
+            ball5 = new Ball("orangeSolid", false, "images/orangeWhole.png", "Solid", 0, 0);
+            ball6 = new Ball("greenSolid", false, "images/greenWhole.png", "Solid", 0, 0);
+            ball7 = new Ball("brownSolid", false, "images/brownWhole.png", "Solid", 0, 0);
+            ball8 = new Ball("black", false, "images/black.png", "Black", 0, 0);
+            ball9 = new Ball("yellowHalf", false, "images/yellowHalf.png", "Half", 0, 0);
+            ball10 = new Ball("blueHalf", false, "images/blueHalf.png", "Half", 0, 0);
+            ball11 = new Ball("redHalf", false, "images/redHalf.png", "Half", 0, 0);
+            ball12 = new Ball("purpleHalf", false, "images/purpleHalf.png", "Half", 0, 0);
+            ball13 = new Ball("orangeHalf", false, "images/orangeHalf.png", "Half", 0, 0);
+            ball14 = new Ball("greenHalf", false, "images/greenHalf.png", "Half", 0, 0);
+            ball15 = new Ball("brownHalf", false, "images/brownHalf.png", "Half", 0, 0);
             #endregion
         }
 
@@ -473,7 +474,7 @@ namespace PoolDesktopApp
 
         public void bgWorker()
         {
-            pboLoading.Load("../../images/loading.gif");
+            pboLoading.Load("images/loading.gif");
             pboLoading.Enabled = true;
             pboLoading.Visible = true;
         }
@@ -519,19 +520,28 @@ namespace PoolDesktopApp
         // Metode for å gi cuen over til neste spiller
         public void Turn()
         {
-            p1Turn = !p1Turn;
-            p2Turn = !p2Turn;
-
-            if (players[0].PlayerTurn == true)
+            if (gameOver == false)
             {
-                pBoxCueP1.Visible = true;
-                pBoxCueP2.Visible = false;
+                p1Turn = !p1Turn;
+                p2Turn = !p2Turn;
+
+                if (players[0].PlayerTurn == true)
+                {
+                    pBoxCueP1.Visible = true;
+                    pBoxCueP2.Visible = false;
+                }
+
+                else if (players[1].PlayerTurn == true)
+                {
+                    pBoxCueP1.Visible = false;
+                    pBoxCueP2.Visible = true;
+                }
             }
 
-            else if (players[1].PlayerTurn == true)
+            else
             {
                 pBoxCueP1.Visible = false;
-                pBoxCueP2.Visible = true;
+                pBoxCueP2.Visible = false;
             }
         }
 
@@ -618,6 +628,7 @@ namespace PoolDesktopApp
         {
             if (p1Lost == true)
             {
+                gameOver = true;
                 stopwatch.Stop();
 
                 lblWinner.Text = player2.Name + " wins!";
@@ -635,6 +646,7 @@ namespace PoolDesktopApp
 
             else if (p2Lost == true)
             {
+                gameOver = true;
                 stopwatch.Stop();
 
                 lblWinner.Text = player1.Name + " wins!";
