@@ -75,7 +75,6 @@ namespace PoolDesktopApp
         public int shotCounter = 0;
 
         // Objekt av stoppeklokke for timer
-        private Stopwatch stopwatch;
 
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
@@ -527,19 +526,30 @@ namespace PoolDesktopApp
 
         public void bgWorker()
         {
-            pboLoading.Load("images/loading.gif");
-            pboLoading.Enabled = true;
-            pboLoading.Visible = true;
-        }
+            try
+            {
+                pboLoading.Load("images/loading.gif");
+                pboLoading.Enabled = true;
+                pboLoading.Visible = true;
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
+        }
+        static Stopwatch stopwatch;
         private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 32)
             {
                 if (spacePresses == 0)
                 {
-                    tmrGameTime.Start();
+                    stopwatch = new Stopwatch();
                     stopwatch.Start();
+                    tmrGameTime.Enabled = true;
+                    tmrGameTime.Start();
+                    
                 }
 
                 bgWorkerActive = true;
