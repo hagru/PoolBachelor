@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -501,6 +502,27 @@ namespace PoolDesktopApp
             }
         }
 
+        public void EditCamBat()
+        {
+            string batFilePath = "webcamdialog.bat";
+            if (!File.Exists(batFilePath))
+            {
+                using (FileStream fs = File.Create(batFilePath))
+                {
+                    fs.Close();
+                }
+            }
+
+            using (StreamWriter sw = new StreamWriter(batFilePath))
+            {
+                sw.WriteLine(@"chcp 65001 > nul");
+                sw.WriteLine(@"set cam=" + '"' + GameInfo.CameraName + '"');
+                sw.WriteLine("ffmpeg -f dshow -show_video_device_dialog true -i video=%cam%");
+            }
+            //Process process = Process.Start(batFilePath);
+            //process.WaitForExit();
+        }
+
         private void DesktopApp_Activated(object sender, EventArgs e)
         {
             try
@@ -518,11 +540,38 @@ namespace PoolDesktopApp
             videoCaptureDevice.Stop();
         }
 
+        private void GameManager_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                if (spacePresses == 0)
+                {
+                    stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    tmrGameTime.Enabled = true;
+                    tmrGameTime.Start();
+
+                }
+
+                bgWorkerActive = true;
+                bgWorker();
+                backgroundWorker1.RunWorkerAsync();
+                spacePresses++;
+            }
+
+            if (e.KeyChar == 9)
+            {
+                EditCamBat();
+                Process.Start("launch.bat");
+            }
+        }
+
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
         {
             videoCaptureDevice.Stop();
             Application.ExitThread();
         }
+
 
         public void bgWorker()
         {
@@ -539,25 +588,7 @@ namespace PoolDesktopApp
 
         }
         static Stopwatch stopwatch;
-        private void DesktopApp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                if (spacePresses == 0)
-                {
-                    stopwatch = new Stopwatch();
-                    stopwatch.Start();
-                    tmrGameTime.Enabled = true;
-                    tmrGameTime.Start();
-                    
-                }
 
-                bgWorkerActive = true;
-                bgWorker();
-                backgroundWorker1.RunWorkerAsync();
-                spacePresses++;
-            }
-        }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {

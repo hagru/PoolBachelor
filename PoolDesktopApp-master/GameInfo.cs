@@ -18,11 +18,7 @@ namespace PoolDesktopApp
         public static int PlayerID2 { get; set; }
         public static DateTime Timestamp { get; set; }
         public static bool ConnectedToDatabase { get; set; }
-        public static string IP { get; set; }
-        //static public bool DataReceived;
-        //djjdjdjdj
-
-
+        public static string CameraName { get; set; }
 
     }
 }

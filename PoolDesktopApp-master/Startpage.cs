@@ -37,6 +37,7 @@ namespace PoolDesktopApp
         public bool connectClicked = false;
         public bool infoCollected = false;
         public int timeOut = 0;
+        public static string cameraName = "";
 
         // Boolsk variabel for å sjekke om navn er oppgitt
         public bool nameOkay = false;
@@ -45,7 +46,7 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
-            Process.Start("API.exe");
+            //Process.Start("API.exe");
             panel1.BackColor = Color.FromArgb(175, Color.Black);
             Game game = new Game();
             game.Getplaycount();
@@ -123,10 +124,14 @@ namespace PoolDesktopApp
         public void SetCamera()
         {
             selectedCamera = cboCamera.SelectedIndex;
+            cameraName = cboCamera.Text;
+            GameInfo.CameraName = cameraName;
+            //EditCamBat();
         }
 
         public void StartGame()
         {
+            cameraName = cboCamera.Text;
             GetInfo();
             SetName();
             SetBallType();
@@ -328,7 +333,7 @@ namespace PoolDesktopApp
             }
         }
 
-        public void EditText()
+        public void EditCamBat()
         {
             string batFilePath = "webcamdialog.bat";
             if (!File.Exists(batFilePath))
@@ -342,7 +347,7 @@ namespace PoolDesktopApp
             using (StreamWriter sw = new StreamWriter(batFilePath))
             {
                 sw.WriteLine(@"chcp 65001 > nul");
-                sw.WriteLine(@"set cam="+ '"' + cboCamera.Text + '"');
+                sw.WriteLine(@"set cam="+ '"' + cameraName + '"');
                 sw.WriteLine("ffmpeg -f dshow -show_video_device_dialog true -i video=%cam%");
             }
             Process process = Process.Start(batFilePath);
@@ -351,7 +356,7 @@ namespace PoolDesktopApp
 
         private void btnCameraSettings_Click(object sender, EventArgs e)
         {
-            EditText();
+            EditCamBat();
             Process.Start("launch.bat");
         }
     }

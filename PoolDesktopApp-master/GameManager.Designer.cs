@@ -504,7 +504,7 @@ namespace PoolDesktopApp
             this.Deactivate += new System.EventHandler(this.DesktopApp_Deactivate);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DesktopApp_FormClosed);
             this.Load += new System.EventHandler(this.DesktopApp_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DesktopApp_KeyPress);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GameManager_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxMainGame)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCueP2)).EndInit();
