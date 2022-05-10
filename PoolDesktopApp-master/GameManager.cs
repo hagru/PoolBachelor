@@ -757,7 +757,6 @@ namespace PoolDesktopApp
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
                 $"/GameStop", path);
-            int b = 0;
             response.EnsureSuccessStatusCode();
             return path;
         }
