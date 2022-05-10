@@ -45,7 +45,7 @@ namespace PoolDesktopApp
         public Startpage()
         {
             InitializeComponent();
-            Process.Start("API.exe");
+            //Process.Start("API.exe");
             panel1.BackColor = Color.FromArgb(175, Color.Black);
             Game game = new Game();
             game.Getplaycount();

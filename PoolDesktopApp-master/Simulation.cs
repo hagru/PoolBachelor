@@ -59,6 +59,7 @@ namespace PoolDesktopApp
         public bool p2Black = false;
         public int endGame = 0;
         public bool gameOver = false;
+        public int spacePresses = 0;
 
         public int counter = 0;
         public int shotCounter = 0;
@@ -289,9 +290,6 @@ namespace PoolDesktopApp
             AddBalls();
             LoadBalls();
 
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
-
             listOfBalls.Add(ball0);
             listOfBalls.Add(ball1);
             listOfBalls.Add(ball2);
@@ -483,9 +481,15 @@ namespace PoolDesktopApp
         {
             if (e.KeyChar == 32)
             {
+                if (spacePresses == 0)
+                {
+                    stopwatch.Start();
+                }
+
                 bgWorkerActive = true;
                 bgWorker();
                 backgroundWorker1.RunWorkerAsync();
+                spacePresses++;
             }
         }
 
