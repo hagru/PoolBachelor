@@ -101,7 +101,6 @@ namespace PoolDesktopApp
             // 
             // tmrGameTime
             // 
-            this.tmrGameTime.Enabled = true;
             this.tmrGameTime.Interval = 1000;
             this.tmrGameTime.Tick += new System.EventHandler(this.tmrGameTime_Tick);
             // 
