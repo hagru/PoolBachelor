@@ -228,26 +228,6 @@ namespace PoolDesktopApp
             return path;
         }
 
-        static async Task RunAsyncSettings()
-        {
-            GameConfig product = new GameConfig
-            {
-                IP = "http://" + ConfigurationManager.AppSettings.Get("ipAddress") + ":80" + "/"
-            };
-
-            GameConfig f = await SetGameStartAsync(product);
-        }
-
-        static async Task<GameConfig> SetUpdateSettings(GameConfig path)
-        {
-            HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/UpdateSettings", path);
-            response.EnsureSuccessStatusCode();
-            return path;
-        }
-
-
-
 
         public void GetInfo()
         {

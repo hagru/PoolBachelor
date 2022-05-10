@@ -1,4 +1,5 @@
 using API_Class;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,26 +17,38 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+DotNetEnv.Env.Load();
+string ip = System.Environment.GetEnvironmentVariable("IP");
+Console.WriteLine(ip);
+GameConfig gamecon = new GameConfig();
 
-app.Urls.Add("http://10.8.0.2:80");
+app.UseHttpsRedirection();
+app.Urls.Add("http://"+ "0.0.0.0" + ":80");
 
 // Comment
-GameConfig gamecon = new GameConfig();
+
 app.MapPut("/UpdateTableStatus", (GameConfig g) =>
 {
     //This changes the table status to true/false depending on the status.
     gamecon.GameStart = g.GameStart;
-   
-     
+
 });
 
 app.MapPut("/UpdateSettings", (GameConfig g) =>
 {
     //This changes the IP
     gamecon.IP = g.IP;
-
-
+    System.Environment.SetEnvironmentVariable("IP", gamecon.IP);
+    if (g.IP == System.Environment.GetEnvironmentVariable("IP"))
+    {
+        return Results.Ok(gamecon.IP);
+        Console.WriteLine(gamecon.IP.ToString());
+    }
+    else
+    {
+        return Results.BadRequest();
+        Console.WriteLine("FUNKER IKKE");
+    }
 });
 
 app.MapGet("/CheckTableStatus", () =>
