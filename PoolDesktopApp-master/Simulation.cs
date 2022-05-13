@@ -472,9 +472,16 @@ namespace PoolDesktopApp
 
         public void bgWorker()
         {
-            pboLoading.Load("images/loading.gif");
-            pboLoading.Enabled = true;
-            pboLoading.Visible = true;
+            try
+            {
+                pboLoading.Load("images/loading.gif");
+                pboLoading.Enabled = true;
+                pboLoading.Visible = true;
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private void SimulationApp_KeyPress(object sender, KeyPressEventArgs e)
@@ -483,7 +490,11 @@ namespace PoolDesktopApp
             {
                 if (spacePresses == 0)
                 {
+                    stopwatch = new Stopwatch();
                     stopwatch.Start();
+                    tmrGameTime.Enabled = true;
+                    tmrGameTime.Start();
+
                 }
 
                 bgWorkerActive = true;
