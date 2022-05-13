@@ -352,6 +352,7 @@ namespace PoolDesktopApp
             }
         }
 
+
         private void SimulationApp_Load(object sender, EventArgs e)
         {
             ShowGameId();
@@ -741,7 +742,9 @@ namespace PoolDesktopApp
         }
         private void SimulationApp_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            Startpage startpage = new Startpage();
+            startpage.Show();
         }
     }
 }

@@ -45,8 +45,7 @@ namespace PoolDesktopApp
 
         public Startpage()
         {
-            InitializeComponent();
-            //Process.Start("API.exe");
+            InitializeComponent();        
             panel1.BackColor = Color.FromArgb(175, Color.Black);
             Game game = new Game();
             game.Getplaycount();
@@ -173,6 +172,14 @@ namespace PoolDesktopApp
 
         private void Startpage_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Process.Start("API.exe");
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("Could not start API. Try relaunching the program");
+            }
             gameReady = false;
             connectClicked = true;
             lblInfo.Text = "Start game in webpage, or start a Quickgame";
@@ -356,6 +363,7 @@ namespace PoolDesktopApp
 
         private void btnCameraSettings_Click(object sender, EventArgs e)
         {
+            cameraName = cboCamera.Text;
             EditCamBat();
             Process.Start("launch.bat");
         }
