@@ -168,6 +168,7 @@ namespace PoolDesktopApp
         {
             timer1.Stop();
             Application.ExitThread();
+            Environment.Exit(0);
         }
 
         private void Startpage_Load(object sender, EventArgs e)
