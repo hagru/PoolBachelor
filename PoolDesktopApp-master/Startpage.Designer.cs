@@ -42,7 +42,6 @@ namespace PoolDesktopApp
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCameraSettings = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,6 +68,7 @@ namespace PoolDesktopApp
             // 
             this.cboCamera.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCamera.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCamera.FormattingEnabled = true;
             this.cboCamera.Items.AddRange(new object[] {
@@ -174,7 +174,6 @@ namespace PoolDesktopApp
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.btnCameraSettings);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.label4);
@@ -189,19 +188,6 @@ namespace PoolDesktopApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 722);
             this.panel1.TabIndex = 60;
-            // 
-            // btnCameraSettings
-            // 
-            this.btnCameraSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
-            this.btnCameraSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCameraSettings.ForeColor = System.Drawing.Color.White;
-            this.btnCameraSettings.Location = new System.Drawing.Point(438, 619);
-            this.btnCameraSettings.Name = "btnCameraSettings";
-            this.btnCameraSettings.Size = new System.Drawing.Size(168, 52);
-            this.btnCameraSettings.TabIndex = 61;
-            this.btnCameraSettings.Text = "Camera settings";
-            this.btnCameraSettings.UseVisualStyleBackColor = false;
-            this.btnCameraSettings.Click += new System.EventHandler(this.btnCameraSettings_Click);
             // 
             // lblInfo
             // 
@@ -251,6 +237,5 @@ namespace PoolDesktopApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.Button btnCameraSettings;
     }
 }

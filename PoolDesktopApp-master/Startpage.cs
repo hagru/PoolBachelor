@@ -125,7 +125,6 @@ namespace PoolDesktopApp
             selectedCamera = cboCamera.SelectedIndex;
             cameraName = cboCamera.Text;
             GameInfo.CameraName = cameraName;
-            //EditCamBat();
         }
 
         public void StartGame()
@@ -360,13 +359,6 @@ namespace PoolDesktopApp
             }
             Process process = Process.Start(batFilePath);
             process.WaitForExit();
-        }
-
-        private void btnCameraSettings_Click(object sender, EventArgs e)
-        {
-            cameraName = cboCamera.Text;
-            EditCamBat();
-            Process.Start("launch.bat");
         }
     }
 }
