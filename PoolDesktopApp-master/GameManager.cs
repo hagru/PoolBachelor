@@ -102,7 +102,7 @@ namespace PoolDesktopApp
             get
             {
                 CreateParams handleparam = base.CreateParams;
-                //handleparam.ExStyle |= 0x02000000;
+                handleparam.ExStyle |= 0x02000000;
                 return handleparam;
             }
         }
@@ -519,8 +519,6 @@ namespace PoolDesktopApp
                 sw.WriteLine(@"set cam=" + '"' + GameInfo.CameraName + '"');
                 sw.WriteLine("ffmpeg -f dshow -show_video_device_dialog true -i video=%cam%");
             }
-            //Process process = Process.Start(batFilePath);
-            //process.WaitForExit();
         }
 
         private void DesktopApp_Activated(object sender, EventArgs e)
