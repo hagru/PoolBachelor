@@ -527,7 +527,7 @@ namespace PoolDesktopApp
             }
             catch (Exception)
             {
-                return;
+                MessageBox.Show("Camera not woriking properly. Try restarting the program");
             }
         }
 
@@ -775,6 +775,7 @@ namespace PoolDesktopApp
 
             if (endGame == 8 && (p1Lost == true || p2Lost == true))
             {
+                videoCaptureDevice.Stop();
                 this.Hide();
                 Thread.Sleep(200);
                 Startpage startpage = new Startpage();
