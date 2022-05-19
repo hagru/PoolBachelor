@@ -537,7 +537,7 @@ namespace PoolDesktopApp
 
         private void DesktopApp_Deactivate(object sender, EventArgs e)
         {
-            videoCaptureDevice.Stop();
+            //videoCaptureDevice.Stop();
         }
 
         private void GameManager_KeyPress(object sender, KeyPressEventArgs e)
