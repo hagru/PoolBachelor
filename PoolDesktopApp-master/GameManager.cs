@@ -574,7 +574,10 @@ namespace PoolDesktopApp
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
         {
             videoCaptureDevice.Stop();
-            Application.ExitThread();
+            this.Hide();
+            //Application.ExitThread();
+            Startpage startpage = new Startpage();
+            startpage.Show();
         }
 
 
