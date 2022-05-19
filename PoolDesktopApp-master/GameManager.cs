@@ -26,6 +26,7 @@ namespace PoolDesktopApp
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
         Image newPic;
+        static Stopwatch stopwatch;
         Image img;
         Bitmap img1;
 
@@ -75,8 +76,6 @@ namespace PoolDesktopApp
         public int counter = 0;
         public int shotCounter = 0;
 
-        // Objekt av stoppeklokke for timer
-
         // Timer event som oppdaterer labelen med timer, formatert til å vise minutter og sekunder
         private void tmrGameTime_Tick(object sender, EventArgs e)
         {
@@ -102,7 +101,6 @@ namespace PoolDesktopApp
             get
             {
                 CreateParams handleparam = base.CreateParams;
-                handleparam.ExStyle |= 0x02000000;
                 return handleparam;
             }
         }
@@ -533,10 +531,6 @@ namespace PoolDesktopApp
             }
         }
 
-        private void DesktopApp_Deactivate(object sender, EventArgs e)
-        {
-            //videoCaptureDevice.Stop();
-        }
 
         private void GameManager_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -573,7 +567,6 @@ namespace PoolDesktopApp
         {
             videoCaptureDevice.Stop();
             this.Hide();
-            //Application.ExitThread();
             Startpage startpage = new Startpage();
             startpage.Show();
         }
@@ -593,8 +586,6 @@ namespace PoolDesktopApp
             }
 
         }
-        static Stopwatch stopwatch;
-
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -777,6 +768,7 @@ namespace PoolDesktopApp
             }
         }
 
+
         private void tmrEndGame_Tick(object sender, EventArgs e)
         {
             endGame++;
@@ -790,6 +782,7 @@ namespace PoolDesktopApp
             }
         }
 
+
         public void Snapshot()
         {
             try
@@ -800,7 +793,6 @@ namespace PoolDesktopApp
             }
             catch (Exception)
             {
-
                 return;
             }
         }

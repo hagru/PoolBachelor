@@ -180,6 +180,7 @@ namespace PoolDesktopApp
             {
                 //MessageBox.Show("Could not start API. Try relaunching the program");
             }
+
             gameReady = false;
             connectClicked = true;
             lblInfo.Text = "Start game in webpage, or start a Quickgame";
