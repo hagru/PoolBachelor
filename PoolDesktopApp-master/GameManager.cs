@@ -564,6 +564,11 @@ namespace PoolDesktopApp
                 EditCamBat();
                 Process.Start("launch.bat");
             }
+
+            if (e.KeyChar == 82 || e.KeyChar == 114)
+            {
+                EnableCamera();
+            }
         }
 
         private void DesktopApp_FormClosed(object sender, FormClosedEventArgs e)
